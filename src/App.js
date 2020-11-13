@@ -2,7 +2,7 @@
 import { useTranslation } from "react-i18next";
 
 function App() {
-  const { t , i18n} = useTranslation();  //For adding keys
+  const { t , i18n} = useTranslation();  //t: for adding keys
   i18n.changeLanguage(navigator.language || navigator.userLanguage);
 
   return (
