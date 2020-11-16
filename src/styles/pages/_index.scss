@@ -1,0 +1,9 @@
+.center-container {
+    @include breakpoint-tablet {
+        @include center-container($container-width-tablet);
+        padding: 0;
+    }
+    @include breakpoint-desktop {
+        @include center-container($container-width-desktop);
+    }
+}
