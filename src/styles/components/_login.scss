@@ -1,0 +1,13 @@
+.login {
+    @include flexbox(column, space-around, center);
+    min-height: 65vh;
+
+    &__errors {
+        color: $error-color;
+    }
+    &__form {
+        &--field {
+            margin: 20px 0;
+        }
+    }
+}

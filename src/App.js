@@ -1,16 +1,20 @@
 /*Main App*/
+import { BrowserRouter } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from './app/components/navbar';
-import { BrowserRouter } from 'react-router-dom';
+import Routes from './route';
 
 function App() {
-  const { t , i18n} = useTranslation();  //t: for adding keys
+  const { i18n } = useTranslation();  //t: for adding keys
   i18n.changeLanguage(navigator.language || navigator.userLanguage);
 
   return (
     <BrowserRouter>
       <div className="App">
         <Navbar />
+        <main>
+          <Routes />
+        </main>
       </div>
     </BrowserRouter>
   );

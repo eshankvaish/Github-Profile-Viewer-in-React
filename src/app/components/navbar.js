@@ -1,8 +1,16 @@
 import { NavLink, withRouter } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
     const { t } = useTranslation();
+    const isLoggedIn = useSelector(state => state.loginReducer.isLoggedIn);
+    let button;
+    if (isLoggedIn) {
+        button = <NavLink aria-label="Logout" to="/logout"><li className="nav__list--item nav__list--last-item">{t("Logout")}</li></NavLink>;
+    } else {
+        button = <NavLink aria-label="Login" to="/login"><li className="nav__list--item nav__list--last-item">{t("Login")}</li></NavLink>;
+    }
 
     return (
         <header>
@@ -22,7 +30,7 @@ const Navbar = () => {
                     <NavLink aria-label="Profile" to="#"><li className="nav__list--item">{t('Profile')}</li></NavLink>
                     <NavLink aria-label="Search" to="#"><li className="nav__list--item">{t('Search')}</li></NavLink>
                     <NavLink aria-label="Explore" to="#"><li className="nav__list--item">{t('Explore')}</li></NavLink>
-                    <NavLink aria-label="Login" to="#"><li className="nav__list--item nav__list--last-item">{t('Login')}</li></NavLink>
+                    {button}
                 </ul>
             </nav>
         </header>

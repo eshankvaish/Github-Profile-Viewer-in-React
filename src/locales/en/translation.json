@@ -2,5 +2,11 @@
     "Profile": "Profile",
     "Search": "Search",
     "Explore": "Explore",
-    "Login": "Login"
+    "Login": "Login",
+    "Logout": "Logout",
+    "Invalid Username / Token": "Invalid Username / Token",
+    "Username": "Username",
+    "Enter Username": "Enter Username",
+    "Enter Access Token": "Enter Access Token",
+    "Personal Access Token": "Personal Access Token"
 }
