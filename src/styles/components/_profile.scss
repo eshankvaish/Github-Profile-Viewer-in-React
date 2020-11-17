@@ -1,0 +1,33 @@
+.profile-container {
+    @include flexbox(column, space-around, center);
+}
+.profile {
+    @include flexbox(column, space-between, center);
+    max-width: 300px;
+    overflow: hidden;
+    //Styles for Profile Pic
+    &__avatar {
+        max-height: 250px;
+        max-width: 250px;
+        border: 2px solid $light-primary-color;
+        margin: 20px 0;
+
+        @include breakpoint-tablet {
+            margin: 20px;
+        }
+
+        &--img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    //Styles for profile data
+    &__data {
+        @include flexbox(column, space-between);
+
+        &--attribute {
+            font-weight: bold;
+            color: $primary-color;
+        }
+    }
+}

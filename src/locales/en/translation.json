@@ -8,5 +8,13 @@
     "Username": "Username",
     "Enter Username": "Enter Username",
     "Enter Access Token": "Enter Access Token",
-    "Personal Access Token": "Personal Access Token"
+    "Personal Access Token": "Personal Access Token",
+    "'s": "'s",
+    "Location": "Location",
+    "Followers": "Followers",
+    "Following": "Following",
+    "Bio": "Bio",
+    "Github Profile": "Github Profile",
+    "Email": "Email",
+    "Blog": "Blog"
 }

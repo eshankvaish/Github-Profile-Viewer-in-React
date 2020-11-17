@@ -32,6 +32,10 @@ a {
     text-decoration: none;
     font-size: inherit;
     color: inherit;
+
+    &:hover {
+        color: $dark-primary-color;
+    }
 }
 a:focus {
     background-color: inherit;

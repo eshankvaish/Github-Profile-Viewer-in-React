@@ -8,6 +8,14 @@
     "Username": "उपयोगकर्ता नाम",
     "Enter Username": "उपयोगकर्ता नाम दर्ज करें",
     "Enter Access Token": "प्रवेश टोकन दर्ज करें",
-    "Personal Access Token": "व्यक्तिगत प्रवेश टोकन"
+    "Personal Access Token": "व्यक्तिगत प्रवेश टोकन",
+    "'s": " की",
+    "Location": "स्थान",
+    "Followers": "समर्थक",
+    "Following": "अनुचर",
+    "Bio": "जैव",
+    "Github Profile": "गिथब प्रोफाइल",
+    "Email": "ईमेल",
+    "Blog": "ब्लॉग"
 }
 
