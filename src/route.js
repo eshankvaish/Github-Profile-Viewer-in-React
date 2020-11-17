@@ -3,6 +3,7 @@ import Login from './app/components/login';
 import Logout from './app/components/logout';
 import Profile from './app/components/profile';
 import Home from './app/components/home';
+import PrivateRoute from './app/components/privateRoute';
 
 const Routes = () => {
     return (
@@ -10,8 +11,7 @@ const Routes = () => {
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/logout" component={Logout} />
-            {/* Profile Route to be made loggedIn Route in RA-4 */}
-            <Route path="/profile" component={Profile} />
+            <PrivateRoute path="/profile" component={Profile} />
         </Switch>
     );
 }
