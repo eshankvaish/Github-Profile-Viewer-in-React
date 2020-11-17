@@ -26,6 +26,15 @@ header {
             flex: auto;
         }
 
+        &--item {
+            @include flexbox(row, space-between, center);
+            min-width: 150px;
+        }
+        &--company-name {
+            &:hover {
+                color: $primary-text-color;
+            }
+        }
         &--icon {
             font-size: 5rem;
             color: $icon-color;
@@ -43,10 +52,13 @@ header {
             padding: 0;
         }
         @include breakpoint-desktop {
-            @include flexbox(row, space-between, center);
+            @include flexbox;
             width: auto;
         }
 
+        &--link {
+            display: inline;
+        }
         &--item {
             width: 100%;
             border-bottom: 1px solid;
@@ -83,6 +95,13 @@ header {
         &--active {
             //Menu Active
             display: block;
+
+            @include breakpoint-desktop {
+                display: flex;
+            }
         }
     }
+}
+.active {
+    color: $primary-text-color;
 }
