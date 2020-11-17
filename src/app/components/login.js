@@ -44,6 +44,7 @@ const Login = (props) => {
                 if (responseData.login === loginState.username) {
                     let loginData = {
                         ...loginState,
+                        name: cleanData(responseData.name),
                         avatar: cleanData(responseData.avatar_url),
                         location: cleanData(responseData.location),
                         following_count: responseData.followers,
