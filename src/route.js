@@ -4,6 +4,8 @@ import Logout from './app/components/logout';
 import Profile from './app/components/profile';
 import Home from './app/components/home';
 import PrivateRoute from './app/components/privateRoute';
+import Search from './app/components/search';
+import UserProfile from './app/components/userProfile';
 
 const Routes = () => {
     return (
@@ -11,6 +13,8 @@ const Routes = () => {
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/logout" component={Logout} />
+            <Route path="/search" component={Search} />
+            <Route path="/user/:username" component={UserProfile} />
             <PrivateRoute path="/profile" component={Profile} />
         </Switch>
     );

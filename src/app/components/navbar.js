@@ -27,8 +27,8 @@ const Navbar = () => {
                 </div>
                 {/* Nav List Item */}
                 <ul className="nav__list">
-                    <NavLink aria-label="Profile" to="#"><li className="nav__list--item">{t('Profile')}</li></NavLink>
-                    <NavLink aria-label="Search" to="#"><li className="nav__list--item">{t('Search')}</li></NavLink>
+                    <NavLink aria-label="Profile" to="/profile"><li className="nav__list--item">{t('Profile')}</li></NavLink>
+                    <NavLink aria-label="Search" to="/search"><li className="nav__list--item">{t('Search')}</li></NavLink>
                     <NavLink aria-label="Explore" to="#"><li className="nav__list--item">{t('Explore')}</li></NavLink>
                     {button}
                 </ul>

@@ -1,13 +1,50 @@
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import axios from 'axios';
+import cleanData from '../utils/cleanData';
 
-const Profile = (props) => {
+const UserProfile = (props) => {
     const { t } = useTranslation();
-    let userData = useSelector(state => state.loginReducer);
+    let [userData, setUserData] = useState({
+        username: '',
+        avatar: '',
+        location: '',
+        following_count: null,
+        followers_count: null,
+        bio: '',
+        profile_link: '',
+        blog: '',
+        email: ''
+    });
+
+    useEffect(() => {
+        let apiData = {
+            method: 'get',
+            url: 'https://api.github.com/users/' + props.match.params.username
+        };
+        axios(apiData)
+            .then(({ data }) => {
+                setUserData({
+                    username: cleanData(data.login),
+                    name: cleanData(data.name),
+                    avatar: cleanData(data.avatar_url),
+                    location: cleanData(data.location),
+                    following_count: data.followers,
+                    followers_count: data.following,
+                    bio: cleanData(data.bio),
+                    profile_link: data.html_url,
+                    blog: cleanData(data.blog),
+                    email: cleanData(data.email),
+                });
+            })
+            .catch((error) => {
+                console.log('Some Error Occured');
+            });
+    });
 
     return (
         <section className="profile-container center-container">
-            <h1 className="heading">{userData.name}{t("'s")} {t("Profile")}</h1>
+            <h1 className="heading">{userData.username}{t("'s")} {t("Profile")}</h1>
             <div className="profile">
                 <div className="profile__avatar">
                     <img className="profile__avatar--img" src={userData.avatar} alt="User Profile Pic"/>
@@ -42,4 +79,4 @@ const Profile = (props) => {
         </section>
     );
 }
-export default Profile;
+export default UserProfile;
