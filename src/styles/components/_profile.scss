@@ -3,7 +3,7 @@
 }
 .profile {
     @include flexbox(column, space-between, center);
-    max-width: 300px;
+    max-width: 500px;
     overflow: hidden;
     //Styles for Profile Pic
     &__avatar {
