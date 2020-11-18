@@ -1,5 +1,6 @@
 
 import React from 'react';
+import './NavToggle.scss';
 
 const NavToggle = (props) => {
     return (

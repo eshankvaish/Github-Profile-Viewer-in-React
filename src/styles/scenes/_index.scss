@@ -7,3 +7,9 @@
         @include center-container($container-width-desktop);
     }
 }
+.no-border {
+    border: none !important;
+}
+.active {
+    color: $primary-text-color;
+}

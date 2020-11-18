@@ -2,7 +2,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserRouter } from 'react-router-dom';
-import Navbar from './app/layouts/navbar/navbar';
+import Navbar from './app/layouts/Navbar/Navbar';
 
 function App() {
     const {i18n} = useTranslation();
