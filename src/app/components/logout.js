@@ -11,5 +11,5 @@ const Logout = (props) => {
     });
     
     return null;
-}
+};
 export default Logout;

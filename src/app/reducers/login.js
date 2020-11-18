@@ -1,4 +1,4 @@
-import modifyLocalStorageItem from "../utils/modifyLocalStorage";
+import modifyLocalStorageItem from '../utils/modifyLocalStorage';
 
 let userState = modifyLocalStorageItem('get', 'userState');
 const initialState = {
@@ -12,26 +12,28 @@ const initialState = {
     profile_link: '',
     blog: '',
     email: '',
-    isLoggedIn: false
-}
+    isLoggedIn: false,
+    error: ''
+};
 if (!userState) {
     userState = initialState;
 }
 
 const loginReducer = (state=userState, action) => {
+    let loginState;
     switch (action.type) {
-        case 'LOGIN':
-            modifyLocalStorageItem('set', 'userState', {
-                ...action.payload
-            });
-            return {
-                ...action.payload
-            }
-        case 'LOGOUT':
-            modifyLocalStorageItem('remove', 'userState');
-            return initialState;
-        default:
-            return state;
+    case 'LOGIN':
+        loginState = {
+            ...state,
+            ...action.payload
+        };
+        modifyLocalStorageItem('set', 'userState', loginState);
+        return loginState;
+    case 'LOGOUT':
+        modifyLocalStorageItem('remove', 'userState');
+        return initialState;
+    default:
+        return state;
     }
-}
+};
 export default loginReducer;
