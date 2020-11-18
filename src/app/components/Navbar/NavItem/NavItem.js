@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './NavItem.scss';
@@ -11,5 +12,8 @@ const NavItem = ({navList}) => {
     return (
         navItems
     );
+};
+NavItem.propTypes = {
+    navList: PropTypes.array
 };
 export default NavItem;

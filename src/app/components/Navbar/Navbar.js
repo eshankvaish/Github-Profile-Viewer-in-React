@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Navbar.scss';
 import NavLogo from './NavLogo/NavLogo';
 import NavList from './NavList/NavList';
@@ -15,4 +16,10 @@ const Navbar = ({navbarState, handleToggle, navList}) => {
         </header>
     );
 };
+Navbar.propTypes = {
+    navbarState: PropTypes.bool,
+    handleToggle: PropTypes.func,
+    navList: PropTypes.array
+};
+
 export default Navbar;
