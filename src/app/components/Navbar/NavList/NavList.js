@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './NavList.scss';
 import NavItem from '../NavItem/NavItem';
 import NavLogin from '../NavLogin/NavLogin';
@@ -10,5 +11,9 @@ const NavList = ({navList, navbarState}) => {
             <NavLogin />
         </ul>
     );
+};
+NavList.propTypes = {
+    navbarState: PropTypes.bool,
+    navList: PropTypes.array
 };
 export default NavList;
