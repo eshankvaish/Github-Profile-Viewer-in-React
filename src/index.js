@@ -9,11 +9,7 @@ import allReducers from './app/reducers';
 import {Provider} from 'react-redux';
 
 (function() {
-    const store = createStore(
-        allReducers,
-        /*Only for debugging, to be removed */
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()  
-    );
+    const store = createStore(allReducers);
   
     ReactDOM.render(
         <React.StrictMode>

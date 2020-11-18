@@ -1,42 +1,83 @@
-import React from 'react';
+import React, {useState} from 'react';
 import cleanData from '../../utils/cleanData';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import login from '../../actions/login';
-import { useSelector } from 'react-redux';
-import Login from '../../components/Login/login';
+import Login from '../../components/Login/Login';
 
-const LoginContainer = ({history}) => {
-
-    const loginState = useSelector(state => state.loginReducer);
+const LoginContainer = ({history, loginState}) => {
+    /*const handleChange = (e) => {
+        console.log(e);
+        dispatch(login({
+            [e.target.id]: e.target.value
+        }));
+    };*/
+    const [userCreds, setUserCreds] = useState({
+        username: '',
+        auth_token: ''
+    });
+    const handleChange = (e) => {
+        setUserCreds({
+            ...userCreds,
+            [e.target.id]: e.target.value
+        });
+    };
+    const [errorState, setErrorState] = useState({
+        error: ''
+    });
+    const [inputFieldState] = useState([
+        {
+            containerClassName: 'login__form--field',
+            id: 'username',
+            name: 'Username',
+            label: 'Username',
+            type: 'text',
+            className: 'login__form--input',
+            placeholder: 'Enter Username',
+            onChange: handleChange
+        },
+        {
+            containerClassName: 'login__form--field',
+            id: 'auth_token',
+            name: 'auth_token',
+            label: 'Personal Access Token',
+            type: 'password',
+            className: 'login__form--input',
+            placeholder: 'Enter Access Token',
+            onChange: handleChange
+        }
+    ]);
+    const [buttonState] = useState([
+        {
+            type: 'submit',
+            label: 'Login',
+            className: 'login__form--submit',
+            containerClassName: 'login__form--field',
+            id: 'login-button'
+        }
+    ]);
     if (loginState.isLoggedIn) {
         history.push('/profile');
     }
     const dispatch = useDispatch();
 
-    const handleChange = (e) => {
-        dispatch(login({
-            [e.target.id]: e.target.value
-        }));
-    };
     const handleSubmit = (e) => {
         e.preventDefault(); //Prevent Default Submit Action
-        let formErrors = document.querySelector('.login__errors');
-        formErrors.classList.add('d-none');
         //API data
+        console.log(userCreds.auth_token);
         let apiData = {
             method: 'get',
             url: 'https://api.github.com/user',
             headers: {
-                'Authorization': 'token ' + loginState.auth_token
+                'Authorization': 'token ' + userCreds.auth_token
             }
         };
-        let loginData;
         //API call
         axios(apiData)
             .then(({data}) => {
-                if (data.login === loginState.username) {
-                    loginData = {
+                if (data.login === userCreds.username || data.login) {
+                    let loginData = {
+                        ...userCreds,
                         name: cleanData(data.name),
                         avatar: cleanData(data.avatar_url),
                         location: cleanData(data.location),
@@ -49,24 +90,26 @@ const LoginContainer = ({history}) => {
                         isLoggedIn: true,
                         error: ''
                     };
-                    history.push('profile');
-                    
+                    history.push('/profile');
+                    dispatch(login(loginData));
+                    console.log(loginData);
                 } else {
-                    loginData = {
+                    console.log(data, userCreds);
+                    setErrorState({
                         error: 'Invalid Username / Token'
-                    };
+                    });
                 }
             })
-            .catch(() => {
-                loginData = {
+            .catch((error) => {
+                console.log(error);
+                setErrorState({
                     error: 'Invalid Username / Token'
-                };
+                });
             });
-        dispatch(login(loginData));
     };
 
     return (
-        <Login handleChange={handleChange} handleSubmit={handleSubmit} loginState={loginState} />
+        <Login inputFieldState={inputFieldState} buttonState={buttonState} handleSubmit={handleSubmit} error={errorState.error} />
     );
 };
 export default LoginContainer;

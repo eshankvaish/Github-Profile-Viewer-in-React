@@ -12,8 +12,7 @@ const initialState = {
     profile_link: '',
     blog: '',
     email: '',
-    isLoggedIn: false,
-    error: ''
+    isLoggedIn: false
 };
 if (!userState) {
     userState = initialState;
