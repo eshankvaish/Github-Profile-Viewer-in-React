@@ -4,16 +4,17 @@ import './NavList.scss';
 import NavItem from '../NavItem/NavItem';
 import NavLogin from '../NavLogin/NavLogin';
 
-const NavList = ({navList, navbarState}) => {
+const NavList = ({navList, navbarState, handleClick}) => {
     return (
         <ul className={`nav__list ${navbarState ? 'nav__list--active' : ''}`}>
-            <NavItem navList={navList} />
-            <NavLogin />
+            <NavItem navList={navList} handleClick={handleClick} />
+            <NavLogin handleClick={handleClick} />
         </ul>
     );
 };
 NavList.propTypes = {
     navbarState: PropTypes.bool,
-    navList: PropTypes.array
+    navList: PropTypes.array,
+    handleClick: PropTypes.func
 };
 export default NavList;
