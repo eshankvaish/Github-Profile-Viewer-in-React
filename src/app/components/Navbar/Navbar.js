@@ -4,14 +4,14 @@ import './Navbar.scss';
 import NavLogo from './NavLogo/NavLogo';
 import NavList from './NavList/NavList';
 
-const Navbar = ({navbarState, handleToggle, navList, isLoggedIn}) => {
+const Navbar = ({navbarState, handleToggle, navList, isLoggedIn, handleClick}) => {
     return (
         <header>
             <nav className="nav center-container">
                 {/*Nav Logo */}
                 <NavLogo navbarState={navbarState} handleToggle={handleToggle} />
                 {/* Nav List Item */}
-                <NavList navbarState={navbarState} navList={navList} isLoggedIn={isLoggedIn} />
+                <NavList navbarState={navbarState} navList={navList} isLoggedIn={isLoggedIn} handleClick={handleClick} />
             </nav>
         </header>
     );
@@ -19,7 +19,9 @@ const Navbar = ({navbarState, handleToggle, navList, isLoggedIn}) => {
 Navbar.propTypes = {
     navbarState: PropTypes.bool,
     handleToggle: PropTypes.func,
-    navList: PropTypes.array
+    navList: PropTypes.array,
+    handleClick: PropTypes.func,
+    isLoggedIn: PropTypes.bool
 };
 
 export default Navbar;
