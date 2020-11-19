@@ -14,7 +14,7 @@ function App() {
     return (
         <BrowserRouter>
             <div className="App">
-                <Navbar />
+                <Navbar isLoggedIn={loginState.isLoggedIn} />
                 <main>
                     <Routes loginState={loginState} />
                 </main>

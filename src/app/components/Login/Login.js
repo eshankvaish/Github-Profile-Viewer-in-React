@@ -10,7 +10,7 @@ const Login = ({inputFieldState, buttonState ,handleSubmit, error}) => {
     return (
         <section className="login center-container">
             <h1 className="heading">{t('Login')}</h1>
-            <FormErrors error={error} />
+            {<FormErrors error={error} />}
             <LoginForm inputFieldState={inputFieldState} buttonState={buttonState} handleSubmit={handleSubmit} />
         </section>
     );

@@ -6,22 +6,7 @@ import login from '../../actions/login';
 import Login from '../../components/Login/Login';
 
 const LoginContainer = ({history, loginState}) => {
-    /*const handleChange = (e) => {
-        console.log(e);
-        dispatch(login({
-            [e.target.id]: e.target.value
-        }));
-    };*/
-    const [userCreds, setUserCreds] = useState({
-        username: '',
-        auth_token: ''
-    });
-    const handleChange = (e) => {
-        setUserCreds({
-            ...userCreds,
-            [e.target.id]: e.target.value
-        });
-    };
+    const dispatch = useDispatch();
     const [errorState, setErrorState] = useState({
         error: ''
     });
@@ -33,8 +18,7 @@ const LoginContainer = ({history, loginState}) => {
             label: 'Username',
             type: 'text',
             className: 'login__form--input',
-            placeholder: 'Enter Username',
-            onChange: handleChange
+            placeholder: 'Enter Username'
         },
         {
             containerClassName: 'login__form--field',
@@ -43,8 +27,7 @@ const LoginContainer = ({history, loginState}) => {
             label: 'Personal Access Token',
             type: 'password',
             className: 'login__form--input',
-            placeholder: 'Enter Access Token',
-            onChange: handleChange
+            placeholder: 'Enter Access Token'
         }
     ]);
     const [buttonState] = useState([
@@ -59,25 +42,26 @@ const LoginContainer = ({history, loginState}) => {
     if (loginState.isLoggedIn) {
         history.push('/profile');
     }
-    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault(); //Prevent Default Submit Action
         //API data
-        console.log(userCreds.auth_token);
+        let username = document.querySelector('#username').value,
+            auth_token = document.querySelector('#auth_token').value;
         let apiData = {
             method: 'get',
             url: 'https://api.github.com/user',
             headers: {
-                'Authorization': 'token ' + userCreds.auth_token
+                'Authorization': 'token ' + auth_token
             }
         };
         //API call
         axios(apiData)
             .then(({data}) => {
-                if (data.login === userCreds.username || data.login) {
+                if (data.login) {
                     let loginData = {
-                        ...userCreds,
+                        username: username,
+                        auth_token: auth_token,
                         name: cleanData(data.name),
                         avatar: cleanData(data.avatar_url),
                         location: cleanData(data.location),
@@ -87,14 +71,11 @@ const LoginContainer = ({history, loginState}) => {
                         profile_link: data.html_url,
                         blog: cleanData(data.blog),
                         email: cleanData(data.email),
-                        isLoggedIn: true,
-                        error: ''
+                        isLoggedIn: true
                     };
                     history.push('/profile');
                     dispatch(login(loginData));
-                    console.log(loginData);
                 } else {
-                    console.log(data, userCreds);
                     setErrorState({
                         error: 'Invalid Username / Token'
                     });

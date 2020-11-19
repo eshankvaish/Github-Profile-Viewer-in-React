@@ -2,9 +2,9 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import NavbarContainer from '../../containers/NavbarContainer/NavbarContainer';
 
-const Navbar = () => {
+const Navbar = ({isLoggedIn}) => {
     return (
-        <NavbarContainer />
+        <NavbarContainer isLoggedIn={isLoggedIn} />
     );
 };
 export default withRouter(Navbar);
