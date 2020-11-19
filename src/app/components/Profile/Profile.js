@@ -6,12 +6,18 @@ import UserProfile from './UserProfile/UserProfile';
 
 const Profile = ({loginState}) => {
     const { t } = useTranslation();
-    return (
+    const profileData = loginState.error ? (
         <section className="profile-container center-container">
-            <h1 className="heading">{loginState.name}{t('\'s')} {t('Profile')}</h1>
+            <h1>{loginState.error}</h1>
+        </section>
+    ) : (
+        <section className="profile-container center-container">
+            <h1 className="heading">{loginState.name ? loginState.name : loginState.username}{t('\'s')} {t('Profile')}</h1>
             <UserProfile loginState={loginState} />
         </section>
     );
+
+    return profileData;
 };
 
 Profile.propTypes = {

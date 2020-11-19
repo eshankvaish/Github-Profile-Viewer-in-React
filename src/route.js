@@ -5,8 +5,9 @@ import HomeScene from './app/scenes/HomeScene/HomeScene';
 import ProfileScene from './app/scenes/ProfileScene/ProfileScene';
 import LogoutScene from './app/scenes/LogoutScene/LogoutScene';
 import PrivateRoute from './app/components/PrivateRoute';
-import Search from './app/components/search';
-import UserProfile from './app/components/userProfile';
+import SearchScene from './app/scenes/SearchScene/SearchScene';
+import SearchProfileScene from './app/scenes/SearchProfileScene/SearchProfileScene';
+
 const Routes = ({loginState}) => {
     return (
         <Switch>
@@ -24,8 +25,8 @@ const Routes = ({loginState}) => {
             />
             <Route exact path="/logout" component={LogoutScene} />
             <PrivateRoute exact path="/profile" component={ProfileScene} loginState={loginState} />
-            <Route path="/search" component={Search} />
-            <Route path="/user/:username" component={UserProfile} />
+            <Route exact path="/search" component={SearchScene} />
+            <Route exact path="/:username" component={SearchProfileScene} />
         </Switch>
     );
 };

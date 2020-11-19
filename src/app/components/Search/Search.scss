@@ -1,0 +1,6 @@
+@import '../../../styles/abstracts/index';
+
+.search {
+    @include flexbox(column, space-around, center);
+    min-height: 50vh;
+}
