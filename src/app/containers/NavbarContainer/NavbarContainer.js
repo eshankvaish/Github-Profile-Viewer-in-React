@@ -12,9 +12,15 @@ const NavbarContainer = ({isLoggedIn}) => {
             navbarOpen: !navbarState.navbarOpen
         });
     };
+    const handleClick = () => {
+        setNavbarState({
+            ...navbarState,
+            navbarOpen: false
+        });
+    };
 
     return (
-        <Navbar navList={navbarState.navList} navbarState={navbarState.navbarOpen} handleToggle={handleToggle} isLoggedIn={isLoggedIn} />
+        <Navbar navList={navbarState.navList} navbarState={navbarState.navbarOpen} handleClick={handleClick} handleToggle={handleToggle} isLoggedIn={isLoggedIn} />
     );
 };
 export default NavbarContainer;
