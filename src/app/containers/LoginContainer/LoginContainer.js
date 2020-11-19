@@ -52,7 +52,7 @@ const LoginContainer = ({history, loginState}) => {
             method: 'get',
             url: 'https://api.github.com/user',
             headers: {
-                'Authorization': 'token ' + auth_token
+                'Authorization': `token ${auth_token}`
             }
         };
         //API call
