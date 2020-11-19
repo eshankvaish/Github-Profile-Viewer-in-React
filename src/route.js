@@ -1,22 +1,32 @@
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Login from './app/components/login';
-import Logout from './app/components/logout';
-import Profile from './app/components/profile';
-import Home from './app/components/home';
-import PrivateRoute from './app/components/privateRoute';
+import LoginScene from './app/scenes/LoginScene/LoginScene';
+import HomeScene from './app/scenes/HomeScene/HomeScene';
+import ProfileScene from './app/scenes/ProfileScene/ProfileScene';
+import LogoutScene from './app/scenes/LogoutScene/LogoutScene';
+import PrivateRoute from './app/components/PrivateRoute';
 import Search from './app/components/search';
 import UserProfile from './app/components/userProfile';
-
-const Routes = () => {
+const Routes = ({loginState}) => {
     return (
         <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/login" component={Login} />
-            <Route path="/logout" component={Logout} />
+            <Route exact
+                path="/"
+                render={(props) => (
+                    <HomeScene {...props} isLoggedIn={loginState.isLoggedIn} />
+                )}
+            />
+            <Route exact
+                path="/login"
+                render={(props) => (
+                    <LoginScene {...props} loginState={loginState} />
+                )}
+            />
+            <Route exact path="/logout" component={LogoutScene} />
+            <PrivateRoute exact path="/profile" component={ProfileScene} loginState={loginState} />
             <Route path="/search" component={Search} />
             <Route path="/user/:username" component={UserProfile} />
-            <PrivateRoute path="/profile" component={Profile} />
         </Switch>
     );
-}
+};
 export default Routes;

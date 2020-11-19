@@ -1,0 +1,10 @@
+@import '../../../../styles/abstracts/index';
+
+.profile__data {
+    @include flexbox(column, space-between);
+
+    &--attribute {
+        font-weight: bold;
+        color: $primary-color;
+    }
+}
