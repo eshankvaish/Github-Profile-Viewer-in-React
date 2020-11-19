@@ -44,7 +44,7 @@ const SearchProfileContainer = ({username}) => {
                     error: 'Some Error Occured / User Not Found'
                 });
             });
-    });
+    },[]);
     return <Profile loginState={userData} />;
 };
 
