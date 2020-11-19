@@ -1,0 +1,7 @@
+@import '../../../../styles/abstracts/index';
+
+.profile {
+    @include flexbox(column, space-between, center);
+    max-width: 500px;
+    overflow: hidden;
+}

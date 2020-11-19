@@ -22,8 +22,7 @@ const Routes = ({loginState}) => {
                 )}
             />
             <Route exact path="/logout" component={LogoutScene} />
-            {/* Profile Route to be made loggedIn Route in RA-4 */}
-            <PrivateRoute exact path="/profile" component={ProfileScene} />
+            <PrivateRoute exact path="/profile" component={ProfileScene} loginState={loginState} />
         </Switch>
     );
 };
