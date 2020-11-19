@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import logout from '../actions/logout';
+import logout from '../../actions/logout';
 
-const Logout = (props) => {
+const LogoutContainer = ({history}) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(logout());
-        props.history.push('/login');
+        history.push('/login');
     });
     
     return null;
-}
-export default Logout;
+};
+export default LogoutContainer;

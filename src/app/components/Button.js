@@ -1,0 +1,19 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
+
+const Button = ({type, label, className, containerClassName}) => {
+    const {t} = useTranslation();
+    return (
+        <div className={containerClassName}>    
+            <button type={type} aria-label={label} className={className}>{t(label)}</button>
+        </div>
+    );
+};
+Button.propTypes = {
+    type: PropTypes.string,
+    label: PropTypes.string,
+    className: PropTypes.string,
+    containerClassName: PropTypes.string
+};
+export default Button;

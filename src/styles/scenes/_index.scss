@@ -42,6 +42,9 @@ button[type=submit] {
         background-color: $dark-primary-color;
     }
 }
-.d-none {
-    display: none;
+.no-border {
+    border: none !important;
+}
+.active {
+    color: $primary-text-color;
 }

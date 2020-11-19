@@ -4,5 +4,5 @@ const cleanData = (data) => {
     } else {
         return data;
     }
-}
+};
 export default cleanData;
