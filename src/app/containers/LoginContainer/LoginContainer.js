@@ -81,8 +81,7 @@ const LoginContainer = ({history, loginState}) => {
                     });
                 }
             })
-            .catch((error) => {
-                console.log(error);
+            .catch(() => {
                 setErrorState({
                     error: 'Invalid Username / Token'
                 });

@@ -1,0 +1,10 @@
+@import '../../../../styles/abstracts/index';
+
+.explore-data {
+    @include flexbox(row, center);
+    padding: 10px 0;
+
+    @include breakpoint-tablet {
+        padding: 10px 0 10px;
+    }
+}

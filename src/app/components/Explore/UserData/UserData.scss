@@ -1,0 +1,40 @@
+@import '../../../../styles/abstracts/index';
+
+.user-data {
+    position: relative;
+    padding: 15px;
+    background-color: $divider-color;
+    margin: 5px;
+
+    @include breakpoint-tablet {
+        padding: 20px;
+        
+    }
+
+    &__remove {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        cursor: pointer;
+    }
+    &__avatar {
+        height: 250px;
+        width: 250px;
+
+        @include breakpoint-tablet {
+            height: 300px;
+            width: 300px;
+        }
+
+        &--img {
+            height: 100%;
+            width: 100%;
+            border: 1px solid $light-primary-color;
+            border-radius: 50%;
+        }
+    }
+    &__username {
+        padding-top: 10px;
+        text-align: center;
+    }
+}

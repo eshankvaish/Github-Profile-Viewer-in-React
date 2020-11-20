@@ -7,6 +7,7 @@ import LogoutScene from './app/scenes/LogoutScene/LogoutScene';
 import PrivateRoute from './app/components/PrivateRoute';
 import SearchScene from './app/scenes/SearchScene/SearchScene';
 import SearchProfileScene from './app/scenes/SearchProfileScene/SearchProfileScene';
+import ExploreScene from './app/scenes/ExploreScene/ExploreScene';
 
 const Routes = ({loginState}) => {
     return (
@@ -26,6 +27,7 @@ const Routes = ({loginState}) => {
             <Route exact path="/logout" component={LogoutScene} />
             <PrivateRoute exact path="/profile" component={ProfileScene} loginState={loginState} />
             <Route exact path="/search" component={SearchScene} />
+            <PrivateRoute exact path="/explore" component={ExploreScene} />
             <Route exact path="/:username" component={SearchProfileScene} />
         </Switch>
     );
