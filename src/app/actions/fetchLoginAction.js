@@ -25,7 +25,8 @@ const fetchLoginAction = (username, auth_token) => {
                         profile_link: data.html_url,
                         blog: cleanData(data.blog),
                         email: cleanData(data.email),
-                        isLoggedIn: true
+                        isLoggedIn: true,
+                        error: ''
                     }));
                 } else {
                     //Invalid Username
