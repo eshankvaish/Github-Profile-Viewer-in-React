@@ -4,12 +4,16 @@ import './styles/index.scss'; //Importing scss file
 import App from './App';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import allReducers from './app/reducers';
 import {Provider} from 'react-redux';
 
 (function() {
-    const store = createStore(allReducers);
+    const store = createStore(
+        allReducers,
+        applyMiddleware(thunk)    
+    );
   
     ReactDOM.render(
         <React.StrictMode>

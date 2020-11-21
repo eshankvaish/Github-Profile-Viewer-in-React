@@ -5,13 +5,17 @@ import { useTranslation } from 'react-i18next';
 
 const FormErrors = ({error}) => {
     const { t } = useTranslation();
-
-    return (
+    const errorField = error ? (
         <div className="form__errors">
             {t(error)}
         </div>
+    ) : (
+        ''
     );
+
+    return errorField;
 };
+
 FormErrors.propTypes = {
     error: PropTypes.string
 };
