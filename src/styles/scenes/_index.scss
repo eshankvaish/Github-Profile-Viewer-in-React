@@ -10,7 +10,8 @@
     }
 }
 main {
-    margin-top: 90px;
+    margin-top: 70px;
+    padding-top: 30px;
     font-size: 1.6rem;
 }
 .heading {
@@ -32,6 +33,8 @@ input {
 }
 button[type=submit] {
     background-color: $light-primary-color;
+    color: $icon-color;
+    font-weight: bold;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -47,4 +50,7 @@ button[type=submit] {
 }
 .active {
     color: $primary-text-color;
+}
+.border-red {
+    border-color: red;
 }
