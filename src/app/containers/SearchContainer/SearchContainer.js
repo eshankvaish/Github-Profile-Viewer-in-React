@@ -10,7 +10,8 @@ const SearchContainer = ({history}) => {
 
     const [buttonState] = useState({
         type: 'submit',
-        label: 'Search'
+        label: 'Search',
+        containerClassName: 'search-form__submit-button'
     });
     const handleChange = (e) => {
         dispatch(searchAction({
@@ -31,6 +32,13 @@ const SearchContainer = ({history}) => {
         dispatch(searchApiAction(searchState.username, history));
     };
 
-    return <Search handleSubmit={handleSubmit} error={searchState.error} inputState={inputState} buttonState={buttonState} />;
+    return (
+        <Search 
+            handleSubmit={handleSubmit}
+            error={searchState.error}
+            inputState={inputState}
+            buttonState={buttonState}
+        />
+    );
 };
 export default SearchContainer;
