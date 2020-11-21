@@ -2,6 +2,12 @@
 
 .profile {
     @include flexbox(column, space-between, center);
-    max-width: 500px;
     overflow: hidden;
+    position: relative;
+    min-width: 300px;
+    padding: 60px 0;
+
+    @include breakpoint-tablet {
+        flex-direction: row;
+    }
 }
