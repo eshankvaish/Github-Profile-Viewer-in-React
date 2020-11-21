@@ -2,5 +2,14 @@
 
 .login {
     @include flexbox(column, space-around, center);
-    min-height: 65vh;
+
+    &-container {
+        padding: 20px;
+        border-radius: 15px;
+        background-color: $background-color;
+
+        @include breakpoint-tablet {
+            padding: 40px;
+        }
+    }
 }

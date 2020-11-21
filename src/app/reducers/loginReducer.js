@@ -12,7 +12,9 @@ const initialState = {
     profile_link: '',
     blog: '',
     email: '',
-    isLoggedIn: false
+    isLoggedIn: false,
+    error: '',
+    formErrors: {}
 };
 if (!userState) {
     userState = initialState;
@@ -24,7 +26,7 @@ const loginReducer = (state=userState, action) => {
     case 'LOGIN':
         loginState = {
             ...state,
-            ...action.payload
+            ...action.payload,
         };
         modifyLocalStorageItem('set', 'userState', loginState);
         return loginState;
@@ -32,7 +34,11 @@ const loginReducer = (state=userState, action) => {
         modifyLocalStorageItem('remove', 'userState');
         return initialState;
     default:
-        return state;
+        return {
+            ...state,
+            error: '',
+            formErrors: {}
+        };
     }
 };
 export default loginReducer;

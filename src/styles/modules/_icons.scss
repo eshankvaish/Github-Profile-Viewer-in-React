@@ -25,8 +25,32 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-location_on:before {
+  content: "\e905";
+}
+.icon-info_outline:before {
+  content: "\e906";
+}
+.icon-create:before {
+  content: "\e907";
+}
+.icon-mode_edit:before {
+  content: "\e907";
+}
+.icon-edit:before {
+  content: "\e907";
+}
+.icon-alternate_email:before {
+  content: "\e908";
+}
+.icon-mail_outline:before {
+  content: "\e909";
+}
 .icon-github:before {
   content: "\e900";
+}
+.icon-refresh:before {
+  content: "\e904";
 }
 .icon-close:before {
   content: "\e902";
