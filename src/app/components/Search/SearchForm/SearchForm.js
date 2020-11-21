@@ -5,7 +5,7 @@ import Button from '../../Button';
 
 const SearchForm = ({handleSubmit, inputState, buttonState}) => {
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="search-form" onSubmit={handleSubmit}>
             <InputElement {...inputState} />
             <Button {...buttonState} />
         </form>

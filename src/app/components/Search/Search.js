@@ -10,9 +10,15 @@ const Search = ({handleSubmit, error, inputState, buttonState}) => {
 
     return (
         <section className="search center-container">
-            <h1 className="heading">{t('Search')}</h1>
-            <FormErrors error={error} />
-            <SearchForm handleSubmit={handleSubmit} inputState={inputState} buttonState={buttonState} />
+            <div className="search-container">
+                <h1 className="heading">{t('Search')}</h1>
+                <FormErrors error={error} />
+                <SearchForm
+                    handleSubmit={handleSubmit}
+                    inputState={inputState}
+                    buttonState={buttonState}
+                />
+            </div>
         </section>
     );
 };
