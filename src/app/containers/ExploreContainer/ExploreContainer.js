@@ -1,42 +1,32 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import exploreApiAction from '../../actions/exploreApiAction';
 import Explore from '../../components/Explore/Explore';
-import axios from 'axios';
 
 const ExploreContainer = () => {
-    const [userData, setUserData] = useState([]);  //for storing userdata
-    const [lastIndex, setLastIndex] = useState(0);  //to store the last fetched id
-    const [error, setError] = useState('');
+    const exploreState = useSelector(state => state.exploreState);
+    const dispatch = useDispatch();
 
-    const fetchData = (lastIndexId=lastIndex, presentUserData=[], size=4) => {
-        let config = {
-            method: 'get',
-            url: `https://api.github.com/users?since=${lastIndexId}`
-        };
-        axios(config)
-            .then(({data}) => {
-                //update the state data
-                setUserData([
-                    ...presentUserData,
-                    ...data.slice(0,size)
-                ]);
-                setLastIndex(data[size-1].id);
-            })
-            .catch(() => {
-                setError('Something Went Wrong');
-            });
+    const fetchData = (lastIndexId=exploreState.lastIndex, presentUserData=[], size=4) => {
+        dispatch(exploreApiAction(lastIndexId, presentUserData, size));
     };
     //First call to fetch data
     useEffect(() => fetchData(), []);
 
     //Function for deleting a suggestion
     const handleDeleteUser = (id) => {
-        let newUserData = userData.filter(user => user.id !== id);
-        fetchData(lastIndex, [...newUserData], 1);
+        let newUserData = exploreState.userData.filter(user => user.id !== id);
+        fetchData(exploreState.lastIndex, [...newUserData], 1);
     };
     //Refresh the suggestions
     const handleRefresh = () => fetchData();
 
-    return <Explore handleDeleteUser={handleDeleteUser} handleRefresh={handleRefresh} userData={userData} erorr={error} />;
+    return <Explore
+        handleDeleteUser={handleDeleteUser}
+        handleRefresh={handleRefresh}
+        userData={exploreState.userData}
+        erorr={exploreState.error}
+    />;
 };
 
 export default ExploreContainer;
