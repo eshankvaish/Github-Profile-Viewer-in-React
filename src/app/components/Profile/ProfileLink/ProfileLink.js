@@ -4,7 +4,7 @@ import './ProfileLink.scss';
 const ProfileLink = ({profileLink}) => {
     return (
         <div className="github-link">
-            <a href={profileLink} aria-label="Profile Link" rel="noreferrer"><i className="icon icon-github"></i></a>
+            <a href={profileLink} aria-label="Profile Link" target="_blank" rel="noreferrer"><i className="icon icon-github"></i></a>
         </div>
     );
 };
