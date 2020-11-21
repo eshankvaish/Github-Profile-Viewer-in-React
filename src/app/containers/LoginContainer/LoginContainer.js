@@ -1,15 +1,25 @@
-import React, {useState} from 'react';
-import cleanData from '../../utils/cleanData';
-import axios from 'axios';
+import React, {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
-import login from '../../actions/login';
+import loginAction from '../../actions/loginAction';
+import fetchLoginAction from '../../actions/fetchLoginAction';
 import Login from '../../components/Login/Login';
 
 const LoginContainer = ({history, loginState}) => {
+    useEffect(() => {
+        if (loginState.isLoggedIn) {
+            history.push('/profile');
+        }
+    }, [loginState.isLoggedIn]);
+
     const dispatch = useDispatch();
-    const [errorState, setErrorState] = useState({
-        error: ''
-    });
+
+    const handleChange = (e) => {
+        dispatch(loginAction({
+            [e.target.id]: e.target.value
+        }));
+    };
+
+    //Input Field State
     const [inputFieldState] = useState([
         {
             containerClassName: 'login__form--field',
@@ -18,7 +28,8 @@ const LoginContainer = ({history, loginState}) => {
             label: 'Username',
             type: 'text',
             className: 'login__form--input',
-            placeholder: 'Enter Username'
+            placeholder: 'Enter Username',
+            handleChange: handleChange,
         },
         {
             containerClassName: 'login__form--field',
@@ -27,69 +38,33 @@ const LoginContainer = ({history, loginState}) => {
             label: 'Personal Access Token',
             type: 'password',
             className: 'login__form--input',
-            placeholder: 'Enter Access Token'
+            placeholder: 'Enter Access Token',
+            handleChange: handleChange,
         }
     ]);
+    //Submit Button
     const [buttonState] = useState([
         {
             type: 'submit',
             label: 'Login',
             className: 'login__form--submit',
-            containerClassName: 'login__form--field',
+            containerClassName: 'login__form--field login__form--submit-field',
             id: 'login-button'
         }
     ]);
-    if (loginState.isLoggedIn) {
-        history.push('/profile');
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault(); //Prevent Default Submit Action
-        //API data
-        let username = document.querySelector('#username').value,
-            auth_token = document.querySelector('#auth_token').value;
-        let apiData = {
-            method: 'get',
-            url: 'https://api.github.com/user',
-            headers: {
-                'Authorization': `token ${auth_token}`
-            }
-        };
-        //API call
-        axios(apiData)
-            .then(({data}) => {
-                if (data.login) {
-                    let loginData = {
-                        username: username,
-                        auth_token: auth_token,
-                        name: cleanData(data.name),
-                        avatar: cleanData(data.avatar_url),
-                        location: cleanData(data.location),
-                        following_count: data.followers,
-                        followers_count: data.following,
-                        bio: cleanData(data.bio),
-                        profile_link: data.html_url,
-                        blog: cleanData(data.blog),
-                        email: cleanData(data.email),
-                        isLoggedIn: true
-                    };
-                    history.push('/profile');
-                    dispatch(login(loginData));
-                } else {
-                    setErrorState({
-                        error: 'Invalid Username / Token'
-                    });
-                }
-            })
-            .catch(() => {
-                setErrorState({
-                    error: 'Invalid Username / Token'
-                });
-            });
+        dispatch(fetchLoginAction(loginState.username, loginState.auth_token));
     };
 
     return (
-        <Login inputFieldState={inputFieldState} buttonState={buttonState} handleSubmit={handleSubmit} error={errorState.error} />
+        <Login 
+            inputFieldState={inputFieldState}
+            buttonState={buttonState}
+            handleSubmit={handleSubmit}
+            error={loginState.error}
+        />
     );
 };
 export default LoginContainer;
