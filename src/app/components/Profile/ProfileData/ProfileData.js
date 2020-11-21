@@ -11,22 +11,24 @@ const ProfileData = ({loginState}) => {
             <li className="profile__data--item">
                 <i className="icon icon-alternate_email profile__data--icon"></i><a href={loginState.profile_link} target="_blank" aria-label="Profile Link" rel="noreferrer">{loginState.username}</a>
             </li>
-            <li className="profile__data--item">
-                <i className="icon icon-location_on profile__data--icon"></i>{loginState.location}
-            </li>
+            { loginState.location ? (
+                <li className="profile__data--item">
+                    <i className="icon icon-location_on profile__data--icon"></i>{loginState.location}
+                </li> ) : ''   
+            }
             { loginState.bio ? (
                 <li className="profile__data--item">
-                    <i className="icon icon-info_outline profile__data--icon"></i> loginState.bio
+                    <i className="icon icon-info_outline profile__data--icon"></i> {loginState.bio}
                 </li>) : ''
             }
             { loginState.email ? (
                 <li className="profile__data--item">
-                    <i className="icon icon-mail_outline profile__data--icon"></i> loginState.email
+                    <i className="icon icon-mail_outline profile__data--icon"></i> {loginState.email}
                 </li>) : ''
             }
             {loginState.blog ? (
                 <li className="profile__data--item">
-                    <i className="icon icon-create profile__data--icon"></i> loginState.blog
+                    <i className="icon icon-create profile__data--icon"></i> {loginState.blog}
                 </li>) : ''
             }
             <li className="profile__data--item">
