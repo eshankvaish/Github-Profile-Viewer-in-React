@@ -1,7 +1,8 @@
 const initialState = {
     username: '',
     error: '',
-    loading: false
+    loading: false,
+    suggestions: []
 };
 
 const searchReducer = (state = initialState, action) => {

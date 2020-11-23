@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import searchApiAction from '../../actions/searchApiAction';
 import searchAction from '../../actions/searchAction';
+import searchSuggestionAction from '../../actions/searchSuggestionAction';
 import Search from '../../components/Search/Search';
+import debounceFunction from '../../utils/debounceFunction';
 
 const SearchContainer = ({history}) => {
     const dispatch = useDispatch();
@@ -13,10 +15,22 @@ const SearchContainer = ({history}) => {
         label: 'Search',
         containerClassName: 'search-form__submit-button'
     });
+    const searchSuggestion = (value) => dispatch(searchSuggestionAction(value));
+    //Debounce Function to prevent excessive API calls
+    const debounceSuggestion = debounceFunction(searchSuggestion, 1000);
+
     const handleChange = (e) => {
         dispatch(searchAction({
             username: e.target.value
         }));
+        if (e.target.value) {
+            //Get suggestions
+            debounceSuggestion(e.target.value);
+        } else {
+            dispatch(searchAction({
+                suggestions: []
+            }));
+        }
     };
     const [inputState] = useState({
         type: 'search',
@@ -42,6 +56,7 @@ const SearchContainer = ({history}) => {
             inputState={inputState}
             buttonState={buttonState}
             loading={searchState.loading}
+            suggestions={searchState.suggestions}
         />
     );
 };

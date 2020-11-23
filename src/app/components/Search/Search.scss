@@ -15,6 +15,10 @@
     &-form {
         padding: 30px 0;
 
+        &__container {
+            position: relative;
+        }
+
         &__submit-button {
             text-align: right;
         }

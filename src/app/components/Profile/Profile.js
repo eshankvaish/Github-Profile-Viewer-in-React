@@ -18,7 +18,10 @@ const Profile = ({loginState}) => {
         </section>
     );
 
-    return loginState.loading ? <Loading /> : profileData;
+    return loginState.loading ? (
+        <section className="profile-container center-container">
+            <Loading />
+        </section>) : profileData;
 };
 
 Profile.propTypes = {

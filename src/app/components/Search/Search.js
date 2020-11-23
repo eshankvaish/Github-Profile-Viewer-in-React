@@ -5,8 +5,9 @@ import { useTranslation } from 'react-i18next';
 import FormErrors from '../FormErrors/FormErrors';
 import SearchForm from './SearchForm/SearchForm';
 import Processing from '../Processing';
+import SearchSuggestionList from './SearchSuggestionList/SearchSuggestionList';
 
-const Search = ({handleSubmit, error, inputState, buttonState, loading}) => {
+const Search = ({handleSubmit, error, inputState, buttonState, loading, suggestions}) => {
     const { t } = useTranslation();
 
     return (
@@ -15,11 +16,14 @@ const Search = ({handleSubmit, error, inputState, buttonState, loading}) => {
                 <h1 className="heading">{t('Search')}</h1>
                 {loading ? <Processing /> : ''}
                 <FormErrors error={error} />
-                <SearchForm
-                    handleSubmit={handleSubmit}
-                    inputState={inputState}
-                    buttonState={buttonState}
-                />
+                <div className="search-form__container">
+                    <SearchForm
+                        handleSubmit={handleSubmit}
+                        inputState={inputState}
+                        buttonState={buttonState}
+                    />
+                    <SearchSuggestionList suggestions={suggestions} />
+                </div>
             </div>
         </section>
     );
@@ -30,7 +34,8 @@ Search.protoTypes = {
     error: PropTypes.string,
     inputState: PropTypes.object,
     buttonState: PropTypes.object,
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
+    suggestions: PropTypes.array
 };
 
 export default Search;
