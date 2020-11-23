@@ -1,7 +1,8 @@
 const initialState = {
     loading: true,
     followersData: [],
-    error: ''
+    error: '',
+    title: ''
 };
 
 const followersReducer = (state=initialState, action) => {

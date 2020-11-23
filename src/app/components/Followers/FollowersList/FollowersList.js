@@ -14,7 +14,7 @@ const FollowersList = ({followers}) => {
             </ul>
         ) : (
             <div className="no-followers">
-                {t('The user has no followers')}
+                {t('Nothing to show')}
             </div>
         )
     );

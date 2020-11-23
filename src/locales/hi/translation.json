@@ -26,6 +26,8 @@
     "Error Fetching User Followers": "उपयोगकर्ता के समर्थक प्राप्त करने में असमर्थ",
     "Loading...": "लोड हो रहा है...",
     "The user has no followers": "उपयोगकर्ता के कोई समर्थक नहीं है",
-    "Processing...": "डाटा प्राप्त किया जा रहा"
+    "Processing...": "डाटा प्राप्त किया जा रहा",
+    "View Followers": "समर्थक देखें",
+    "View Following": "अनुचर देखें"
 }
 

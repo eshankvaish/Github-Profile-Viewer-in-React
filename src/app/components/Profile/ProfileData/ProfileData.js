@@ -28,7 +28,7 @@ const ProfileData = ({loginState}) => {
             }
             {loginState.blog ? (
                 <li className="profile__data--item">
-                    <i className="icon icon-create profile__data--icon"></i> {loginState.blog}
+                    <i className="icon icon-create profile__data--icon"></i><a href={loginState.blog} target="_blank" rel="noreferrer">{loginState.blog}</a>
                 </li>) : ''
             }
             <li className="profile__data--item">
@@ -40,6 +40,11 @@ const ProfileData = ({loginState}) => {
             {loginState.followers_count ? (
                 <li className="profile__data--item">
                     <a href={`/${loginState.username}/followers`}><button>{t('View Followers')}</button></a>  
+                </li> ) : ''
+            }
+            {loginState.following_count ? (
+                <li className="profile__data--item">
+                    <a href={`/${loginState.username}/following`}><button>{t('View Following')}</button></a>  
                 </li> ) : ''
             }
         </ul>

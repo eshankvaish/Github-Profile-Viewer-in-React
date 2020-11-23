@@ -14,7 +14,7 @@ const Followers = ({followersState, username}) => {
         </div>
     ) : (
         <div className="followers center-container">
-            <div className="heading">{t('Followers')} - {username}</div>
+            <div className="heading">{t(followersState.title)} - {username}</div>
             <FormErrors error={followersState.error} />
             <FollowersList followers={followersState.followersData} />
         </div>

@@ -26,5 +26,7 @@
     "Error Fetching User Followers": "Error Fetching User Followers",
     "Loading...": "Loading...",
     "The user has no followers": "The user has no followers",
-    "Processing...": "Processing..."
+    "Processing...": "Processing...",
+    "View Followers": "View Followers",
+    "View Following": "View Following"
 }

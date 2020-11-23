@@ -2,17 +2,17 @@ import axios from 'axios';
 import followersAction from './followersAction';
 import followersErrorAction from './followersErrorAction';
 
-const followersApiAction = (username) => {
+const followingApiAction = (username) => {
     return ((dispatch) => {
         let config = {
             method: 'get',
-            url: `https://api.github.com/users/${username}/followers`
+            url: `https://api.github.com/users/${username}/following`
         };
         axios(config)
             .then(({data}) => {
                 dispatch(followersAction({
                     followersData: data,
-                    title: 'Followers'
+                    title: 'Following'
                 }));
             })
             .catch(() => {
@@ -21,4 +21,4 @@ const followersApiAction = (username) => {
     });
 };
 
-export default followersApiAction;
+export default followingApiAction;
