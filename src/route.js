@@ -27,7 +27,7 @@ const Routes = ({loginState}) => {
             <Route exact path="/logout" component={LogoutScene} />
             <PrivateRoute exact path="/profile" component={ProfileScene} loginState={loginState} />
             <Route exact path="/search" component={SearchScene} />
-            <PrivateRoute exact path="/explore" component={ExploreScene} />
+            <PrivateRoute exact path="/explore" component={ExploreScene} auth_token={loginState.auth_token} />
             <Route exact path="/:username" component={SearchProfileScene} />
         </Switch>
     );

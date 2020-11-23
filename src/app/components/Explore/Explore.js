@@ -6,7 +6,7 @@ import ExploreData from './ExploreData/ExploreData';
 import ExploreRefresh from './ExploreRefresh/ExploreRefresh';
 import FormErrors from '../FormErrors/FormErrors';
 
-const Explore = ({userData ,handleRefresh, handleDeleteUser, error}) => {
+const Explore = ({userData ,handleRefresh, handleDeleteUser, error, handleFollow}) => {
     const { t } = useTranslation();
     return (
         <section className="explore center-container">
@@ -15,7 +15,11 @@ const Explore = ({userData ,handleRefresh, handleDeleteUser, error}) => {
             <FormErrors error={error} />
             {/*Refresh Button */}
             <ExploreRefresh handleRefresh={handleRefresh} />
-            <ExploreData userData={userData} handleDeleteUser={handleDeleteUser} />
+            <ExploreData
+                userData={userData}
+                handleDeleteUser={handleDeleteUser}
+                handleFollow={handleFollow}
+            />
         </section>
     );
 };
@@ -23,7 +27,8 @@ const Explore = ({userData ,handleRefresh, handleDeleteUser, error}) => {
 Explore.protoTypes = {
     userData: PropTypes.array,
     handleRefresh: PropTypes.func,
-    handleDeleteUser: PropTypes.func
+    handleDeleteUser: PropTypes.func,
+    handleFollow: PropTypes.func
 };
 
 export default Explore;

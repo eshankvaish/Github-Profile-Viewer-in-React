@@ -20,6 +20,8 @@
     "Blog": "ब्लॉग",
     "Search Username": "उपयोगकर्ता का नाम खोजें",
     "Refresh": "ताज़ा करें",
-    "Please check your token / connection": "कृपया अपना टोकन / कनेक्शन जांचें"
+    "Please check your token / connection": "कृपया अपना टोकन / कनेक्शन जांचें",
+    "Follow": "फॉलो",
+    "Error Following the user": "उपयोगकर्ता को फॉलो करने में असमर्थ"
 }
 

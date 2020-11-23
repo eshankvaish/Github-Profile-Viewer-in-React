@@ -3,10 +3,10 @@ import './ExploreData.scss';
 import PropTypes from 'prop-types';
 import UserData from '../UserData/UserData';
 
-const ExploreData = ({userData, handleDeleteUser}) => {
+const ExploreData = ({userData, handleDeleteUser, handleFollow}) => {
     //Mapping User data
     const exploreData = userData.map(user => 
-        <UserData key={user.id} user={user} handleDeleteUser={handleDeleteUser} />
+        <UserData key={user.id} user={user} handleDeleteUser={handleDeleteUser} handleFollow={handleFollow} />
     );
 
     return (
@@ -18,7 +18,8 @@ const ExploreData = ({userData, handleDeleteUser}) => {
 
 ExploreData.protoTypes = {
     userData: PropTypes.array,
-    handleDeleteUser: PropTypes.func
+    handleDeleteUser: PropTypes.func,
+    handleFollow: PropTypes.func
 };
 
 export default ExploreData;

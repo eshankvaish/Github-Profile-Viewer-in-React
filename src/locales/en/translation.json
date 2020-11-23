@@ -20,5 +20,7 @@
     "Blog": "Blog",
     "Refresh": "Refresh",
     "Search Username": "Search Username",
-    "Please check your token / connection": "Please check your token / connection"
+    "Please check your token / connection": "Please check your token / connection",
+    "Follow": "Follow",
+    "Error Following the user": "Error Following the user"
 }
