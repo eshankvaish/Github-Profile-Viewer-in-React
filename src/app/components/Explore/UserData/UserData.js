@@ -14,7 +14,7 @@ const UserData = ({user, handleDeleteUser}) => {
                 <Image className={'user-data__avatar--img'} src={user.avatar_url} alt={'User Profile Pic'} />
             </div>
             <div className="user-data__username">
-                <a href={user.html_url} aria-label="User Profile Link" target="_blank" rel="noreferrer">@{user.login}</a>
+                <a href={`/${user.login}`} aria-label="User Profile Link">@{user.login}</a>
             </div>
         </div>
     );
