@@ -55,6 +55,9 @@ const LoginContainer = ({history, loginState}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault(); //Prevent Default Submit Action
+        dispatch(loginAction({
+            loading: true
+        }));
         dispatch(fetchLoginAction(loginState.username, loginState.auth_token));
     };
 
@@ -64,6 +67,7 @@ const LoginContainer = ({history, loginState}) => {
             buttonState={buttonState}
             handleSubmit={handleSubmit}
             error={loginState.error}
+            loading={loginState.loading}
         />
     );
 };

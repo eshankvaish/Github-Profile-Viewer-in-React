@@ -29,6 +29,9 @@ const SearchContainer = ({history}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        dispatch(searchAction({
+            loading: true
+        }));
         dispatch(searchApiAction(searchState.username, history));
     };
 
@@ -38,6 +41,7 @@ const SearchContainer = ({history}) => {
             error={searchState.error}
             inputState={inputState}
             buttonState={buttonState}
+            loading={searchState.loading}
         />
     );
 };

@@ -8,7 +8,8 @@ const initialState = {
     profile_link: '',
     blog: '',
     email: '',
-    error: ''
+    error: '',
+    loading: true
 };
 
 const profileReducer = (state=initialState, action) => {
@@ -16,7 +17,8 @@ const profileReducer = (state=initialState, action) => {
     case 'SEARCH_PROFILE':
         return {
             ...state,
-            ...action.payload
+            ...action.payload,
+            loading: false
         };
     default: return state;
     }
