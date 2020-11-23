@@ -8,6 +8,7 @@ import PrivateRoute from './app/components/PrivateRoute';
 import SearchScene from './app/scenes/SearchScene/SearchScene';
 import SearchProfileScene from './app/scenes/SearchProfileScene/SearchProfileScene';
 import ExploreScene from './app/scenes/ExploreScene/ExploreScene';
+import FollowersScene from './app/scenes/FollowersScene/FollowersScene';
 
 const Routes = ({loginState}) => {
     return (
@@ -28,6 +29,7 @@ const Routes = ({loginState}) => {
             <PrivateRoute exact path="/profile" component={ProfileScene} loginState={loginState} />
             <Route exact path="/search" component={SearchScene} />
             <PrivateRoute exact path="/explore" component={ExploreScene} auth_token={loginState.auth_token} />
+            <Route exact path="/:username/followers" component={FollowersScene} />
             <Route exact path="/:username" component={SearchProfileScene} />
         </Switch>
     );

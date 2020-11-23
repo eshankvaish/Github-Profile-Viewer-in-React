@@ -36,7 +36,12 @@ const ProfileData = ({loginState}) => {
             </li> 
             <li className="profile__data--item">
                 <span className="profile__data--attribute">{t('Following')}: </span>{loginState.following_count}
-            </li> 
+            </li>
+            {loginState.followers_count ? (
+                <li className="profile__data--item">
+                    <a href={`/${loginState.username}/followers`}><button>{t('View Followers')}</button></a>  
+                </li> ) : ''
+            }
         </ul>
     );
 };
