@@ -26,19 +26,22 @@ const fetchLoginAction = (username, auth_token) => {
                         blog: cleanData(data.blog),
                         email: cleanData(data.email),
                         isLoggedIn: true,
-                        error: ''
+                        error: '',
+                        loading: false
                     }));
                 } else {
                     //Invalid Username
                     dispatch(loginAction({
-                        error: 'Invalid Username / Token'
+                        error: 'Invalid Username / Token',
+                        loading: false
                     }));
                 }
             })
             .catch(() => {
                 //Invalid Token / Network Error
                 dispatch(loginAction({
-                    error: 'Please check your token / connection'
+                    error: 'Please check your token / connection',
+                    loading: false
                 }));
             });
     };

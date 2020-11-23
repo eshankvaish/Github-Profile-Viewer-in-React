@@ -4,14 +4,16 @@ import { useTranslation } from 'react-i18next';
 import './Login.scss';
 import FormErrors from '../FormErrors/FormErrors';
 import LoginForm from './LoginForm/LoginForm';
+import Processing from '../Processing';
 
-const Login = ({inputFieldState, buttonState ,handleSubmit, error}) => {
+const Login = ({inputFieldState, buttonState ,handleSubmit, error, loading}) => {
     const { t } = useTranslation();
 
     return (
         <section className="login center-container">
             <div className="login-container">
                 <h1 className="heading">{t('Login')}</h1>
+                {loading ? <Processing /> : ''}
                 <FormErrors error={error} />
                 <LoginForm inputFieldState={inputFieldState} buttonState={buttonState} handleSubmit={handleSubmit} />
             </div>
@@ -23,7 +25,8 @@ Login.propTypes = {
     inputFieldState: PropTypes.array,
     buttonState: PropTypes.array,
     handleSubmit: PropTypes.func,
-    error: PropTypes.string
+    error: PropTypes.string,
+    loading: PropTypes.bool
 };
 
 export default Login;

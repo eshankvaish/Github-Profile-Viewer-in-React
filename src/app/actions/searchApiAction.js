@@ -10,10 +10,14 @@ const searchApiAction = (username, history) => {
         axios(config)
             .then(() => {
                 history.push(`/${username}`);
+                dispatch(searchAction({
+                    loading: false
+                }));
             })
             .catch(() => {
                 dispatch(searchAction({
-                    error: 'No User Found with given Username'
+                    error: 'No User Found with given Username',
+                    loading: false
                 }));
             });
     });

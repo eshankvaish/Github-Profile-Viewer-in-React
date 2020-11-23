@@ -1,7 +1,8 @@
 const initialState = {
     userData: [],
     lastIndex: 0,
-    error: ''
+    error: '',
+    loading: true
 };
 
 const exploreReducer = (state=initialState, action) => {
@@ -9,7 +10,8 @@ const exploreReducer = (state=initialState, action) => {
     case 'UPDATE_STATE':
         return {
             ...state,
-            ...action.payload
+            ...action.payload,
+            loading: false
         };
     default: return state;
     }

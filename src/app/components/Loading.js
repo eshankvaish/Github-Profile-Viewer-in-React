@@ -5,9 +5,9 @@ const Loading = () => {
     const {t} = useTranslation();
 
     return (
-        <div className="heading">
+        <h1 className="heading">
             {t('Loading...')}
-        </div>
+        </h1>
     );
 };
 

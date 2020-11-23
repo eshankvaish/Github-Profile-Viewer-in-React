@@ -14,7 +14,8 @@ const initialState = {
     email: '',
     isLoggedIn: false,
     error: '',
-    formErrors: {}
+    formErrors: {},
+    loading: false
 };
 if (!userState) {
     userState = initialState;

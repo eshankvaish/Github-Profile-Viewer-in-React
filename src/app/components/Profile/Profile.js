@@ -3,6 +3,7 @@ import './Profile.scss';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import UserProfile from './UserProfile/UserProfile';
+import Loading from '../Loading';
 
 const Profile = ({loginState}) => {
     const { t } = useTranslation();
@@ -17,7 +18,7 @@ const Profile = ({loginState}) => {
         </section>
     );
 
-    return profileData;
+    return loginState.loading ? <Loading /> : profileData;
 };
 
 Profile.propTypes = {

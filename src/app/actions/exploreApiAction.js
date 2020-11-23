@@ -16,12 +16,12 @@ const exploreApiAction = (lastIndexId, presentUserData, size) => {
                         ...data.slice(0,size)
                     ],
                     lastIndex: data[size-1].id,
-                    error: ''
+                    error: '',
                 }));
             })
             .catch(() => {
                 dispatch(exploreAction({
-                    error: 'Something Went Wrong'
+                    error: 'Something Went Wrong',
                 }));
             });
     });

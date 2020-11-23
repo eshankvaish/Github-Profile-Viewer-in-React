@@ -32,6 +32,7 @@ const ExploreContainer = ({auth_token}) => {
         userData={exploreState.userData}
         erorr={exploreState.error}
         handleFollow={handleFollow}
+        loading={exploreState.loading}
     />;
 };
 
