@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
 import PropTypes from 'prop-types';
 import Profile from '../../components/Profile/Profile';
+import fetchLoginAction from '../../actions/fetchLoginAction';
 
 const ProfileContainer = ({loginState}) => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchLoginAction(loginState.username, loginState.auth_token));
+    }, []);
+
     return <Profile loginState={loginState} />;
 };
 
