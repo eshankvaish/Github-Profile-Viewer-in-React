@@ -35,12 +35,13 @@ const Explore = ({
     );
 };
 
-Explore.protoTypes = {
+Explore.propTypes = {
     userData: PropTypes.instanceOf(Array).isRequired,
     handleRefresh: PropTypes.func.isRequired,
     handleDeleteUser: PropTypes.func.isRequired,
     handleFollow: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
+    error: PropTypes.string.isRequired,
 };
 
 export default Explore;

@@ -19,7 +19,7 @@ const UserProfile = ({ loginState }) => (
 );
 
 UserProfile.propTypes = {
-    loginState: PropTypes.object
+    loginState: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default UserProfile;

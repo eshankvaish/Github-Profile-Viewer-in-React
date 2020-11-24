@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import './Search.scss';
 import FormErrors from '../FormErrors/FormErrors';
 import SearchForm from './SearchForm/SearchForm';
@@ -8,7 +8,9 @@ import Processing from '../UI/Processing/Processing';
 import SearchSuggestionList from './SearchSuggestionList/SearchSuggestionList';
 import Heading from '../UI/Heading/Heading';
 
-const Search = ({handleSubmit, error, inputState, buttonState, loading, suggestions}) => {
+const Search = ({
+    handleSubmit, error, inputState, buttonState, loading, suggestions,
+}) => {
     const { t } = useTranslation();
 
     return (
@@ -33,10 +35,10 @@ const Search = ({handleSubmit, error, inputState, buttonState, loading, suggesti
 Search.protoTypes = {
     handleSubmit: PropTypes.func,
     error: PropTypes.string,
-    inputState: PropTypes.object,
-    buttonState: PropTypes.object,
+    inputState: PropTypes.instanceOf(Object),
+    buttonState: PropTypes.instanceOf(Object),
     loading: PropTypes.bool,
-    suggestions: PropTypes.array
+    suggestions: PropTypes.instanceOf(Array),
 };
 
 export default Search;

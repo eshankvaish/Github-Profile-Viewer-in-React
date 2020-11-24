@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import Image from '../Image/Image';
 import './UserCard.scss';
+import Button from '../Button/Button';
 
 const UserCard = ({
     user, handleDeleteUser, handleFollow, followButton,
@@ -13,12 +14,16 @@ const UserCard = ({
     return (
         <li className="user-card">
             {followButton ? (
-                <div className="user-card__remove">
-                    <i className="icon icon-close user-data__remove--icon" onClick={() => handleDeleteUser(user.login)}/>
-                </div>
+                <Button
+                    containerClassName="user-card__remove"
+                    type="submit"
+                    aria-label="Remove Suggestion"
+                    handleClick={() => handleDeleteUser(user.login)}
+                    className="icon icon-close user-card__remove--icon"
+                />
             ) : '' }
             <div className="user-card__avatar">
-                <Image className={'user-data__avatar--img circle'} src={user.avatar_url} alt={'User Profile Pic'} />
+                <Image className="user-data__avatar--img circle" src={user.avatar_url} alt="User Profile Pic" />
             </div>
             <div className="user-card__username">
                 <a href={`/${user.login}`} aria-label="User Profile Link">

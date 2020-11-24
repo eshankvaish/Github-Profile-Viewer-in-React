@@ -5,12 +5,19 @@ import { useTranslation } from 'react-i18next';
 import './Button.scss';
 
 const Button = ({
-    type, label, className, containerClassName,
+    type, label, className, containerClassName, ariaLabel, handleClick,
 }) => {
     const { t } = useTranslation();
     return (
         <div className={containerClassName}>
-            <button type={type} aria-label={label} className={className}>{t(label)}</button>
+            <button
+                type={type}
+                aria-label={label || ariaLabel}
+                className={className}
+                onClick={handleClick}
+            >
+                {t(label)}
+            </button>
         </div>
     );
 };
@@ -19,6 +26,8 @@ Button.propTypes = {
     label: PropTypes.string,
     className: PropTypes.string,
     containerClassName: PropTypes.string,
+    ariaLabel: PropTypes.string,
+    handleClick: PropTypes.func,
 };
 
 Button.defaultProps = {
@@ -26,6 +35,8 @@ Button.defaultProps = {
     label: '',
     className: '',
     containerClassName: '',
+    ariaLabel: '',
+    handleClick: () => {},
 };
 
 export default Button;

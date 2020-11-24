@@ -23,6 +23,11 @@
         right: 20px;
         top: 20px;
         cursor: pointer;
+
+        &--icon {
+            padding: 5px;
+            margin: auto;
+        }
     }
     &__avatar {
         height: 200px;
