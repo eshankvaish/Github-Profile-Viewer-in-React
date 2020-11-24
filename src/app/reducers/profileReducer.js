@@ -9,16 +9,16 @@ const initialState = {
     blog: '',
     email: '',
     error: '',
-    loading: true
+    loading: true,
 };
 
-const profileReducer = (state=initialState, action) => {
+const profileReducer = (state = initialState, action) => {
     switch (action.type) {
     case 'SEARCH_PROFILE':
         return {
             ...state,
             ...action.payload,
-            loading: false
+            loading: false,
         };
     default: return state;
     }

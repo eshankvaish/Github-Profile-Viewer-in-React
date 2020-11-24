@@ -2,21 +2,21 @@ const initialState = {
     loading: true,
     followersData: [],
     error: '',
-    title: ''
+    title: '',
 };
 
-const followersReducer = (state=initialState, action) => {
+const followersReducer = (state = initialState, action) => {
     switch (action.type) {
     case 'FETCH_FOLLOWERS':
         return {
             ...state,
             loading: false,
-            ...action.payload
+            ...action.payload,
         };
     case 'FOLLOWERS_ERROR':
         return {
             ...state,
-            ...action.payload
+            ...action.payload,
         };
     default:
         return state;

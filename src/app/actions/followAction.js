@@ -1,13 +1,13 @@
 import axios from 'axios';
 import exploreAction from './exploreAction';
 
-const followAction = (username, auth_token, handleDeleteUser) => {
+const followAction = (username, authToken, handleDeleteUser) => {
     return ((dispatch) => {
         let config = {
             method: 'put',
             url: `https://api.github.com/user/following/${username}`,
             headers: {
-                'Authorization': `token ${auth_token}`
+                'Authorization': `token ${authToken}`
             }
         };
 

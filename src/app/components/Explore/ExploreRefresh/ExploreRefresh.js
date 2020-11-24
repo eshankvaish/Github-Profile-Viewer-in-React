@@ -7,7 +7,7 @@ const ExploreRefresh = ({handleRefresh}) => {
     const { t } = useTranslation();
     return (
         <div className="explore__refresh">
-            <a title="Refresh Suggestions" aria-label="Refresh Suggestions" onClick={handleRefresh}>{t('Refresh')} <i className="icon icon-refresh explore__refresh--icon"></i></a>
+            <a title="Refresh Suggestions" aria-label="Refresh Suggestions" onClick={handleRefresh}>{t('Refresh')} <i className="icon icon-refresh explore__refresh--icon" /></a>
         </div>
     );
 };

@@ -2,15 +2,15 @@ const initialState = {
     username: '',
     error: '',
     loading: false,
-    suggestions: []
+    suggestions: [],
 };
 
 const searchReducer = (state = initialState, action) => {
     switch (action.type) {
-    case 'SEARCH': 
+    case 'SEARCH':
         return {
             ...state,
-            ...action.payload
+            ...action.payload,
         };
     default: return state;
     }

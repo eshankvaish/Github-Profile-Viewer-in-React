@@ -1,7 +1,7 @@
 const debounceFunction = (fn, t) => {
     let timer;
-    return function () {
-        let context = this, args = arguments;
+    return function (...args) {
+        const context = this;
         clearTimeout(timer);
         timer = setTimeout(() => fn.apply(context, args), t);
     };

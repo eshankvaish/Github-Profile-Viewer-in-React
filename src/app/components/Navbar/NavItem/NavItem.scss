@@ -2,22 +2,26 @@
 
 .nav__list {
     &--link {
-        display: inline;
+        display: inline-block;
+        font-weight: bold;
+        
+        &:hover {
+            color: $seconday-text-color;
+        }
     }
     &--item {
         width: 100%;
         border-bottom: 1px solid;
-        font-weight: bold;
-        padding: 15px 0;
-    
+        padding: 15px 10px;
+
         @include breakpoint-desktop {
             width: auto;
             border: none;
             padding: 0 20px;
-        }
-    
-        &:hover {
-            color: $primary-text-color;
+        }    
+        //For last element
+        &:last-child {
+            border: none;
         }
     }
 }

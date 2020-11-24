@@ -13,4 +13,18 @@ header {
     color: $icon-color;
     font-size: 1.6rem;
     min-height: 70px;
+
+    &__logo {
+        min-height: 70px;
+    
+        @include flexbox(row, space-between, center);
+        flex: 100%;
+    
+        @include breakpoint-tablet {
+            padding: 0;
+        }
+        @include breakpoint-desktop {
+            flex: auto;
+        }
+    }
 }

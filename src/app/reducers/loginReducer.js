@@ -3,7 +3,7 @@ import modifyLocalStorageItem from '../utils/modifyLocalStorage';
 let userState = modifyLocalStorageItem('get', 'userState');
 const initialState = {
     username: '',
-    auth_token: '',
+    authToken: '',
     avatar: '',
     location: '',
     following_count: null,
@@ -14,14 +14,14 @@ const initialState = {
     email: '',
     isLoggedIn: false,
     error: '',
-    formErrors: {},
-    loading: false
+    loading: false,
 };
+
 if (!userState) {
     userState = initialState;
 }
 
-const loginReducer = (state=userState, action) => {
+const loginReducer = (state = userState, action) => {
     let loginState;
     switch (action.type) {
     case 'LOGIN':
@@ -38,7 +38,6 @@ const loginReducer = (state=userState, action) => {
         return {
             ...state,
             error: '',
-            formErrors: {}
         };
     }
 };

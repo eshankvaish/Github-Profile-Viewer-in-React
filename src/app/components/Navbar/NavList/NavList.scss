@@ -4,11 +4,7 @@
     width: 100%;
     display: none;
     overflow: auto;
-    padding: 0 20px;
 
-    @include breakpoint-tablet {
-        padding: 0;
-    }
     @include breakpoint-desktop {
         @include flexbox;
         width: auto;

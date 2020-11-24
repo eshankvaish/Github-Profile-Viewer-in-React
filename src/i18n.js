@@ -1,16 +1,16 @@
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-//Separate files for each language
+// Separate files for each language
 import translationHindi from './locales/hi/translation.json';
 import translationEnglish from './locales/en/translation.json';
 
 i18n.use(LanguageDetector).init({
     resources: {
         en: {
-            translations: translationEnglish
+            translations: translationEnglish,
         },
         hi: {
-            translations: translationHindi
+            translations: translationHindi,
         },
     },
     whitelist: ['en', 'hi'],
@@ -27,13 +27,12 @@ i18n.use(LanguageDetector).init({
 
     interpolation: {
         escapeValue: false, // not needed for react!!
-        formatSeparator: ','
+        formatSeparator: ',',
     },
 
     react: {
-        wait: true
-    }
+        wait: true,
+    },
 });
-  
 
 export default i18n;

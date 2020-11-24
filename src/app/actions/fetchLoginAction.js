@@ -2,13 +2,13 @@ import axios from 'axios';
 import cleanData from '../utils/cleanData';
 import loginAction from './loginAction';
 
-const fetchLoginAction = (username, auth_token) => {
+const fetchLoginAction = (username, authToken) => {
     return (dispatch) => {
         let apiData = {
             method: 'get',
             url: 'https://api.github.com/user',
             headers: {
-                'Authorization': `token ${auth_token}`
+                'Authorization': `token ${authToken}`
             }
         };
         axios(apiData)

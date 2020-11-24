@@ -1,8 +1,7 @@
 const cleanData = (data) => {
     if (!data) {
         return '';
-    } else {
-        return data;
     }
+    return data;
 };
 export default cleanData;

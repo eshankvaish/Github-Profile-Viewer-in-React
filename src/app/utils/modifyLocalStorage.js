@@ -1,13 +1,13 @@
-const modifyLocalStorageItem = (method, key, value='') => {
+const modifyLocalStorageItem = (method, key, value = '') => {
     switch (method) {
     case 'set':
         localStorage.setItem(key, JSON.stringify(value));
-        return;
+        return null;
     case 'get':
         return JSON.parse(localStorage.getItem(key));
     case 'remove':
         localStorage.removeItem(key);
-        return;
+        return null;
     default:
         return 'Incorrect Method!';
     }
