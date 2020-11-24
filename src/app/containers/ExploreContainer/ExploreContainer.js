@@ -8,7 +8,7 @@ const ExploreContainer = ({auth_token}) => {
     const exploreState = useSelector(state => state.exploreState);
     const dispatch = useDispatch();
 
-    const fetchData = (lastIndexId=exploreState.lastIndex, presentUserData=[], size=4) => {
+    const fetchData = (lastIndexId=exploreState.lastIndex, presentUserData=[], size=6) => {
         dispatch(exploreApiAction(lastIndexId, presentUserData, size));
     };
     //First call to fetch data

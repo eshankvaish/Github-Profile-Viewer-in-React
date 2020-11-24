@@ -1,18 +1,23 @@
 import React from 'react';
 import './ExploreData.scss';
 import PropTypes from 'prop-types';
-import UserData from '../UserData/UserData';
+import UserCard from '../../UI/UserCard/UserCard';
 
 const ExploreData = ({userData, handleDeleteUser, handleFollow}) => {
     //Mapping User data
     const exploreData = userData.map(user => 
-        <UserData key={user.id} user={user} handleDeleteUser={handleDeleteUser} handleFollow={handleFollow} />
+        <UserCard key={user.id}
+            user={user}
+            handleDeleteUser={handleDeleteUser}
+            handleFollow={handleFollow}
+            followButton={true}
+        />
     );
 
     return (
-        <div className="explore-data">
+        <ul className="explore-data">
             {exploreData}
-        </div>
+        </ul>
     );
 };
 

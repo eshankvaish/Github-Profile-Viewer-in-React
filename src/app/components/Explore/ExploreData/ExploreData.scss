@@ -1,7 +1,7 @@
 @import '../../../../styles/abstracts/index';
 
 .explore-data {
-    @include flexbox(row, center);
+    @include flexbox(row, space-evenly);
     padding: 10px 0;
 
     @include breakpoint-tablet {

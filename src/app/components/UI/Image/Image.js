@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Image.scss';
 
 const Image = ({className, src, alt}) => {
     return <img className={className} src={src} alt={alt} />;

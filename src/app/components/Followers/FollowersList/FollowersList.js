@@ -2,16 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
 import './FollowersList.scss';
-import FollowersItem from '../FollowersItem/FollowersItem';
+import UserCard from '../../UI/UserCard/UserCard';
 
 const FollowersList = ({followers}) => {
     const {t} = useTranslation();
+    const followersItem = followers.map(follower => 
+        <UserCard key={follower.id} user={follower} />
+    );
 
     return (
         followers.length ? (
-            <ul className="followers-list">
-                <FollowersItem followers={followers} />
-            </ul>
+            followersItem
         ) : (
             <div className="no-followers">
                 {t('Nothing to show')}
