@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProfileAvatar.scss';
 import PropTypes from 'prop-types';
-import Image from '../../Image';
+import Image from '../../UI/Image/Image';
 
 const ProfileAvatar = (props) => {
     return (

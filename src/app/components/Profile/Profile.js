@@ -3,17 +3,21 @@ import './Profile.scss';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import UserProfile from './UserProfile/UserProfile';
-import Loading from '../Loading';
+import Loading from '../UI/Loading/Loading';
+import Heading from '../UI/Heading/Heading';
 
 const Profile = ({loginState}) => {
     const { t } = useTranslation();
+    const profileHeading = loginState.name ? loginState.name : loginState.username;
     const profileData = loginState.error ? (
         <section className="profile-container center-container">
             <h1>{loginState.error}</h1>
         </section>
     ) : (
         <section className="profile-container center-container">
-            <h1 className="heading">{loginState.name ? loginState.name : loginState.username}{t('\'s')} {t('Profile')}</h1>
+            <Heading 
+                heading={`${profileHeading}${t('\'s')} ${t('Profile')}`} 
+            />
             <UserProfile loginState={loginState} />
         </section>
     );

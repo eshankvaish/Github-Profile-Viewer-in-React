@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import './Button.scss';
 
 const Button = ({type, label, className, containerClassName}) => {
     const {t} = useTranslation();

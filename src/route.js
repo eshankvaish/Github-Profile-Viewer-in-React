@@ -4,7 +4,7 @@ import LoginScene from './app/scenes/LoginScene/LoginScene';
 import HomeScene from './app/scenes/HomeScene/HomeScene';
 import ProfileScene from './app/scenes/ProfileScene/ProfileScene';
 import LogoutScene from './app/scenes/LogoutScene/LogoutScene';
-import PrivateRoute from './app/components/PrivateRoute';
+import PrivateRoute from './app/components/PrivateRoute/PrivateRoute';
 import SearchScene from './app/scenes/SearchScene/SearchScene';
 import SearchProfileScene from './app/scenes/SearchProfileScene/SearchProfileScene';
 import ExploreScene from './app/scenes/ExploreScene/ExploreScene';

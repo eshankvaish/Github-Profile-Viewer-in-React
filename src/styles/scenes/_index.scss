@@ -14,41 +14,6 @@ main {
     padding-top: 30px;
     font-size: 1.6rem;
 }
-.heading {
-    color: $dark-primary-color;
-    font-size: 3.5rem;
-
-    @include breakpoint-tablet {
-        font-size: 5rem;
-    }
-}
-input {
-    //Styling for text and password input fields
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: block;
-    border: 1px solid $primary-text-color;
-    border-radius: 4px;
-    outline: none;
-
-    &:focus {
-        border-color: $dark-primary-color;
-    }
-}
-button {
-    background-color: $light-primary-color;
-    color: $icon-color;
-    font-weight: bold;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-
-    &:hover {
-        background-color: $dark-primary-color;
-    }
-}
 .no-border {
     border: none !important;
 }
@@ -57,8 +22,4 @@ button {
 }
 .border-red {
     border-color: red;
-}
-.processing {
-    color: $primary-text-color;
-    padding: 10px;
 }

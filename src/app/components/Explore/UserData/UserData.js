@@ -1,7 +1,7 @@
 import React from 'react';
 import './UserData.scss';
 import PropTypes from 'prop-types';
-import Image from '../../Image';
+import Image from '../../UI/Image/Image';
 import { useTranslation } from 'react-i18next';
 
 const UserData = ({user, handleDeleteUser, handleFollow}) => {

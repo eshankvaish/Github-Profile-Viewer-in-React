@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import './InputElement.scss';
 
 const InputElement = ({type, id, name, className, placeholder, containerClassName, label, handleChange, handleBlur}) => {
     const {t} = useTranslation();

@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next';
 import ExploreData from './ExploreData/ExploreData';
 import ExploreRefresh from './ExploreRefresh/ExploreRefresh';
 import FormErrors from '../FormErrors/FormErrors';
-import Loading from '../Loading';
+import Loading from '../UI/Loading/Loading';
+import Heading from '../UI/Heading/Heading';
 
 const Explore = ({userData ,handleRefresh, handleDeleteUser, error, handleFollow, loading}) => {
     const { t } = useTranslation();
@@ -17,7 +18,7 @@ const Explore = ({userData ,handleRefresh, handleDeleteUser, error, handleFollow
             </section>
         ) : (
             <section className="explore center-container">
-                <h1 className="heading">{t('Explore')}</h1>
+                <Heading heading={t('Explore')} />
                 {/*Api Errors */}
                 <FormErrors error={error} />
                 {/*Refresh Button */}

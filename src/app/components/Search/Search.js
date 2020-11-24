@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {useTranslation} from 'react-i18next';
 import './Search.scss';
-import { useTranslation } from 'react-i18next';
 import FormErrors from '../FormErrors/FormErrors';
 import SearchForm from './SearchForm/SearchForm';
-import Processing from '../Processing';
+import Processing from '../UI/Processing/Processing';
 import SearchSuggestionList from './SearchSuggestionList/SearchSuggestionList';
+import Heading from '../UI/Heading/Heading';
 
 const Search = ({handleSubmit, error, inputState, buttonState, loading, suggestions}) => {
     const { t } = useTranslation();
@@ -13,7 +14,7 @@ const Search = ({handleSubmit, error, inputState, buttonState, loading, suggesti
     return (
         <section className="search center-container">
             <div className="search-container">
-                <h1 className="heading">{t('Search')}</h1>
+                <Heading heading={t('Search')} />
                 {loading ? <Processing /> : ''}
                 <FormErrors error={error} />
                 <div className="search-form__container">

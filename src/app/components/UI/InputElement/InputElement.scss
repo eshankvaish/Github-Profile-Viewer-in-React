@@ -1,0 +1,15 @@
+@import '../../../../styles/abstracts/index';
+
+input {
+    //Styling for text and password input fields
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid $primary-text-color;
+    border-radius: 4px;
+    outline: none;
+
+    &:focus {
+        border-color: $dark-primary-color;
+    }
+}

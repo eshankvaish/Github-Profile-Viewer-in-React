@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../Button';
+import Button from '../../UI/Button/Button';
 
 const LoginButton = ({buttonState}) => {
     const buttons = buttonState.map(button =>

@@ -1,5 +1,5 @@
 import React from 'react';
-import InputElement from '../../InputElement';
+import InputElement from '../../UI/InputElement/InputElement';
 
 const LoginInputField = ({inputFieldState}) => {
     const inputElements = inputFieldState.map(inputElement =>

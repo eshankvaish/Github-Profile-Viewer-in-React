@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputElement from '../../InputElement';
-import Button from '../../Button';
+import InputElement from '../../UI/InputElement/InputElement';
+import Button from '../../UI/Button/Button';
 
 const SearchForm = ({handleSubmit, inputState, buttonState}) => {
     return (
