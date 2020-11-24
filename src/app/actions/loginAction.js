@@ -1,7 +1,7 @@
-const loginAction = (payload) => {
-    return {
+const loginAction = (payload) => (
+    {
         type: 'LOGIN',
-        payload
-    };
-};
+        payload,
+    }
+);
 export default loginAction;

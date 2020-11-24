@@ -1,12 +1,13 @@
-import profileAction from './profileAction';
 import axios from 'axios';
+
+import profileAction from './profileAction';
 import cleanData from '../utils/cleanData';
 
-const profileApiAction = (username) => {
-    return ((dispatch) => {
-        let apiData = {
+const profileApiAction = (username) => (
+    (dispatch) => {
+        const apiData = {
             method: 'get',
-            url: `https://api.github.com/users/${username}`
+            url: `https://api.github.com/users/${username}`,
         };
         axios(apiData)
             .then(({ data }) => {
@@ -21,15 +22,15 @@ const profileApiAction = (username) => {
                     profile_link: data.html_url,
                     blog: cleanData(data.blog),
                     email: cleanData(data.email),
-                    error: ''
+                    error: '',
                 }));
             })
             .catch(() => {
                 dispatch(profileAction({
-                    error: 'Some Error Occured / User Not Found'
+                    error: 'Some Error Occured / User Not Found',
                 }));
             });
-    });
-};
+    }
+);
 
 export default profileApiAction;

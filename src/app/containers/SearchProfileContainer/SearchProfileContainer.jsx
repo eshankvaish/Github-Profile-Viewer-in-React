@@ -10,7 +10,7 @@ const SearchProfileContainer = ({ username }) => {
 
     useEffect(() => {
         dispatch(profileApiAction(username));
-    }, [username, dispatch]);
+    }, []);
     return <Profile loginState={userData} />;
 };
 

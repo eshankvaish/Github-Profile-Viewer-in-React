@@ -11,7 +11,7 @@ const FollowersContainer = ({ match }) => {
 
     useEffect(() => {
         dispatch(followersApiAction(username)); // Call to API
-    }, [username, dispatch]);
+    }, []);
 
     return <Followers followersState={followersState} username={username} />;
 };

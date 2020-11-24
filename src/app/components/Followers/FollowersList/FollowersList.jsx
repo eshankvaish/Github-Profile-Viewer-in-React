@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+
 import './FollowersList.scss';
 import UserCard from '../../UI/UserCard/UserCard';
 
-const FollowersList = ({followers}) => {
-    const {t} = useTranslation();
-    const followersItem = followers.map(follower => 
+const FollowersList = ({ followers }) => {
+    const { t } = useTranslation();
+    const followersItem = followers.map((follower) => (
         <UserCard key={follower.id} user={follower} />
-    );
+    ));
 
     return (
         followers.length ? (
@@ -22,7 +23,7 @@ const FollowersList = ({followers}) => {
 };
 
 FollowersList.propTypes = {
-    followers: PropTypes.array
+    followers: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default FollowersList;

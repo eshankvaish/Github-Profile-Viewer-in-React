@@ -2,19 +2,19 @@ import axios from 'axios';
 import cleanData from '../utils/cleanData';
 import loginAction from './loginAction';
 
-const fetchLoginAction = (username, authToken) => {
-    return (dispatch) => {
-        let apiData = {
+const fetchLoginAction = (username, authToken) => (
+    (dispatch) => {
+        const apiData = {
             method: 'get',
             url: 'https://api.github.com/user',
             headers: {
-                'Authorization': `token ${authToken}`
-            }
+                Authorization: `token ${authToken}`,
+            },
         };
         axios(apiData)
-            .then(({data}) => {
+            .then(({ data }) => {
                 if (data.login === username) {
-                    //Login Successful
+                    // Login Successful
                     dispatch(loginAction({
                         name: cleanData(data.name),
                         avatar: cleanData(data.avatar_url),
@@ -27,24 +27,24 @@ const fetchLoginAction = (username, authToken) => {
                         email: cleanData(data.email),
                         isLoggedIn: true,
                         error: '',
-                        loading: false
+                        loading: false,
                     }));
                 } else {
-                    //Invalid Username
+                    // Invalid Username
                     dispatch(loginAction({
                         error: 'Invalid Username / Token',
-                        loading: false
+                        loading: false,
                     }));
                 }
             })
             .catch(() => {
-                //Invalid Token / Network Error
+                // Invalid Token / Network Error
                 dispatch(loginAction({
                     error: 'Please check your token / connection',
-                    loading: false
+                    loading: false,
                 }));
             });
-    };
-};
+    }
+);
 
 export default fetchLoginAction;

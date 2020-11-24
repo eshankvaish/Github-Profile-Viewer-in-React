@@ -1,7 +1,7 @@
-const searchAction = (payload) => {
-    return {
+const searchAction = (payload) => (
+    {
         type: 'SEARCH',
-        payload
-    };
-};
+        payload,
+    }
+);
 export default searchAction;

@@ -1,8 +1,8 @@
-const profileAction = (payload) => {
-    return  {
+const profileAction = (payload) => (
+    {
         type: 'SEARCH_PROFILE',
-        payload
-    };
-};
+        payload,
+    }
+);
 
 export default profileAction;

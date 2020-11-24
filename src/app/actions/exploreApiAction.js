@@ -1,21 +1,22 @@
-import exploreAction from './exploreAction';
 import axios from 'axios';
 
-const exploreApiAction = (lastIndexId, presentUserData, size) => {
-    return ((dispatch) => {
-        let config = {
+import exploreAction from './exploreAction';
+
+const exploreApiAction = (lastIndexId, presentUserData, size) => (
+    (dispatch) => {
+        const config = {
             method: 'get',
-            url: `https://api.github.com/users?since=${lastIndexId}`
+            url: `https://api.github.com/users?since=${lastIndexId}`,
         };
         axios(config)
-            .then(({data}) => {
-                //update the state data
+            .then(({ data }) => {
+                // update the state data
                 dispatch(exploreAction({
                     userData: [
                         ...presentUserData,
-                        ...data.slice(0,size)
+                        ...data.slice(0, size),
                     ],
-                    lastIndex: data[size-1].id,
+                    lastIndex: data[size - 1].id,
                     error: '',
                 }));
             })
@@ -24,6 +25,6 @@ const exploreApiAction = (lastIndexId, presentUserData, size) => {
                     error: 'Something Went Wrong',
                 }));
             });
-    });
-};
+    }
+);
 export default exploreApiAction;

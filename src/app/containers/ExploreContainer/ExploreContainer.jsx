@@ -13,7 +13,7 @@ const ExploreContainer = ({ authToken }) => {
         dispatch(exploreApiAction(lastIndexId, presentUserData, size));
     };
     // First call to fetch data
-    useEffect(() => fetchData());
+    useEffect(() => fetchData(), []);
 
     // Function for deleting a suggestion
     const handleDeleteUser = (username) => {
@@ -32,7 +32,7 @@ const ExploreContainer = ({ authToken }) => {
             handleDeleteUser={handleDeleteUser}
             handleRefresh={handleRefresh}
             userData={exploreState.userData}
-            erorr={exploreState.error}
+            error={exploreState.error}
             handleFollow={handleFollow}
             loading={exploreState.loading}
         />

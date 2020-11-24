@@ -8,7 +8,9 @@ import FormErrors from '../FormErrors/FormErrors';
 import Loading from '../UI/Loading/Loading';
 import Heading from '../UI/Heading/Heading';
 
-const Explore = ({userData ,handleRefresh, handleDeleteUser, error, handleFollow, loading}) => {
+const Explore = ({
+    userData, handleRefresh, handleDeleteUser, error, handleFollow, loading,
+}) => {
     const { t } = useTranslation();
 
     return (
@@ -19,9 +21,9 @@ const Explore = ({userData ,handleRefresh, handleDeleteUser, error, handleFollow
         ) : (
             <section className="explore center-container">
                 <Heading heading={t('Explore')} />
-                {/*Api Errors */}
+                {/* Api Errors */}
                 <FormErrors error={error} />
-                {/*Refresh Button */}
+                {/* Refresh Button */}
                 <ExploreRefresh handleRefresh={handleRefresh} />
                 <ExploreData
                     userData={userData}
@@ -34,11 +36,11 @@ const Explore = ({userData ,handleRefresh, handleDeleteUser, error, handleFollow
 };
 
 Explore.protoTypes = {
-    userData: PropTypes.array,
-    handleRefresh: PropTypes.func,
-    handleDeleteUser: PropTypes.func,
-    handleFollow: PropTypes.func,
-    loading: PropTypes.bool
+    userData: PropTypes.instanceOf(Array).isRequired,
+    handleRefresh: PropTypes.func.isRequired,
+    handleDeleteUser: PropTypes.func.isRequired,
+    handleFollow: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired,
 };
 
 export default Explore;

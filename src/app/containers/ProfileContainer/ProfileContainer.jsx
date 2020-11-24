@@ -9,7 +9,7 @@ const ProfileContainer = ({ loginState }) => {
 
     useEffect(() => {
         dispatch(fetchLoginAction(loginState.username, loginState.authToken));
-    }, [loginState, dispatch]);
+    }, []);
 
     return <Profile loginState={loginState} />;
 };

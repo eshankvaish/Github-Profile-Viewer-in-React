@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+
 import './Followers.scss';
 import Loading from '../UI/Loading/Loading';
 import FormErrors from '../FormErrors/FormErrors';
@@ -24,8 +25,8 @@ const Followers = ({ followersState, username }) => {
 };
 
 Followers.protoType = {
-    followersState: PropTypes.object,
-    username: PropTypes.string,
+    followersState: PropTypes.instanceOf(Object).isRequired,
+    username: PropTypes.string.isRequired,
 };
 
 export default Followers;

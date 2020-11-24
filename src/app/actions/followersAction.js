@@ -1,8 +1,8 @@
-const followersAction = (payload) => {
-    return {
+const followersAction = (payload) => (
+    {
         type: 'FETCH_FOLLOWERS',
-        payload
-    };
-};
+        payload,
+    }
+);
 
 export default followersAction;

@@ -10,7 +10,7 @@ function App() {
     const { i18n } = useTranslation();
     const loginState = useSelector((state) => state.loginState);
 
-    useEffect(() => i18n.changeLanguage(navigator.language || navigator.userLanguage), [i18n]);
+    useEffect(() => i18n.changeLanguage(navigator.language || navigator.userLanguage), []);
 
     return (
         <BrowserRouter>

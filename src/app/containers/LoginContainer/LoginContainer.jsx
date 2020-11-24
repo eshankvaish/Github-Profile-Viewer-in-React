@@ -10,7 +10,7 @@ const LoginContainer = ({ history, loginState }) => {
         if (loginState.isLoggedIn) {
             history.push('/profile');
         }
-    }, [loginState.isLoggedIn, history]);
+    }, [loginState.isLoggedIn]);
 
     const dispatch = useDispatch();
 

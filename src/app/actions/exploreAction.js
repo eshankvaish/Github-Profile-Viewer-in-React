@@ -1,8 +1,8 @@
-const exploreAction = (payload) => {
-    return {
+const exploreAction = (payload) => (
+    {
         type: 'UPDATE_STATE',
-        payload
-    };
-};
+        payload,
+    }
+);
 
 export default exploreAction;
