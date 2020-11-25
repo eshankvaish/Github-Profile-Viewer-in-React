@@ -2,7 +2,8 @@
 
 .followers-list {
     @include flexbox(row, space-evenly);
-    padding: 40px 0;
+    padding: 10px 0;
+    width: 100%;
 }
 .no-followers {
     padding: 20px 0;

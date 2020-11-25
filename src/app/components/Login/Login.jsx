@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import './Login.scss';
 import FormErrors from '../FormErrors/FormErrors';
-import LoginForm from './LoginForm/LoginForm';
 import Processing from '../UI/Processing/Processing';
 import Heading from '../UI/Heading/Heading';
+import LoginInputField from './LoginInputField/LoginInputField';
+import Button from '../UI/Button/Button';
 
 const Login = ({
     inputFieldState, buttonState, handleSubmit, error, loading,
@@ -18,11 +19,10 @@ const Login = ({
                 <Heading heading={t('Login')} />
                 {loading ? <Processing /> : ''}
                 <FormErrors error={error} />
-                <LoginForm
-                    inputFieldState={inputFieldState}
-                    buttonState={buttonState}
-                    handleSubmit={handleSubmit}
-                />
+                <form className="login__form" onSubmit={handleSubmit}>
+                    <LoginInputField inputFieldState={inputFieldState} />
+                    <Button {...buttonState} />
+                </form>
             </div>
         </section>
     );

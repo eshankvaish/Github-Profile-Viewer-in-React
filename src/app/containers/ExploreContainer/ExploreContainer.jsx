@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import exploreApiAction from '../../actions/exploreApiAction';
 import Explore from '../../components/Explore/Explore';
@@ -37,6 +38,10 @@ const ExploreContainer = ({ authToken }) => {
             loading={exploreState.loading}
         />
     );
+};
+
+ExploreContainer.propTypes = {
+    authToken: PropTypes.string.isRequired,
 };
 
 export default ExploreContainer;

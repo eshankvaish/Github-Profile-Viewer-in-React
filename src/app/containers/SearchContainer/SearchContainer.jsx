@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import searchApiAction from '../../actions/searchApiAction';
 import searchAction from '../../actions/searchAction';
@@ -61,4 +62,9 @@ const SearchContainer = ({ history }) => {
         />
     );
 };
+
+SearchContainer.propTypes = {
+    history: PropTypes.instanceOf(Object).isRequired,
+};
+
 export default SearchContainer;

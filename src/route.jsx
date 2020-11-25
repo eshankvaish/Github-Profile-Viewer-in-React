@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import LoginScene from './app/scenes/LoginScene/LoginScene';
 import HomeScene from './app/scenes/HomeScene/HomeScene';
 import ProfileScene from './app/scenes/ProfileScene/ProfileScene';
@@ -36,4 +38,9 @@ const Routes = ({ loginState }) => (
         <Route exact path="/:username" component={SearchProfileScene} />
     </Switch>
 );
+
+Routes.propTypes = {
+    loginState: PropTypes.instanceOf(Object).isRequired,
+};
+
 export default Routes;

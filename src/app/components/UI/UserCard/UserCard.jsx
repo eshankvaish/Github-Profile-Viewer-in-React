@@ -33,7 +33,7 @@ const UserCard = ({
             </div>
             {followButton ? (
                 <div className="user-card__follow">
-                    <button type="submit" aria-label="Follow" onClick={() => handleFollow(user.login)}>{t('Follow')}</button>
+                    <button type="submit" className="user-card__follow--button" aria-label="Follow" onClick={() => handleFollow(user.login)}>{t('Follow')}</button>
                 </div>
             ) : '' }
         </li>
@@ -50,7 +50,7 @@ UserCard.propTypes = {
 UserCard.defaultProps = {
     handleDeleteUser: () => {},
     handleFollow: () => {},
-    followButton: () => {},
+    followButton: false,
 };
 
 export default UserCard;

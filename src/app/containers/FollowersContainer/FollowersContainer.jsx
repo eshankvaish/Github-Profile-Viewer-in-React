@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Followers from '../../components/Followers/Followers';
 import followersApiAction from '../../actions/followersApiAction';
@@ -14,6 +15,10 @@ const FollowersContainer = ({ match }) => {
     }, []);
 
     return <Followers followersState={followersState} username={username} />;
+};
+
+FollowersContainer.propTypes = {
+    match: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default FollowersContainer;

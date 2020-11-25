@@ -23,7 +23,7 @@ const ExploreData = ({ userData, handleDeleteUser, handleFollow }) => {
     );
 };
 
-ExploreData.protoTypes = {
+ExploreData.propTypes = {
     userData: PropTypes.instanceOf(Array).isRequired,
     handleDeleteUser: PropTypes.func.isRequired,
     handleFollow: PropTypes.func.isRequired,

@@ -10,10 +10,10 @@ const SearchForm = ({ handleSubmit, inputState, buttonState }) => (
     </form>
 );
 
-SearchForm.protoTypes = {
-    handleSubmit: PropTypes.func,
-    inputState: PropTypes.object,
-    buttonState: PropTypes.object,
+SearchForm.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+    inputState: PropTypes.instanceOf(Object).isRequired,
+    buttonState: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default SearchForm;

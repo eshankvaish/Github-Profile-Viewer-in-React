@@ -12,4 +12,13 @@
             padding: 40px;
         }
     }
+    &__form {
+        &--field {
+            margin: 20px 0;
+        }
+        &--submit-field {
+            text-align: right;
+            margin: 20px 0 0;
+        }
+    }
 }

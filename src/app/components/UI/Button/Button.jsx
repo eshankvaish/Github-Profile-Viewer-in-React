@@ -11,6 +11,7 @@ const Button = ({
     return (
         <div className={containerClassName}>
             <button
+                // eslint-disable-next-line react/button-has-type
                 type={type}
                 aria-label={label || ariaLabel}
                 className={className}

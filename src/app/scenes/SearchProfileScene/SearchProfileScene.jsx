@@ -2,8 +2,8 @@ import React from 'react';
 
 import SearchProfileContainer from '../../containers/SearchProfileContainer/SearchProfileContainer';
 
-const SearchProfileScene = ({ match }) => (
-    <SearchProfileContainer username={match.params} />
+const SearchProfileScene = (props) => (
+    <SearchProfileContainer {...props} />
 );
 
 export default SearchProfileScene;

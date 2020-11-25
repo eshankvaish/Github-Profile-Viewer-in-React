@@ -32,13 +32,13 @@ const Search = ({
     );
 };
 
-Search.protoTypes = {
-    handleSubmit: PropTypes.func,
-    error: PropTypes.string,
-    inputState: PropTypes.instanceOf(Object),
-    buttonState: PropTypes.instanceOf(Object),
-    loading: PropTypes.bool,
-    suggestions: PropTypes.instanceOf(Array),
+Search.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+    error: PropTypes.string.isRequired,
+    inputState: PropTypes.instanceOf(Object).isRequired,
+    buttonState: PropTypes.instanceOf(Object).isRequired,
+    loading: PropTypes.bool.isRequired,
+    suggestions: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default Search;

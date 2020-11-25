@@ -13,7 +13,9 @@ const FollowersList = ({ followers }) => {
 
     return (
         followers.length ? (
-            followersItem
+            <ul className="followers-list">
+                {followersItem}
+            </ul>
         ) : (
             <div className="no-followers">
                 {t('Nothing to show')}

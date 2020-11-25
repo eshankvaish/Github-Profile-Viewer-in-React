@@ -3,6 +3,7 @@
 .explore-data {
     @include flexbox(row, space-evenly);
     padding: 10px 0;
+    width: 100%;
 
     @include breakpoint-tablet {
         padding: 30px 0;

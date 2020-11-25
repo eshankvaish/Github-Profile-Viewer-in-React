@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import loginAction from '../../actions/loginAction';
 import fetchLoginAction from '../../actions/fetchLoginAction';
@@ -70,4 +71,10 @@ const LoginContainer = ({ history, loginState }) => {
         />
     );
 };
+
+LoginContainer.propTypes = {
+    history: PropTypes.instanceOf(Object).isRequired,
+    loginState: PropTypes.instanceOf(Object).isRequired,
+};
+
 export default LoginContainer;

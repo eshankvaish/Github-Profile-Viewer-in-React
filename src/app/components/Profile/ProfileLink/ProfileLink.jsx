@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './ProfileLink.scss';
 
@@ -9,5 +10,9 @@ const ProfileLink = ({ profileLink }) => (
         </a>
     </div>
 );
+
+ProfileLink.propTypes = {
+    profileLink: PropTypes.string.isRequired,
+};
 
 export default ProfileLink;

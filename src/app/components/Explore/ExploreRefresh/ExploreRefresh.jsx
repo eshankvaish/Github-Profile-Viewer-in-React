@@ -2,17 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
+import Button from '../../UI/Button/Button';
+
 const ExploreRefresh = ({ handleRefresh }) => {
     const { t } = useTranslation();
     return (
-        <button type="submit" onClick={handleRefresh}>
-            {t('Refresh')}
-            <i className="icon icon-refresh explore__refresh--icon" />
-        </button>
+        <Button
+            type="submit"
+            className="icon icon-refresh"
+            handleClick={handleRefresh}
+            label={t('Refresh')}
+        />
     );
 };
 
-ExploreRefresh.protoTypes = {
+ExploreRefresh.propTypes = {
     handleRefresh: PropTypes.func.isRequired,
 };
 

@@ -7,7 +7,7 @@
     border-radius: 15px;
     background-color: $divider-color;
     background-color: $background-color;
-    margin: 10px 0;
+    margin: 10px 5px;
     max-width: 300px;
 
     @include breakpoint-tablet {
@@ -27,6 +27,7 @@
         &--icon {
             padding: 5px;
             margin: auto;
+            border-radius: 50%;
         }
     }
     &__avatar {
@@ -40,5 +41,9 @@
     }
     &__follow {
         text-align: center;
+
+        &--button {
+            margin: auto;
+        }
     }
 }
