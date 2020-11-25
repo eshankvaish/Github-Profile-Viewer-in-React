@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -19,10 +19,21 @@ const SearchContainer = ({ history }) => {
     });
     const searchSuggestion = (value) => dispatch(searchSuggestionAction(value));
     // Debounce Function to prevent excessive API calls
-    const debounceSuggestion = debounceFunction(searchSuggestion, 1000);
+    const debounceSuggestion = useCallback(debounceFunction(searchSuggestion, 1000), []);
+
+    const [inputState, setInputState] = useState({
+        type: 'search',
+        label: 'Search Username',
+        name: 'username',
+        id: 'username',
+        placeholder: 'Enter Username',
+        className: '',
+    });
 
     const handleChange = (e) => {
+        // Update search value in store
         dispatch(searchAction({
+            ...searchState,
             username: e.target.value,
         }));
         if (e.target.value) {
@@ -33,15 +44,31 @@ const SearchContainer = ({ history }) => {
                 suggestions: [],
             }));
         }
+        // Remove the errors and red border
+        if (e.target.value) {
+            setInputState({
+                ...inputState,
+                className: '',
+                fieldError: '',
+            });
+        }
     };
-    const [inputState] = useState({
-        type: 'search',
-        label: 'Search Username',
-        name: 'username',
-        id: 'username',
-        placeholder: 'Enter Username',
-        handleChange,
-    });
+
+    const handleBlur = (e) => {
+        if (!e.target.value) {
+            setInputState({
+                ...inputState,
+                className: 'border-red',
+                fieldError: 'This field is required!',
+            });
+        }
+        // Remove the suggestion dropdown
+        setTimeout(() => (
+            dispatch(searchAction({
+                suggestions: [],
+            }))
+        ), 200);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -54,6 +81,8 @@ const SearchContainer = ({ history }) => {
     return (
         <Search
             handleSubmit={handleSubmit}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
             error={searchState.error}
             inputState={inputState}
             buttonState={buttonState}

@@ -9,7 +9,7 @@ import LoginInputField from './LoginInputField/LoginInputField';
 import Button from '../UI/Button/Button';
 
 const Login = ({
-    inputFieldState, buttonState, handleSubmit, error, loading,
+    inputFieldState, buttonState, handleSubmit, error, loading, handleChange, handleBlur,
 }) => {
     const { t } = useTranslation();
 
@@ -20,7 +20,11 @@ const Login = ({
                 {loading ? <Processing /> : ''}
                 <FormErrors error={error} />
                 <form className="login__form" onSubmit={handleSubmit}>
-                    <LoginInputField inputFieldState={inputFieldState} />
+                    <LoginInputField
+                        inputFieldState={inputFieldState}
+                        handleChange={handleChange}
+                        handleBlur={handleBlur}
+                    />
                     <Button {...buttonState} />
                 </form>
             </div>
@@ -29,11 +33,13 @@ const Login = ({
 };
 
 Login.propTypes = {
-    inputFieldState: PropTypes.instanceOf(Array).isRequired,
-    buttonState: PropTypes.instanceOf(Array).isRequired,
+    inputFieldState: PropTypes.instanceOf(Object).isRequired,
+    buttonState: PropTypes.instanceOf(Object).isRequired,
     handleSubmit: PropTypes.func.isRequired,
+    handleChange: PropTypes.func.isRequired,
     error: PropTypes.string.isRequired,
     loading: PropTypes.bool.isRequired,
+    handleBlur: PropTypes.func.isRequired,
 };
 
 export default Login;

@@ -15,15 +15,9 @@ const LoginContainer = ({ history, loginState }) => {
 
     const dispatch = useDispatch();
 
-    const handleChange = (e) => {
-        dispatch(loginAction({
-            [e.target.id]: e.target.value,
-        }));
-    };
-
     // Input Field State
-    const [inputFieldState] = useState([
-        {
+    const [inputFieldState, setInputFieldState] = useState({
+        username: {
             containerClassName: 'login__form--field',
             id: 'username',
             name: 'Username',
@@ -31,9 +25,10 @@ const LoginContainer = ({ history, loginState }) => {
             type: 'text',
             className: 'login__form--input',
             placeholder: 'Enter Username',
-            handleChange,
+            value: '',
+            fieldError: '',
         },
-        {
+        authToken: {
             containerClassName: 'login__form--field',
             id: 'authToken',
             name: 'authToken',
@@ -41,9 +36,46 @@ const LoginContainer = ({ history, loginState }) => {
             type: 'password',
             className: 'login__form--input',
             placeholder: 'Enter Access Token',
-            handleChange,
+            value: '',
+            fieldError: '',
         },
-    ]);
+    });
+
+    const handleChange = (e) => {
+        if (e.target.value) {
+            setInputFieldState({
+                ...inputFieldState,
+                [e.target.id]: {
+                    ...inputFieldState[e.target.id],
+                    value: e.target.value,
+                    className: 'login__form--input',
+                    fieldError: '',
+                },
+            });
+        } else {
+            setInputFieldState({
+                ...inputFieldState,
+                [e.target.id]: {
+                    ...inputFieldState[e.target.id],
+                    value: e.target.value,
+                },
+            });
+        }
+    };
+
+    const handleBlur = (e) => {
+        if (!e.target.value) {
+            setInputFieldState({
+                ...inputFieldState,
+                [e.target.id]: {
+                    ...inputFieldState[e.target.id],
+                    className: 'login__form--input border-red',
+                    fieldError: 'This field is required!',
+                },
+            });
+        }
+    };
+
     // Submit Button
     const [buttonState] = useState({
         type: 'submit',
@@ -58,7 +90,8 @@ const LoginContainer = ({ history, loginState }) => {
         dispatch(loginAction({
             loading: true,
         }));
-        dispatch(fetchLoginAction(loginState.username, loginState.authToken));
+
+        dispatch(fetchLoginAction(inputFieldState.username.value, inputFieldState.authToken.value));
     };
 
     return (
@@ -66,6 +99,8 @@ const LoginContainer = ({ history, loginState }) => {
             inputFieldState={inputFieldState}
             buttonState={buttonState}
             handleSubmit={handleSubmit}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
             error={loginState.error}
             loading={loginState.loading}
         />

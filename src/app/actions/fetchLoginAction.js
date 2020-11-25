@@ -16,6 +16,8 @@ const fetchLoginAction = (username, authToken) => (
                 if (data.login === username) {
                     // Login Successful
                     dispatch(loginAction({
+                        username,
+                        authToken,
                         name: cleanData(data.name),
                         avatar: cleanData(data.avatar_url),
                         location: cleanData(data.location),

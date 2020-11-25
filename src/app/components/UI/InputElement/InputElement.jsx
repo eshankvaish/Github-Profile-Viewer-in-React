@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next';
 import './InputElement.scss';
 
 const InputElement = ({
-    type, id, name, className, placeholder, containerClassName, label, handleChange, handleBlur,
+    type, id, name, className, placeholder, containerClassName, label,
+    fieldError, handleChange, handleBlur,
 }) => {
     const { t } = useTranslation();
     return (
@@ -22,6 +23,9 @@ const InputElement = ({
                 onBlur={handleBlur}
                 required
             />
+            {fieldError
+                ? <div className="input-field__error">{fieldError}</div>
+                : '' }
         </div>
     );
 };
@@ -36,6 +40,7 @@ InputElement.propTypes = {
     label: PropTypes.string,
     placeholder: PropTypes.string,
     handleBlur: PropTypes.func,
+    fieldError: PropTypes.string,
 };
 
 InputElement.defaultProps = {
@@ -48,6 +53,7 @@ InputElement.defaultProps = {
     label: '',
     placeholder: '',
     handleBlur: () => {},
+    fieldError: '',
 };
 
 export default InputElement;

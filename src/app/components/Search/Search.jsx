@@ -9,7 +9,8 @@ import SearchSuggestionList from './SearchSuggestionList/SearchSuggestionList';
 import Heading from '../UI/Heading/Heading';
 
 const Search = ({
-    handleSubmit, error, inputState, buttonState, loading, suggestions,
+    handleSubmit, error, inputState, buttonState, loading, suggestions, handleChange,
+    handleBlur,
 }) => {
     const { t } = useTranslation();
 
@@ -23,9 +24,13 @@ const Search = ({
                     <SearchForm
                         handleSubmit={handleSubmit}
                         inputState={inputState}
+                        handleChange={handleChange}
+                        handleBlur={handleBlur}
                         buttonState={buttonState}
                     />
-                    <SearchSuggestionList suggestions={suggestions} />
+                    <SearchSuggestionList
+                        suggestions={suggestions}
+                    />
                 </div>
             </div>
         </section>
@@ -34,6 +39,8 @@ const Search = ({
 
 Search.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    handleBlur: PropTypes.func.isRequired,
     error: PropTypes.string.isRequired,
     inputState: PropTypes.instanceOf(Object).isRequired,
     buttonState: PropTypes.instanceOf(Object).isRequired,

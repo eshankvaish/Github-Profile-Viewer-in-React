@@ -1,9 +1,8 @@
 const debounceFunction = (fn, t) => {
     let timer;
-    return function (...args) {
-        const context = this;
+    return function debouncedFunction(...args) {
         clearTimeout(timer);
-        timer = setTimeout(() => fn.apply(context, args), t);
+        timer = setTimeout(() => fn.apply(this, args), t);
     };
 };
 
