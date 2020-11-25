@@ -15,10 +15,10 @@ const Followers = ({ followersState, username }) => {
             <Loading />
         </div>
     ) : (
-        <div className="followers center-container">
-            <Heading heading={`${t(followersState.title)} - ${username}`} />
-            <FormErrors error={followersState.error} />
-            <FollowersList followers={followersState.followersData} />
+        <div className="followers center-container" data-test="followers">
+            <Heading heading={`${t(followersState.title)} - ${username}`} data-test="heading" />
+            <FormErrors error={followersState.error} data-test="form-errors" />
+            <FollowersList followers={followersState.followersData} data-test="follower-list" />
         </div>
     );
     return followersData;

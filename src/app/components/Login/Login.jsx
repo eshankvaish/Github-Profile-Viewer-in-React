@@ -14,18 +14,19 @@ const Login = ({
     const { t } = useTranslation();
 
     return (
-        <section className="login center-container">
+        <section className="login center-container" data-test="login">
             <div className="login-container">
-                <Heading heading={t('Login')} />
+                <Heading heading={t('Login')} data-test="heading" />
                 {loading ? <Processing /> : ''}
-                <FormErrors error={error} />
-                <form className="login__form" onSubmit={handleSubmit}>
+                <FormErrors error={error} data-test="form-errors" />
+                <form className="login__form" onSubmit={handleSubmit} data-test="login-form">
                     <LoginInputField
                         inputFieldState={inputFieldState}
                         handleChange={handleChange}
                         handleBlur={handleBlur}
+                        data-test="login-input-field"
                     />
-                    <Button {...buttonState} />
+                    <Button {...buttonState} data-test="login-submit-button" />
                 </form>
             </div>
         </section>

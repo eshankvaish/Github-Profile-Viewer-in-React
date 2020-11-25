@@ -8,15 +8,16 @@ import NavList from './NavList/NavList';
 const Navbar = ({
     navbarState, handleToggle, navList, handleClick,
 }) => (
-    <header>
-        <nav className="nav center-container">
+    <header data-test="top-navbar">
+        <nav className="nav center-container" data-test="top-nav">
             {/* Nav Logo */}
-            <div className="nav__logo">
+            <div className="nav__logo" data-test="nav-logo">
                 <NavLogoItem />
                 <NavToggle navbarState={navbarState} handleToggle={handleToggle} />
             </div>
             {/* Nav List Item */}
             <NavList
+                data-test="nav-list"
                 navbarState={navbarState}
                 navList={navList}
                 handleClick={handleClick}
