@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import './Login.scss';
 import FormErrors from '../FormErrors/FormErrors';
-import Processing from '../UI/Processing/Processing';
+import Loading from '../UI/Loading/Loading';
 import Heading from '../UI/Heading/Heading';
 import LoginInputField from './LoginInputField/LoginInputField';
 import Button from '../UI/Button/Button';
@@ -17,7 +17,7 @@ const Login = ({
         <section className="login center-container" data-test="login">
             <div className="login-container">
                 <Heading heading={t('Login')} data-test="heading" />
-                {loading ? <Processing data-test="loading" /> : ''}
+                {loading ? <Loading data-test="loading" /> : ''}
                 <FormErrors error={error} data-test="form-errors" />
                 <form className="login__form" onSubmit={handleSubmit} data-test="login-form">
                     <LoginInputField

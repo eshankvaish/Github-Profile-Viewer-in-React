@@ -1,12 +1,14 @@
 import axios from 'axios';
+
 import cleanData from '../utils/cleanData';
 import loginAction from './loginAction';
+import GITHUB_API_URL from '../../conf';
 
 const fetchLoginAction = (username, authToken) => (
     (dispatch) => {
         const apiData = {
             method: 'get',
-            url: 'https://api.github.com/user',
+            url: `${GITHUB_API_URL}user`,
             headers: {
                 Authorization: `token ${authToken}`,
             },

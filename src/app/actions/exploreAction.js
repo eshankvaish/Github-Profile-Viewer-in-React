@@ -1,6 +1,8 @@
+import { UPDATE_STATE } from './actionTypes';
+
 const exploreAction = (payload) => (
     {
-        type: 'UPDATE_STATE',
+        type: UPDATE_STATE,
         payload,
     }
 );

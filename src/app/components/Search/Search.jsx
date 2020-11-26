@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import './Search.scss';
 import FormErrors from '../FormErrors/FormErrors';
 import SearchForm from './SearchForm/SearchForm';
-import Processing from '../UI/Processing/Processing';
+import Loading from '../UI/Loading/Loading';
 import SearchSuggestionList from './SearchSuggestionList/SearchSuggestionList';
 import Heading from '../UI/Heading/Heading';
 
@@ -18,7 +18,7 @@ const Search = ({
         <section className="search center-container" data-test="search">
             <div className="search-container">
                 <Heading heading={t('Search')} data-test="heading" />
-                {loading ? <Processing data-test="loading" /> : ''}
+                {loading ? <Loading data-test="loading" /> : ''}
                 <FormErrors error={error} data-test="form-errors" />
                 <div className="search-form__container">
                     <SearchForm

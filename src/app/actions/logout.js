@@ -1,6 +1,8 @@
+import { LOGOUT } from './actionTypes';
+
 const logout = () => (
     {
-        type: 'LOGOUT',
+        type: LOGOUT,
     }
 );
 export default logout;

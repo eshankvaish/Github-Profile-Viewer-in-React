@@ -1,11 +1,13 @@
 import axios from 'axios';
+
 import exploreAction from './exploreAction';
+import GITHUB_API_URL from '../../conf';
 
 const followAction = (username, authToken, handleDeleteUser) => (
     (dispatch) => {
         const config = {
             method: 'put',
-            url: `https://api.github.com/user/following/${username}`,
+            url: `${GITHUB_API_URL}user/following/${username}`,
             headers: {
                 Authorization: `token ${authToken}`,
             },

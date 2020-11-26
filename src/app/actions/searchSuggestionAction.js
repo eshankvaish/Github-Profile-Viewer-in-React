@@ -1,10 +1,11 @@
 import axios from 'axios';
 
 import searchAction from './searchAction';
+import GITHUB_API_URL from '../../conf';
 
 const searchSuggestionAction = (value) => (
     (dispatch) => {
-        axios.get(`https://api.github.com/search/users?q=${value}`)
+        axios.get(`${GITHUB_API_URL}search/users?q=${value}`)
             .then(({ data }) => {
                 dispatch(searchAction({
                     suggestions: data.items.slice(0, 5),

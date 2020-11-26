@@ -3,6 +3,9 @@ import profileReducer from './profileReducer';
 import searchReducer from './searchReducer';
 import followersReducer from './followersReducer';
 import exploreReducer from './exploreReducer';
+import {
+    FETCH_FOLLOWERS, LOGIN, LOGOUT, SEARCH, SEARCH_PROFILE, UPDATE_STATE,
+} from '../actions/actionTypes';
 
 // Login Reducer
 describe('Login Reducer', () => {
@@ -63,7 +66,7 @@ describe('Login Reducer', () => {
             loading: true,
         };
         const newState = loginReducer(undefined, {
-            type: 'LOGIN',
+            type: LOGIN,
             payload: expectedState,
         });
         expect(newState).toEqual(expectedState);
@@ -75,7 +78,7 @@ describe('Login Reducer', () => {
             error: '',
         };
         const newState = loginReducer(initialState, {
-            type: 'LOGOUT',
+            type: LOGOUT,
         });
         expect(newState).toEqual(expectedState);
     });
@@ -117,7 +120,7 @@ describe('Profile Reducer', () => {
             loading: false,
         };
         const newState = profileReducer(undefined, {
-            type: 'SEARCH_PROFILE',
+            type: SEARCH_PROFILE,
             payload: expectedState,
         });
         expect(newState).toEqual(expectedState);
@@ -154,7 +157,7 @@ describe('Search Reducer', () => {
             }],
         };
         const newState = searchReducer(undefined, {
-            type: 'SEARCH',
+            type: SEARCH,
             payload: expectedState,
         });
         expect(newState).toEqual(expectedState);
@@ -191,7 +194,7 @@ describe('Followers Reducer', () => {
             }],
         };
         const newState = followersReducer(undefined, {
-            type: 'FETCH_FOLLOWERS',
+            type: FETCH_FOLLOWERS,
             payload: expectedState,
         });
         expect(newState).toEqual(expectedState);
@@ -228,7 +231,7 @@ describe('Explore Reducer', () => {
             lastIndex: 10,
         };
         const newState = exploreReducer(undefined, {
-            type: 'UPDATE_STATE',
+            type: UPDATE_STATE,
             payload: expectedState,
         });
         expect(newState).toEqual(expectedState);

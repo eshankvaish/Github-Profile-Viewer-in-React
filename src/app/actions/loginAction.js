@@ -1,6 +1,8 @@
+import { LOGIN } from './actionTypes';
+
 const loginAction = (payload) => (
     {
-        type: 'LOGIN',
+        type: LOGIN,
         payload,
     }
 );

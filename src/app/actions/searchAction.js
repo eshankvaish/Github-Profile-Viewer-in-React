@@ -1,6 +1,8 @@
+import { SEARCH } from './actionTypes';
+
 const searchAction = (payload) => (
     {
-        type: 'SEARCH',
+        type: SEARCH,
         payload,
     }
 );
