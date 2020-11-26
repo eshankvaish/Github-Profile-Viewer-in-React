@@ -48,7 +48,7 @@ describe('Login Component', () => {
                     id: 'login-button',
                 },
                 error: '',
-                loading: false,
+                loading: true,
                 handleBlur: () => {},
                 handleChange: () => {},
                 handleSubmit: () => {},
@@ -70,16 +70,24 @@ describe('Login Component', () => {
             const wrapper = findByTestAttr(component, 'form-errors');
             expect(wrapper.length).toBe(1);
         });
+
         it('Should render a login form', () => {
             const wrapper = findByTestAttr(component, 'login-form');
             expect(wrapper.length).toBe(1);
         });
+
         it('Should render login input field', () => {
             const wrapper = findByTestAttr(component, 'login-input-field');
             expect(wrapper.length).toBe(1);
         });
+
         it('Should render a submit button', () => {
             const wrapper = findByTestAttr(component, 'login-submit-button');
+            expect(wrapper.length).toBe(1);
+        });
+
+        it('Should render loading', () => {
+            const wrapper = findByTestAttr(component, 'loading');
             expect(wrapper.length).toBe(1);
         });
     });

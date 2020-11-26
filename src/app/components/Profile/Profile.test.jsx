@@ -43,5 +43,10 @@ describe('Profile Component', () => {
             const wrapper = findByTestAttr(component, 'user-profile');
             expect(wrapper.length).toBe(1);
         });
+
+        it('Should not render loading', () => {
+            const wrapper = findByTestAttr(component, 'loading');
+            expect(wrapper.length).toBe(0);
+        });
     });
 });

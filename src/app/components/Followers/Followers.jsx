@@ -12,7 +12,7 @@ const Followers = ({ followersState, username }) => {
     const { t } = useTranslation();
     const followersData = followersState.loading ? (
         <div className="followers center-container">
-            <Loading />
+            <Loading data-test="loading" />
         </div>
     ) : (
         <div className="followers center-container" data-test="followers">

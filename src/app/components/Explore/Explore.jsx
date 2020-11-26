@@ -16,19 +16,20 @@ const Explore = ({
     return (
         loading ? (
             <section className="explore center-container">
-                <Loading />
+                <Loading data-test="loading" />
             </section>
         ) : (
-            <section className="explore center-container">
-                <Heading heading={t('Explore')} />
+            <section className="explore center-container" data-test="explore">
+                <Heading heading={t('Explore')} data-test="heading" />
                 {/* Api Errors */}
-                <FormErrors error={error} />
+                <FormErrors error={error} data-test="form-errors" />
                 {/* Refresh Button */}
-                <ExploreRefresh handleRefresh={handleRefresh} />
+                <ExploreRefresh handleRefresh={handleRefresh} data-test="explore-refresh" />
                 <ExploreData
                     userData={userData}
                     handleDeleteUser={handleDeleteUser}
                     handleFollow={handleFollow}
+                    data-test="explore-data"
                 />
             </section>
         )

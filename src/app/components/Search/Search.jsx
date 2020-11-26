@@ -15,11 +15,11 @@ const Search = ({
     const { t } = useTranslation();
 
     return (
-        <section className="search center-container">
+        <section className="search center-container" data-test="search">
             <div className="search-container">
-                <Heading heading={t('Search')} />
-                {loading ? <Processing /> : ''}
-                <FormErrors error={error} />
+                <Heading heading={t('Search')} data-test="heading" />
+                {loading ? <Processing data-test="loading" /> : ''}
+                <FormErrors error={error} data-test="form-errors" />
                 <div className="search-form__container">
                     <SearchForm
                         handleSubmit={handleSubmit}
@@ -27,9 +27,11 @@ const Search = ({
                         handleChange={handleChange}
                         handleBlur={handleBlur}
                         buttonState={buttonState}
+                        data-test="search-form"
                     />
                     <SearchSuggestionList
                         suggestions={suggestions}
+                        data-test="search-suggestion"
                     />
                 </div>
             </div>

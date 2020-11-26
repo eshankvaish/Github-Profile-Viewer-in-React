@@ -17,7 +17,7 @@ const Login = ({
         <section className="login center-container" data-test="login">
             <div className="login-container">
                 <Heading heading={t('Login')} data-test="heading" />
-                {loading ? <Processing /> : ''}
+                {loading ? <Processing data-test="loading" /> : ''}
                 <FormErrors error={error} data-test="form-errors" />
                 <form className="login__form" onSubmit={handleSubmit} data-test="login-form">
                     <LoginInputField

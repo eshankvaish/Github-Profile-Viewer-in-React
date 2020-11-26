@@ -46,6 +46,7 @@ describe('Navbar Component', () => {
             const wrapper = findByTestAttr(component, 'nav-logo');
             expect(wrapper.length).toBe(1);
         });
+
         it('Should render a Nav List', () => {
             const wrapper = findByTestAttr(component, 'nav-list');
             expect(wrapper.length).toBe(1);

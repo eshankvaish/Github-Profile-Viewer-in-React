@@ -1,19 +1,23 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Followers from './Followers';
+import Explore from './Explore';
 import { findByTestAttr, checkProps } from '../../utils/testUtils';
 
-const setUp = (props = {}) => shallow(<Followers {...props} />);
+const setUp = (props = {}) => shallow(<Explore {...props} />);
 
 describe('Followers Component', () => {
     describe('Checking PropTypes', () => {
         it('Should not throw a warning', () => {
             const expectedProps = {
-                followersState: {},
-                username: '',
+                userData: [],
+                handleRefresh: () => {},
+                handleDeleteUser: () => {},
+                handleFollow: () => {},
+                loading: false,
+                error: '',
             };
-            const propsErr = checkProps(Followers, expectedProps);
+            const propsErr = checkProps(Explore, expectedProps);
             expect(propsErr).toBeUndefined();
         });
     });
@@ -22,19 +26,18 @@ describe('Followers Component', () => {
         let component;
         beforeEach(() => {
             const props = {
-                followersState: {
-                    loading: false,
-                    followersData: [],
-                    error: 'Something went wrong',
-                    title: 'Followers',
-                },
-                username: 'Test User',
+                userData: [],
+                handleRefresh: () => {},
+                handleDeleteUser: () => {},
+                handleFollow: () => {},
+                loading: false,
+                error: 'Something went wrong',
             };
             component = setUp(props);
         });
 
         it('Should render without errors', () => {
-            const wrapper = findByTestAttr(component, 'followers');
+            const wrapper = findByTestAttr(component, 'explore');
             expect(wrapper.length).toBe(1);
         });
 
@@ -48,8 +51,13 @@ describe('Followers Component', () => {
             expect(wrapper.length).toBe(1);
         });
 
-        it('Should render Followers List', () => {
-            const wrapper = findByTestAttr(component, 'follower-list');
+        it('Should render Refresh Button', () => {
+            const wrapper = findByTestAttr(component, 'explore-refresh');
+            expect(wrapper.length).toBe(1);
+        });
+
+        it('Should render Explore Data', () => {
+            const wrapper = findByTestAttr(component, 'explore-refresh');
             expect(wrapper.length).toBe(1);
         });
 
