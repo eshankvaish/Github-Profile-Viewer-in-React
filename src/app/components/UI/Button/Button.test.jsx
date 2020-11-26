@@ -44,7 +44,7 @@ describe('Button Component', () => {
             expect(wrapper.length).toBe(1);
         });
 
-        it('Should render a heading', () => {
+        it('Should render a button', () => {
             const wrapper = findByTestAttr(component, 'button');
             expect(wrapper.length).toBe(1);
         });

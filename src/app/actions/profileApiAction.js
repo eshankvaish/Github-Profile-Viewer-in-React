@@ -2,13 +2,13 @@ import axios from 'axios';
 
 import profileAction from './profileAction';
 import cleanData from '../utils/cleanData';
-import GITHUB_API_URL from '../../conf';
+import { SEARCH_PROFILE_API } from '../../conf';
 
 const profileApiAction = (username) => (
     (dispatch) => {
         const apiData = {
             method: 'get',
-            url: `${GITHUB_API_URL}users/${username}`,
+            url: `${SEARCH_PROFILE_API(username)}`,
         };
         axios(apiData)
             .then(({ data }) => {

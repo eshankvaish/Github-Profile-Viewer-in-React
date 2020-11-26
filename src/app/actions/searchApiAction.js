@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 import searchAction from './searchAction';
-import GITHUB_API_URL from '../../conf';
+import { SEARCH_PROFILE_API } from '../../conf';
 
 const searchApiAction = (username, history) => (
     (dispatch) => {
         const config = {
             method: 'get',
-            url: `${GITHUB_API_URL}users/${username}`,
+            url: `${SEARCH_PROFILE_API(username)}`,
         };
         axios(config)
             .then(() => {

@@ -2,13 +2,13 @@ import axios from 'axios';
 
 import followersAction from './followersAction';
 import followersErrorAction from './followersErrorAction';
-import GITHUB_API_URL from '../../conf';
+import { FOLLOWERS_API } from '../../conf';
 
 const followersApiAction = (username) => (
     (dispatch) => {
         const config = {
             method: 'get',
-            url: `${GITHUB_API_URL}users/${username}/followers`,
+            url: `${FOLLOWERS_API(username)}`,
         };
         axios(config)
             .then(({ data }) => {

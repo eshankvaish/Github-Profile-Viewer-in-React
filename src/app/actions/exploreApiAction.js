@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 import exploreAction from './exploreAction';
-import GITHUB_API_URL from '../../conf';
+import { EXPLORE_API } from '../../conf';
 
 const exploreApiAction = (lastIndexId, presentUserData, size) => (
     (dispatch) => {
         const config = {
             method: 'get',
-            url: `${GITHUB_API_URL}users?since=${lastIndexId}`,
+            url: `${EXPLORE_API(lastIndexId)}`,
         };
         axios(config)
             .then(({ data }) => {
