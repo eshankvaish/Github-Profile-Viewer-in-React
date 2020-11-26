@@ -7,7 +7,7 @@ const Processing = () => {
     const { t } = useTranslation();
 
     return (
-        <div className="processing">
+        <div className="processing" data-test="processing">
             {t('Processing...')}
         </div>
     );

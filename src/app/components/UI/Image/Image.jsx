@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Image.scss';
 
-const Image = ({ className, src, alt }) => <img className={className} src={src} alt={alt} />;
+const Image = ({ className, src, alt }) => <img className={className} src={src} alt={alt} data-test="image" />;
 
 Image.propTypes = {
     className: PropTypes.string,

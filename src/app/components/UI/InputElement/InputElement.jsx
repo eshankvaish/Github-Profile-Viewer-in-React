@@ -10,8 +10,8 @@ const InputElement = ({
 }) => {
     const { t } = useTranslation();
     return (
-        <div className={containerClassName}>
-            <label htmlFor={id}>{t(label)}</label>
+        <div className={containerClassName} data-test="input-element">
+            <label htmlFor={id} data-test="input-label">{t(label)}</label>
             <input
                 type={type}
                 aria-label={name}
@@ -22,9 +22,10 @@ const InputElement = ({
                 onChange={handleChange}
                 onBlur={handleBlur}
                 required
+                data-test="input-field"
             />
             {fieldError
-                ? <div className="input-field__error">{fieldError}</div>
+                ? <div className="input-field__error" data-test="field-error">{fieldError}</div>
                 : '' }
         </div>
     );

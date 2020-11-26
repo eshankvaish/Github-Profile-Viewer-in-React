@@ -9,13 +9,14 @@ const Button = ({
 }) => {
     const { t } = useTranslation();
     return (
-        <div className={containerClassName}>
+        <div className={containerClassName} data-test="button-container">
             <button
                 // eslint-disable-next-line react/button-has-type
                 type={type}
                 aria-label={label || ariaLabel}
                 className={className}
                 onClick={handleClick}
+                data-test="button"
             >
                 {t(label)}
             </button>

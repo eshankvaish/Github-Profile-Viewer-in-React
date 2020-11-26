@@ -4,6 +4,7 @@ import searchReducer from './searchReducer';
 import followersReducer from './followersReducer';
 import exploreReducer from './exploreReducer';
 
+// Login Reducer
 describe('Login Reducer', () => {
     let initialState;
 
@@ -80,6 +81,7 @@ describe('Login Reducer', () => {
     });
 });
 
+// Profile Reducer
 describe('Profile Reducer', () => {
     let initialState;
 
@@ -122,6 +124,7 @@ describe('Profile Reducer', () => {
     });
 });
 
+// Search Reducer
 describe('Search Reducer', () => {
     let initialState;
 
@@ -158,6 +161,7 @@ describe('Search Reducer', () => {
     });
 });
 
+// Followers Reducer
 describe('Followers Reducer', () => {
     let initialState;
 
@@ -194,6 +198,7 @@ describe('Followers Reducer', () => {
     });
 });
 
+// Explore Reducer
 describe('Explore Reducer', () => {
     let initialState;
 
