@@ -1,3 +1,5 @@
+import { SEARCH_PROFILE } from '../actionTypes';
+
 const initialState = {
     username: '',
     avatar: '',
@@ -14,7 +16,7 @@ const initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-    case 'SEARCH_PROFILE':
+    case SEARCH_PROFILE:
         return {
             ...state,
             ...action.payload,

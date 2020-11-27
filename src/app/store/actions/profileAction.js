@@ -1,16 +1,19 @@
 import axios from 'axios';
 
-import profileAction from './profileAction';
-import cleanData from '../utils/cleanData';
-import { SEARCH_PROFILE_API } from '../../conf';
+import { SEARCH_PROFILE } from '../actionTypes';
+import cleanData from '../../utils/cleanData';
+import { SEARCH_PROFILE_API } from '../../../conf';
 
-const profileApiAction = (username) => (
+export const profileAction = (payload) => (
+    {
+        type: SEARCH_PROFILE,
+        payload,
+    }
+);
+
+export const profileApiAction = (username) => (
     (dispatch) => {
-        const apiData = {
-            method: 'get',
-            url: `${SEARCH_PROFILE_API(username)}`,
-        };
-        axios(apiData)
+        axios(SEARCH_PROFILE_API(username))
             .then(({ data }) => {
                 dispatch(profileAction({
                     username: cleanData(data.login),
@@ -33,5 +36,3 @@ const profileApiAction = (username) => (
             });
     }
 );
-
-export default profileApiAction;

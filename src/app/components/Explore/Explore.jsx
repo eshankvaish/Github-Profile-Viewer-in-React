@@ -7,9 +7,10 @@ import ExploreRefresh from './ExploreRefresh/ExploreRefresh';
 import FormErrors from '../FormErrors/FormErrors';
 import Loading from '../UI/Loading/Loading';
 import Heading from '../UI/Heading/Heading';
+import SuccessMessage from '../UI/SuccessMessage/SuccessMessage';
 
 const Explore = ({
-    userData, handleRefresh, handleDeleteUser, error, handleFollow, loading,
+    userData, handleRefresh, handleDeleteUser, error, handleFollow, loading, success,
 }) => {
     const { t } = useTranslation();
 
@@ -23,6 +24,8 @@ const Explore = ({
                 <Heading heading={t('Explore')} data-test="heading" />
                 {/* Api Errors */}
                 <FormErrors error={error} data-test="form-errors" />
+                {/* Success Messages */}
+                <SuccessMessage success={success} />
                 {/* Refresh Button */}
                 <ExploreRefresh handleRefresh={handleRefresh} data-test="explore-refresh" />
                 <ExploreData
@@ -43,6 +46,7 @@ Explore.propTypes = {
     handleFollow: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
     error: PropTypes.string.isRequired,
+    success: PropTypes.string.isRequired,
 };
 
 export default Explore;

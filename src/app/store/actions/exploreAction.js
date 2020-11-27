@@ -1,15 +1,18 @@
 import axios from 'axios';
 
-import exploreAction from './exploreAction';
-import { EXPLORE_API } from '../../conf';
+import { UPDATE_STATE } from '../actionTypes';
+import { EXPLORE_API } from '../../../conf';
 
-const exploreApiAction = (lastIndexId, presentUserData, size) => (
+export const exploreAction = (payload) => (
+    {
+        type: UPDATE_STATE,
+        payload,
+    }
+);
+
+export const exploreApiAction = (lastIndexId, presentUserData, size) => (
     (dispatch) => {
-        const config = {
-            method: 'get',
-            url: `${EXPLORE_API(lastIndexId)}`,
-        };
-        axios(config)
+        axios(EXPLORE_API(lastIndexId))
             .then(({ data }) => {
                 // update the state data
                 dispatch(exploreAction({
@@ -28,4 +31,3 @@ const exploreApiAction = (lastIndexId, presentUserData, size) => (
             });
     }
 );
-export default exploreApiAction;

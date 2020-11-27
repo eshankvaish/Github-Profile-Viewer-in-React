@@ -1,19 +1,19 @@
 import axios from 'axios';
 
-import cleanData from '../utils/cleanData';
-import loginAction from './loginAction';
-import { LOGIN_API } from '../../conf';
+import cleanData from '../../utils/cleanData';
+import { LOGIN_API } from '../../../conf';
+import { LOGIN } from '../actionTypes';
 
-const fetchLoginAction = (username, authToken) => (
+export const loginAction = (payload) => (
+    {
+        type: LOGIN,
+        payload,
+    }
+);
+
+export const fetchLoginAction = (username, authToken) => (
     (dispatch) => {
-        const apiData = {
-            method: 'get',
-            url: `${LOGIN_API}`,
-            headers: {
-                Authorization: `token ${authToken}`,
-            },
-        };
-        axios(apiData)
+        axios(LOGIN_API(authToken))
             .then(({ data }) => {
                 if (data.login === username) {
                     // Login Successful
@@ -50,5 +50,3 @@ const fetchLoginAction = (username, authToken) => (
             });
     }
 );
-
-export default fetchLoginAction;

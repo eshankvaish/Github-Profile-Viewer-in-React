@@ -16,6 +16,7 @@ describe('Followers Component', () => {
                 handleFollow: () => {},
                 loading: false,
                 error: '',
+                success: '',
             };
             const propsErr = checkProps(Explore, expectedProps);
             expect(propsErr).toBeUndefined();
@@ -32,6 +33,7 @@ describe('Followers Component', () => {
                 handleFollow: () => {},
                 loading: false,
                 error: 'Something went wrong',
+                success: 'Success',
             };
             component = setUp(props);
         });

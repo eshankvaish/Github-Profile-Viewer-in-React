@@ -5,7 +5,7 @@ import followersReducer from './followersReducer';
 import exploreReducer from './exploreReducer';
 import {
     FETCH_FOLLOWERS, LOGIN, LOGOUT, SEARCH, SEARCH_PROFILE, UPDATE_STATE,
-} from '../actions/actionTypes';
+} from '../actionTypes';
 
 // Login Reducer
 describe('Login Reducer', () => {
@@ -211,6 +211,7 @@ describe('Explore Reducer', () => {
             lastIndex: 0,
             error: '',
             loading: true,
+            success: '',
         };
     });
 

@@ -1,21 +1,21 @@
 import axios from 'axios';
 
-import exploreAction from './exploreAction';
-import { FOLLOW_API } from '../../conf';
+import { exploreAction } from './exploreAction';
+import { FOLLOW_API } from '../../../conf';
 
 const followAction = (username, authToken, handleDeleteUser) => (
     (dispatch) => {
-        const config = {
-            method: 'put',
-            url: `${FOLLOW_API(username)}`,
-            headers: {
-                Authorization: `token ${authToken}`,
-            },
-        };
-
-        axios(config)
+        axios(FOLLOW_API(username, authToken))
             .then(() => {
                 handleDeleteUser(username); // Delete that suggestion
+                dispatch(exploreAction({
+                    success: `You are now following ${username}`,
+                }));
+                setTimeout(() => {
+                    dispatch(exploreAction({
+                        success: '',
+                    }));
+                }, 5000); // Remove success after 5s
             })
             .catch(() => {
                 dispatch(exploreAction({
@@ -24,8 +24,8 @@ const followAction = (username, authToken, handleDeleteUser) => (
                 setTimeout(() => {
                     dispatch(exploreAction({
                         error: '',
-                    }), 5000); // Remove error after 5s
-                });
+                    }));
+                }, 5000); // Remove error after 5s
             });
     }
 );

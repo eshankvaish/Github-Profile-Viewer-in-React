@@ -1,3 +1,5 @@
+import { SEARCH } from '../actionTypes';
+
 const initialState = {
     username: '',
     error: '',
@@ -7,7 +9,7 @@ const initialState = {
 
 const searchReducer = (state = initialState, action) => {
     switch (action.type) {
-    case 'SEARCH':
+    case SEARCH:
         return {
             ...state,
             ...action.payload,
