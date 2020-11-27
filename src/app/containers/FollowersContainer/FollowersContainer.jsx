@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Followers from '../../components/Followers/Followers';
-import followersApiAction from '../../actions/followersApiAction';
+import { followersApiAction } from '../../store/actions/followersAction';
 
 const FollowersContainer = ({ match }) => {
     const dispatch = useDispatch();

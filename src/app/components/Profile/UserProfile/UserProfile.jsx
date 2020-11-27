@@ -9,7 +9,7 @@ import ProfileLink from '../ProfileLink/ProfileLink';
 const UserProfile = ({ loginState }) => (
     <div className="profile">
         <ProfileAvatar
-            className="profile__avatar--img"
+            className="circle"
             src={loginState.avatar}
             alt="User Profile Pic"
         />

@@ -2,15 +2,18 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import exploreApiAction from '../../actions/exploreApiAction';
+import { exploreApiAction } from '../../store/actions/exploreAction';
 import Explore from '../../components/Explore/Explore';
-import followAction from '../../actions/followAction';
+import followAction from '../../store/actions/followAction';
+import { EXPLORE_USER_DATA_COUNT } from '../../../conf';
 
 const ExploreContainer = ({ authToken }) => {
     const exploreState = useSelector((state) => state.exploreState);
     const dispatch = useDispatch();
 
-    const fetchData = (lastIndexId = exploreState.lastIndex, presentUserData = [], size = 6) => {
+    const fetchData = (
+        lastIndexId = exploreState.lastIndex, presentUserData = [], size = EXPLORE_USER_DATA_COUNT,
+    ) => {
         dispatch(exploreApiAction(lastIndexId, presentUserData, size));
     };
     // First call to fetch data
@@ -36,6 +39,7 @@ const ExploreContainer = ({ authToken }) => {
             error={exploreState.error}
             handleFollow={handleFollow}
             loading={exploreState.loading}
+            success={exploreState.success}
         />
     );
 };

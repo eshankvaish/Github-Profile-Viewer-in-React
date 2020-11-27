@@ -2,11 +2,10 @@ import React, { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import searchApiAction from '../../actions/searchApiAction';
-import searchAction from '../../actions/searchAction';
-import searchSuggestionAction from '../../actions/searchSuggestionAction';
+import { searchAction, searchApiAction, searchSuggestionAction } from '../../store/actions/searchAction';
 import Search from '../../components/Search/Search';
 import debounceFunction from '../../utils/debounceFunction';
+import { DEBOUNCE_TIME_LIMIT } from '../../../conf';
 
 const SearchContainer = ({ history }) => {
     const dispatch = useDispatch();
@@ -19,7 +18,10 @@ const SearchContainer = ({ history }) => {
     });
     const searchSuggestion = (value) => dispatch(searchSuggestionAction(value));
     // Debounce Function to prevent excessive API calls
-    const debounceSuggestion = useCallback(debounceFunction(searchSuggestion, 1000), []);
+    const debounceSuggestion = useCallback(
+        debounceFunction(searchSuggestion, DEBOUNCE_TIME_LIMIT),
+        [],
+    );
 
     const [inputState, setInputState] = useState({
         type: 'search',

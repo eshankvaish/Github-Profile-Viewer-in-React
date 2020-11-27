@@ -1,14 +1,8 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import './Loading.scss';
 
-const Loading = () => {
-    const { t } = useTranslation();
-
-    return (
-        <h1 className="heading">
-            {t('Loading...')}
-        </h1>
-    );
-};
+const Loading = () => (
+    <div className="loader" data-test="loading" />
+);
 
 export default Loading;
