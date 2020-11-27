@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Profile from '../../components/Profile/Profile';
-import profileApiAction from '../../actions/profileApiAction';
+import { profileApiAction } from '../../store/actions/profileAction';
 
 const SearchProfileContainer = ({ match }) => {
     const userData = useSelector((state) => state.profileState);

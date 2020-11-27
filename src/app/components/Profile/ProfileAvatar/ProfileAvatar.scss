@@ -8,11 +8,4 @@
     @include breakpoint-tablet {
         margin: 20px 40px;
     }
-
-    &--img {
-        width: 100%;
-        height: 100%;
-        border: 2px solid $light-primary-color;
-        border-radius: 50%;
-    }
 }

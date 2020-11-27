@@ -1,6 +1,11 @@
 # React Assignment
-For setup, execute the following commands:
+ - For setup, execute the following commands:
+    `nvm use`
+    `npm install`
+    `npm start`
 
-nvm use  
-npm install  
-npm start  
+ - For executing test scripts:
+    `npm run test`
+
+ - For Storybook:
+    `npm run storybook`

@@ -7,28 +7,32 @@ import ExploreRefresh from './ExploreRefresh/ExploreRefresh';
 import FormErrors from '../FormErrors/FormErrors';
 import Loading from '../UI/Loading/Loading';
 import Heading from '../UI/Heading/Heading';
+import SuccessMessage from '../UI/SuccessMessage/SuccessMessage';
 
 const Explore = ({
-    userData, handleRefresh, handleDeleteUser, error, handleFollow, loading,
+    userData, handleRefresh, handleDeleteUser, error, handleFollow, loading, success,
 }) => {
     const { t } = useTranslation();
 
     return (
         loading ? (
             <section className="explore center-container">
-                <Loading />
+                <Loading data-test="loading" />
             </section>
         ) : (
-            <section className="explore center-container">
-                <Heading heading={t('Explore')} />
+            <section className="explore center-container" data-test="explore">
+                <Heading heading={t('Explore')} data-test="heading" />
                 {/* Api Errors */}
-                <FormErrors error={error} />
+                <FormErrors error={error} data-test="form-errors" />
+                {/* Success Messages */}
+                <SuccessMessage success={success} />
                 {/* Refresh Button */}
-                <ExploreRefresh handleRefresh={handleRefresh} />
+                <ExploreRefresh handleRefresh={handleRefresh} data-test="explore-refresh" />
                 <ExploreData
                     userData={userData}
                     handleDeleteUser={handleDeleteUser}
                     handleFollow={handleFollow}
+                    data-test="explore-data"
                 />
             </section>
         )
@@ -42,6 +46,7 @@ Explore.propTypes = {
     handleFollow: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
     error: PropTypes.string.isRequired,
+    success: PropTypes.string.isRequired,
 };
 
 export default Explore;

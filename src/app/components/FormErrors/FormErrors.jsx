@@ -7,7 +7,7 @@ import './FormErrors.scss';
 const FormErrors = ({ error }) => {
     const { t } = useTranslation();
     const errorField = error ? (
-        <div className="form__errors">
+        <div className="form__errors" data-test="form-error">
             {t(error)}
         </div>
     ) : '';

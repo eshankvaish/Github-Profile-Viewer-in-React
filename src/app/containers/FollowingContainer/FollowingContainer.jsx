@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Followers from '../../components/Followers/Followers';
-import followingApiAction from '../../actions/followingApiAction';
+import followingAction from '../../store/actions/followingAction';
 
 const FollowingContainer = ({ match }) => {
     const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const FollowingContainer = ({ match }) => {
     const { username } = match.params;
 
     useEffect(() => {
-        dispatch(followingApiAction(username)); // Call to API
+        dispatch(followingAction(username)); // Call to API
     }, []);
 
     return <Followers followersState={followersState} username={username} />;

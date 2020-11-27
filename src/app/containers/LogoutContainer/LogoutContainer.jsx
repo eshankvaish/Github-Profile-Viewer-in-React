@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import logout from '../../actions/logout';
+import logoutAction from '../../store/actions/logoutAction';
 
 const LogoutContainer = ({ history }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(logout());
+        dispatch(logoutAction());
         history.push('/login');
     });
 

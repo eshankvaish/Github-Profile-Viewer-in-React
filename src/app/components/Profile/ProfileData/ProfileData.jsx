@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import './ProfileData.scss';
 
@@ -53,16 +54,16 @@ const ProfileData = ({ loginState }) => {
             </li>
             {loginState.followers_count ? (
                 <li className="profile__data--item">
-                    <a href={`/${loginState.username}/followers`}>
+                    <Link to={`/${loginState.username}/followers`}>
                         <button type="submit">{t('View Followers')}</button>
-                    </a>
+                    </Link>
                 </li>
             ) : '' }
             {loginState.following_count ? (
                 <li className="profile__data--item">
-                    <a href={`/${loginState.username}/following`}>
+                    <Link to={`/${loginState.username}/following`}>
                         <button type="submit">{t('View Following')}</button>
-                    </a>
+                    </Link>
                 </li>
             ) : '' }
         </ul>

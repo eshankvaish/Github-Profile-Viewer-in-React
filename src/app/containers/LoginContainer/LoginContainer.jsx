@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import loginAction from '../../actions/loginAction';
-import fetchLoginAction from '../../actions/fetchLoginAction';
+import { loginAction, fetchLoginAction } from '../../store/actions/loginAction';
 import Login from '../../components/Login/Login';
 
 const LoginContainer = ({ history, loginState }) => {
