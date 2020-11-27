@@ -1,0 +1,24 @@
+@import '../../../styles/abstracts/index';
+
+.login {
+    @include flexbox(column, space-around, center);
+
+    &-container {
+        padding: 20px;
+        border-radius: 15px;
+        background-color: $background-color;
+
+        @include breakpoint-tablet {
+            padding: 40px;
+        }
+    }
+    &__form {
+        &--field {
+            margin: 20px 0;
+        }
+        &--submit-field {
+            text-align: right;
+            margin: 20px 0 0;
+        }
+    }
+}

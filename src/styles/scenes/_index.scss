@@ -1,0 +1,22 @@
+.center-container {
+    padding: 0 20px;
+
+    @include breakpoint-tablet {
+        @include center-container($container-width-tablet);
+        padding: 0;
+    }
+    @include breakpoint-desktop {
+        @include center-container($container-width-desktop);
+    }
+}
+main {
+    margin-top: 70px;
+    padding-top: 30px;
+    font-size: 1.6rem;
+}
+.active {
+    color: $primary-text-color;
+}
+.border-red {
+    border-color: red;
+}

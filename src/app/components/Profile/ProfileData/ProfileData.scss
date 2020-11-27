@@ -1,0 +1,24 @@
+@import '../../../../styles/abstracts/index';
+
+.profile {
+    &__data {
+        @include flexbox(column, space-between);
+
+        @include breakpoint-tablet {
+            margin: 0 20px;
+        }
+    
+        &--item {
+            padding: 5px 0;
+        }
+        &--icon {
+            color: $primary-color;
+            padding-right: 10px;
+            font-size: 2rem;
+        }
+        &--attribute {
+            font-weight: bold;
+            color: $primary-color;
+        }
+    }
+}

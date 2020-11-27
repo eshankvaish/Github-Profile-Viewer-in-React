@@ -1,0 +1,13 @@
+@import '../../../../styles/abstracts/index';
+
+.profile {
+    @include flexbox(column, space-between, center);
+    overflow: hidden;
+    position: relative;
+    min-width: 300px;
+    padding: 60px 0;
+
+    @include breakpoint-tablet {
+        flex-direction: row;
+    }
+}

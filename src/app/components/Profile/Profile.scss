@@ -1,0 +1,5 @@
+@import '../../../styles/abstracts/index';
+
+.profile-container {
+    @include flexbox(column, space-around, center);
+}

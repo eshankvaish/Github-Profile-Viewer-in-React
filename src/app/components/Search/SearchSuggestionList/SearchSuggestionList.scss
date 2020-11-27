@@ -1,0 +1,11 @@
+@import '../../../../styles/abstracts/index';
+
+.search-suggestion {
+    position: absolute;
+    top: 101px;
+    border-radius: 5px;
+    border: 1px solid $light-primary-color;
+    background-color: $icon-color;
+    width: 100%;
+    padding: 10px;
+}

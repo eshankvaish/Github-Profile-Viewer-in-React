@@ -1,0 +1,26 @@
+@import '../../../styles/abstracts/index';
+
+.search {
+    @include flexbox(column, space-around, center);
+
+    &-container {
+        background-color: $background-color;
+        padding: 20px;
+        border-radius: 15px;
+
+        @include breakpoint-tablet {
+            padding: 40px;
+        }
+    }
+    &-form {
+        padding: 30px 0;
+
+        &__container {
+            position: relative;
+        }
+
+        &__submit-button {
+            text-align: right;
+        }
+    }
+}

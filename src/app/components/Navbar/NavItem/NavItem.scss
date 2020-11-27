@@ -1,0 +1,27 @@
+@import '../../../../styles/abstracts/index';
+
+.nav__list {
+    &--link {
+        display: inline-block;
+        font-weight: bold;
+        
+        &:hover {
+            color: $seconday-text-color;
+        }
+    }
+    &--item {
+        width: 100%;
+        border-bottom: 1px solid;
+        padding: 15px 10px;
+
+        @include breakpoint-desktop {
+            width: auto;
+            border: none;
+            padding: 0 20px;
+        }    
+        //For last element
+        &:last-child {
+            border: none;
+        }
+    }
+}

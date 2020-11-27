@@ -1,0 +1,10 @@
+@import '../../../../styles/abstracts/index';
+
+.followers-list {
+    @include flexbox(row, space-evenly);
+    padding: 10px 0;
+    width: 100%;
+}
+.no-followers {
+    padding: 20px 0;
+}
