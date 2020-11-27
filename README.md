@@ -7,4 +7,5 @@
  - For executing test scripts:
     `npm run test`
 
-
+ - For Storybook:
+    `npm run storybook`

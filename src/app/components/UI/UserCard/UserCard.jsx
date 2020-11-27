@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import Image from '../Image/Image';
 import './UserCard.scss';
@@ -27,10 +28,10 @@ const UserCard = ({
                 <Image className="user-data__avatar--img circle" src={user.avatar_url} alt="User Profile Pic" />
             </div>
             <div className="user-card__username" data-test="username">
-                <a href={`/${user.login}`} aria-label="User Profile Link">
+                <Link to={`/${user.login}`} aria-label="User Profile Link">
                     @
                     {user.login}
-                </a>
+                </Link>
             </div>
             {followButton ? (
                 <div className="user-card__follow">
