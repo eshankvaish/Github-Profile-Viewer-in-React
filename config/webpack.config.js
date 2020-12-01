@@ -94,7 +94,8 @@ module.exports = function (webpackEnv) {
   const shouldUseReactRefresh = env.raw.FAST_REFRESH;
 
   // common function to get style loaders
-  const getStyleLoaders = (cssOptions, preProcessor) => {
+  const getStyleLoaders = (cssOptions, preProcessor, customOptions={}) => {
+    // customOptions is manually added for additional preprocessor options
     const loaders = [
       isEnvDevelopment && require.resolve('style-loader'),
       isEnvProduction && {
@@ -148,6 +149,8 @@ module.exports = function (webpackEnv) {
           loader: require.resolve(preProcessor),
           options: {
             sourceMap: true,
+            // added the prepend data here
+            ...customOptions,
           },
         }
       );
@@ -498,7 +501,11 @@ module.exports = function (webpackEnv) {
                     ? shouldUseSourceMap
                     : isEnvDevelopment,
                 },
-                'sass-loader'
+                'sass-loader',
+                // Custom Argument for sending a env variable as sass variable
+                {
+                  prependData: '$theme: ' + process.env.REACT_APP_THEME + ';',
+                }
               ),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
