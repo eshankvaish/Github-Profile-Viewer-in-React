@@ -8,8 +8,8 @@ import './NavItem.scss';
 const NavItem = ({ navList, handleClick }) => {
     const { t } = useTranslation();
     const navItems = navList.map((navItem) => (
-        <li key={navItem} className="nav__list--item">
-            <NavLink className="nav__list--link" aria-label={navItem} to={`/${navItem.toLowerCase()}`} onClick={handleClick}>
+        <li key={navItem} className="nav-list">
+            <NavLink className="nav-list__link" aria-label={t(navItem)} to={`/${navItem.toLowerCase()}`} onClick={handleClick}>
                 {t(navItem)}
             </NavLink>
         </li>

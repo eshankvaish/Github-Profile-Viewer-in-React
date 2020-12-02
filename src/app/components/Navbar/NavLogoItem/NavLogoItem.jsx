@@ -8,9 +8,9 @@ const NavLogoItem = () => {
 
     return (
         <Link to="/">
-            <div className="nav__logo--item">
-                <i className="icon icon-github nav__logo--icon" />
-                <h1 className="nav__logo--company-name">{t('Github')}</h1>
+            <div className="nav-logo__item">
+                <i className="icon icon-github nav-logo__icon" />
+                <h1 className="nav-logo__company-name">{t('Github')}</h1>
             </div>
         </Link>
     );

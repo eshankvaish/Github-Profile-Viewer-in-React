@@ -15,10 +15,9 @@ header {
     min-height: 70px;
 
     &__logo {
-        min-height: 70px;
-    
         @include flexbox(row, space-between, center);
         flex: 100%;
+        min-height: 70px;
     
         @include breakpoint-tablet {
             padding: 0;

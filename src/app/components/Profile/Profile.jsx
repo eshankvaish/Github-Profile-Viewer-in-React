@@ -9,10 +9,13 @@ import Heading from '../UI/Heading/Heading';
 
 const Profile = ({ loginState }) => {
     const { t } = useTranslation();
-    const profileHeading = loginState.name ? loginState.name : loginState.username;
-    const profileData = loginState.error ? (
+    const {
+        name, username, error, loading,
+    } = loginState;
+    const profileHeading = name || username;
+    const profileData = error ? (
         <section className="profile-container center-container" data-test="profile">
-            <h1>{loginState.error}</h1>
+            <h1>{error}</h1>
         </section>
     ) : (
         <section className="profile-container center-container" data-test="profile">
@@ -24,7 +27,7 @@ const Profile = ({ loginState }) => {
         </section>
     );
 
-    return loginState.loading ? (
+    return loading ? (
         <section className="profile-container center-container" data-test="profile">
             <Loading />
         </section>

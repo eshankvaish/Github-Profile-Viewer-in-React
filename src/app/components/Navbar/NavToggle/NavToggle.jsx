@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 import './NavToggle.scss';
 
 const NavToggle = ({ navbarState, handleToggle }) => (
-    <div className="nav__toggle">
-        <i className={`icon icon-menu nav__toggle--menu ${!navbarState ? 'nav__toggle--active' : ''}`} onClick={handleToggle} role="presentation" />
-        <i className={`icon icon-close nav__toggle--menu ${navbarState ? 'nav__toggle--active' : ''}`} onClick={handleToggle} role="presentation" />
+    <div className="nav-toggle">
+        <i
+            className={`icon ${navbarState ? 'icon-close' : 'icon-menu'} nav-toggle__menu`}
+            onClick={handleToggle}
+            role="presentation"
+        />
     </div>
 );
 

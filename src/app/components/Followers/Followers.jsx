@@ -17,7 +17,7 @@ const Followers = ({ followersState, username }) => {
     ) : (
         <div className="followers center-container" data-test="followers">
             <Heading heading={`${t(followersState.title)} - ${username}`} data-test="heading" />
-            <FormErrors error={followersState.error} data-test="form-errors" />
+            {followersState.error && <FormErrors error={followersState.error} data-test="form-errors" />}
             <FollowersList followers={followersState.followersData} data-test="follower-list" />
         </div>
     );

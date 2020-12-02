@@ -3,7 +3,7 @@
 .login {
     @include flexbox(column, space-around, center);
 
-    &-container {
+    &__container {
         padding: 20px;
         border-radius: 15px;
         background-color: $background-color;
@@ -12,11 +12,13 @@
             padding: 40px;
         }
     }
-    &__form {
-        &--field {
-            margin: 20px 0;
-        }
-        &--submit-field {
+}
+
+.login-form {
+    &__field {
+        margin: 20px 0;
+
+        &--submit {
             text-align: right;
             margin: 20px 0 0;
         }

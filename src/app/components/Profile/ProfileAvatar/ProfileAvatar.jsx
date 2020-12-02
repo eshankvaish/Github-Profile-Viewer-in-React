@@ -4,7 +4,7 @@ import './ProfileAvatar.scss';
 import Image from '../../UI/Image/Image';
 
 const ProfileAvatar = (props) => (
-    <div className="profile__avatar">
+    <div className="profile-avatar">
         <Image {...props} />
     </div>
 );

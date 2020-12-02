@@ -1,20 +1,20 @@
 @import '../../../../styles/abstracts/index';
 
-.nav__logo {
-    &--item {
+.nav-logo {
+    &__item {
         @include flexbox(row, space-between, center);
 
         &:hover {
             color: $icon-color;
         }
     }
-    &--icon {
+    &__icon {
         font-size: 5rem;
         color: $icon-color;
         background-color: $primary-text-color;
         border-radius: 50%;
     }
-    &--company-name {
+    &__company-name {
         padding-left: 10px;
     }
 }

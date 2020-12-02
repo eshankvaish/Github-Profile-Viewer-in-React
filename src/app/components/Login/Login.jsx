@@ -15,11 +15,11 @@ const Login = ({
 
     return (
         <section className="login center-container" data-test="login">
-            <div className="login-container">
+            <div className="login__container">
                 <Heading heading={t('Login')} data-test="heading" />
-                {loading ? <Loading data-test="loading" /> : ''}
-                <FormErrors error={error} data-test="form-errors" />
-                <form className="login__form" onSubmit={handleSubmit} data-test="login-form">
+                {loading && <Loading data-test="loading" />}
+                {error && <FormErrors error={error} data-test="form-errors" />}
+                <form onSubmit={handleSubmit} data-test="login-form">
                     <LoginInputField
                         inputFieldState={inputFieldState}
                         handleChange={handleChange}
@@ -38,9 +38,14 @@ Login.propTypes = {
     buttonState: PropTypes.instanceOf(Object).isRequired,
     handleSubmit: PropTypes.func.isRequired,
     handleChange: PropTypes.func.isRequired,
-    error: PropTypes.string.isRequired,
-    loading: PropTypes.bool.isRequired,
+    error: PropTypes.string,
+    loading: PropTypes.bool,
     handleBlur: PropTypes.func.isRequired,
+};
+
+Login.defaultProps = {
+    error: '',
+    loading: false,
 };
 
 export default Login;

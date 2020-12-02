@@ -7,61 +7,63 @@ import './ProfileData.scss';
 
 const ProfileData = ({ loginState }) => {
     const { t } = useTranslation();
-
+    const {
+        profileLink, location, bio, email, blog, followersCount, followingCount, username,
+    } = loginState;
     return (
-        <ul className="profile__data">
-            <li className="profile__data--item">
-                <i className="icon icon-alternate_email profile__data--icon" />
-                <a href={loginState.profile_link} target="_blank" aria-label="Profile Link" rel="noreferrer">{loginState.username}</a>
+        <ul className="profile-data">
+            <li className="profile-data__item">
+                <i className="icon icon-alternate_email profile-data__icon" />
+                <a href={profileLink} target="_blank" aria-label={t('Profile Link')} rel="noreferrer">{username}</a>
             </li>
-            { loginState.location ? (
-                <li className="profile__data--item">
-                    <i className="icon icon-location_on profile__data--icon" />
-                    {loginState.location}
+            { location && (
+                <li className="profile-data__item">
+                    <i className="icon icon-location_on profile-data__icon" />
+                    {location}
                 </li>
-            ) : '' }
-            { loginState.bio ? (
-                <li className="profile__data--item">
-                    <i className="icon icon-info_outline profile__data--icon" />
-                    {loginState.bio}
+            )}
+            { bio && (
+                <li className="profile-data__item">
+                    <i className="icon icon-info_outline profile-data__icon" />
+                    {bio}
                 </li>
-            ) : '' }
-            { loginState.email ? (
-                <li className="profile__data--item">
-                    <i className="icon icon-mail_outline profile__data--icon" />
-                    {loginState.email}
+            ) }
+            { email && (
+                <li className="profile-data__item">
+                    <i className="icon icon-mail_outline profile-data__icon" />
+                    {email}
                 </li>
-            ) : '' }
-            {loginState.blog ? (
-                <li className="profile__data--item">
-                    <i className="icon icon-create profile__data--icon" />
-                    <a href={loginState.blog} target="_blank" rel="noreferrer">{loginState.blog}</a>
+            )}
+            {blog && (
+                <li className="profile-data__item">
+                    <i className="icon icon-create profile-data__icon" />
+                    <a href={blog} target="_blank" rel="noreferrer">{blog}</a>
                 </li>
-            ) : ''}
-            <li className="profile__data--item">
-                <span className="profile__data--attribute">
+            )}
+            <li className="profile-data__item">
+                <span className="profile-data__attribute">
                     {t('Followers')}
                     :
                 </span>
-                {loginState.followers_count}
+                {followersCount}
             </li>
-            <li className="profile__data--item">
-                <span className="profile__data--attribute">
+            <li className="profile-data__item">
+                <span className="profile-data__attribute">
                     {t('Following')}
                     :
                 </span>
-                {loginState.following_count}
+                {followingCount}
             </li>
-            {loginState.followers_count ? (
-                <li className="profile__data--item">
-                    <Link to={`/${loginState.username}/followers`}>
+            {followersCount ? (
+                <li className="profile-data__item">
+                    <Link to={`/${username}/followers`}>
                         <button type="submit">{t('View Followers')}</button>
                     </Link>
                 </li>
-            ) : '' }
-            {loginState.following_count ? (
-                <li className="profile__data--item">
-                    <Link to={`/${loginState.username}/following`}>
+            ) : ''}
+            {followingCount ? (
+                <li className="profile-data__item">
+                    <Link to={`/${username}/following`}>
                         <button type="submit">{t('View Following')}</button>
                     </Link>
                 </li>

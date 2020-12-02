@@ -18,17 +18,17 @@ const UserCard = ({
                 <Button
                     containerClassName="user-card__remove"
                     type="submit"
-                    aria-label="Remove Suggestion"
+                    aria-label={t('Remove Suggestion')}
                     handleClick={() => handleDeleteUser(user.login)}
                     className="icon icon-close user-card__remove--icon"
                     data-test="remove-button"
                 />
             ) : '' }
             <div className="user-card__avatar" data-test="avatar">
-                <Image className="user-data__avatar--img circle" src={user.avatar_url} alt="User Profile Pic" />
+                <Image className="user-data__avatar--img circle" src={user.avatar_url} alt={t('User Avatar')} />
             </div>
             <div className="user-card__username" data-test="username">
-                <Link to={`/${user.login}`} aria-label="User Profile Link">
+                <Link to={`/${user.login}`} aria-label={t('User Profile Link')}>
                     @
                     {user.login}
                 </Link>
@@ -38,7 +38,7 @@ const UserCard = ({
                     <button
                         type="submit"
                         className="user-card__follow--button"
-                        aria-label="Follow"
+                        aria-label={t('Follow')}
                         onClick={() => handleFollow(user.login)}
                         data-test="follow-button"
                     >

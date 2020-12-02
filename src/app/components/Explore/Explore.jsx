@@ -23,9 +23,9 @@ const Explore = ({
             <section className="explore center-container" data-test="explore">
                 <Heading heading={t('Explore')} data-test="heading" />
                 {/* Api Errors */}
-                <FormErrors error={error} data-test="form-errors" />
+                {error && <FormErrors error={error} data-test="form-errors" />}
                 {/* Success Messages */}
-                <SuccessMessage success={success} />
+                {success && <SuccessMessage success={success} />}
                 {/* Refresh Button */}
                 <ExploreRefresh handleRefresh={handleRefresh} data-test="explore-refresh" />
                 <ExploreData
@@ -44,9 +44,15 @@ Explore.propTypes = {
     handleRefresh: PropTypes.func.isRequired,
     handleDeleteUser: PropTypes.func.isRequired,
     handleFollow: PropTypes.func.isRequired,
-    loading: PropTypes.bool.isRequired,
-    error: PropTypes.string.isRequired,
-    success: PropTypes.string.isRequired,
+    loading: PropTypes.bool,
+    error: PropTypes.string,
+    success: PropTypes.string,
+};
+
+Explore.defaultProps = {
+    loading: true,
+    error: '',
+    success: '',
 };
 
 export default Explore;

@@ -1,23 +1,15 @@
 @import '../../../../styles/abstracts/index';
 
-.nav__toggle {
-    font-size: 4rem;
+.nav-toggle {
     @include flexbox(row, flex-start, center);
+    font-size: 4rem;
     cursor: pointer;
 
     @include breakpoint-desktop {
         //Display none in desktop view
         display: none;
     }
-    &--menu {
-        display: none;
-    }
-    &--active {
-        //Menu Active
-        display: block;
-
-        @include breakpoint-desktop {
-            display: flex;
-        }
+    &__menu {
+        line-height: 4.4rem !important;
     }
 }

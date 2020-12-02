@@ -7,7 +7,8 @@ const followAction = (username, authToken, handleDeleteUser) => (
     (dispatch) => {
         axios(FOLLOW_API(username, authToken))
             .then(() => {
-                handleDeleteUser(username); // Delete that suggestion
+                // Delete that suggestion
+                setTimeout(() => handleDeleteUser(username), 1500);
                 dispatch(exploreAction({
                     success: `You are now following ${username}`,
                 }));
@@ -15,7 +16,7 @@ const followAction = (username, authToken, handleDeleteUser) => (
                     dispatch(exploreAction({
                         success: '',
                     }));
-                }, 5000); // Remove success after 5s
+                }, 4000); // Remove success after 5s
             })
             .catch(() => {
                 dispatch(exploreAction({

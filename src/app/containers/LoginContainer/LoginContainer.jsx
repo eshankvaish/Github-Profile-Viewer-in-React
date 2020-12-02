@@ -17,23 +17,21 @@ const LoginContainer = ({ history, loginState }) => {
     // Input Field State
     const [inputFieldState, setInputFieldState] = useState({
         username: {
-            containerClassName: 'login__form--field',
+            containerClassName: 'login-form__field',
             id: 'username',
             name: 'Username',
             label: 'Username',
             type: 'text',
-            className: 'login__form--input',
             placeholder: 'Enter Username',
             value: '',
             fieldError: '',
         },
         authToken: {
-            containerClassName: 'login__form--field',
+            containerClassName: 'login-form__field',
             id: 'authToken',
             name: 'authToken',
             label: 'Personal Access Token',
             type: 'password',
-            className: 'login__form--input',
             placeholder: 'Enter Access Token',
             value: '',
             fieldError: '',
@@ -47,7 +45,7 @@ const LoginContainer = ({ history, loginState }) => {
                 [e.target.id]: {
                     ...inputFieldState[e.target.id],
                     value: e.target.value,
-                    className: 'login__form--input',
+                    className: 'login-form__input',
                     fieldError: '',
                 },
             });
@@ -68,7 +66,7 @@ const LoginContainer = ({ history, loginState }) => {
                 ...inputFieldState,
                 [e.target.id]: {
                     ...inputFieldState[e.target.id],
-                    className: 'login__form--input border-red',
+                    className: 'login-form__input border-red',
                     fieldError: 'This field is required!',
                 },
             });
@@ -79,8 +77,8 @@ const LoginContainer = ({ history, loginState }) => {
     const [buttonState] = useState({
         type: 'submit',
         label: 'Login',
-        className: 'login__form--submit',
-        containerClassName: 'login__form--field login__form--submit-field',
+        className: 'login-form__submit',
+        containerClassName: 'login-form__field login-form__field--submit',
         id: 'login-button',
     });
 
