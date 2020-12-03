@@ -7,3 +7,4 @@ export default {
 };
 
 export const SubmitButton = () => <Button label="Submit" />;
+export const DisabledSubmitButton = () => <Button label="Submit" disabled />;
