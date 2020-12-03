@@ -66,7 +66,6 @@ const SearchContainer = ({ history }) => {
         if (!e.target.value) {
             setInputState({
                 ...inputState,
-                className: 'border-red',
                 fieldError: 'This field is required!',
             });
         }

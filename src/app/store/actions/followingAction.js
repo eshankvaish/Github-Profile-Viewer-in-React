@@ -2,10 +2,11 @@ import axios from 'axios';
 
 import { followersAction, followersErrorAction } from './followersAction';
 import { FOLLOWING_API } from '../../../constants';
+import apiConfig from '../../../service';
 
 const followingAction = (username) => (
     (dispatch) => {
-        axios(FOLLOWING_API(username))
+        axios(apiConfig('get', FOLLOWING_API(username)))
             .then(({ data }) => {
                 dispatch(followersAction({
                     followersData: data,

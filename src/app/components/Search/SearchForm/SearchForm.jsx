@@ -6,7 +6,7 @@ import Button from '../../UI/Button/Button';
 const SearchForm = ({
     handleSubmit, inputState, buttonState, handleChange, handleBlur, username,
 }) => (
-    <form className="search-form" autoComplete="off" onSubmit={handleSubmit} noValidate>
+    <form autoComplete="off" onSubmit={handleSubmit} noValidate>
         <InputElement {...inputState} handleChange={handleChange} handleBlur={handleBlur} />
         <Button {...buttonState} disabled={!username} />
     </form>

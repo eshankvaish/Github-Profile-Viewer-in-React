@@ -1,5 +1,7 @@
-import { LOGIN, LOGOUT } from '../actionTypes';
+import actionTypes from '../actionTypes';
 import modifyLocalStorageItem from '../../utils/modifyLocalStorage';
+
+const { LOGIN, LOGOUT } = actionTypes;
 
 let userState = modifyLocalStorageItem('get', 'userState');
 const initialState = {

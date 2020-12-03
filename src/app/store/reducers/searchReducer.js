@@ -1,5 +1,6 @@
-import { SEARCH } from '../actionTypes';
+import actionTypes from '../actionTypes';
 
+const { SEARCH } = actionTypes;
 const initialState = {
     username: '',
     error: '',

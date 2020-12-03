@@ -1,5 +1,6 @@
-import { FETCH_FOLLOWERS, FOLLOWERS_ERROR } from '../actionTypes';
+import actionTypes from '../actionTypes';
 
+const { FETCH_FOLLOWERS, FOLLOWERS_ERROR } = actionTypes;
 const initialState = {
     loading: true,
     followersData: [],

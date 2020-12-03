@@ -1,5 +1,6 @@
-import { UPDATE_STATE } from '../actionTypes';
+import actionTypes from '../actionTypes';
 
+const { UPDATE_STATE } = actionTypes;
 const initialState = {
     userData: [],
     lastIndex: 0,

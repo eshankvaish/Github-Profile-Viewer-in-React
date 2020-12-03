@@ -1,7 +1,10 @@
 import axios from 'axios';
 
-import { SEARCH } from '../actionTypes';
+import actionTypes from '../actionTypes';
 import { SEARCH_PROFILE_API, SEARCH_SUGGESTION_API } from '../../../constants';
+import apiConfig from '../../../service';
+
+const { SEARCH } = actionTypes;
 
 export const searchAction = (payload) => (
     {
@@ -12,7 +15,7 @@ export const searchAction = (payload) => (
 
 export const searchApiAction = (username, history) => (
     (dispatch) => {
-        axios(SEARCH_PROFILE_API(username))
+        axios(apiConfig('get', SEARCH_PROFILE_API(username)))
             .then(() => {
                 history.push(`/${username}`);
                 dispatch(searchAction({

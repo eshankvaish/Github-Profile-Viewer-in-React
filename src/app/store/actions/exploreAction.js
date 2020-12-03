@@ -1,7 +1,10 @@
 import axios from 'axios';
 
-import { UPDATE_STATE } from '../actionTypes';
+import actionTypes from '../actionTypes';
 import { EXPLORE_API } from '../../../constants';
+import apiConfig from '../../../service';
+
+const { UPDATE_STATE } = actionTypes;
 
 export const exploreAction = (payload) => (
     {
@@ -12,7 +15,7 @@ export const exploreAction = (payload) => (
 
 export const exploreApiAction = (lastIndexId, presentUserData, size) => (
     (dispatch) => {
-        axios(EXPLORE_API(lastIndexId))
+        axios(apiConfig('get', EXPLORE_API(lastIndexId)))
             .then(({ data }) => {
                 // update the state data
                 dispatch(exploreAction({

@@ -2,10 +2,13 @@ import axios from 'axios';
 
 import { exploreAction } from './exploreAction';
 import { FOLLOW_API } from '../../../constants';
+import apiConfig from '../../../service';
 
 const followAction = (username, authToken, handleDeleteUser, t) => (
     (dispatch) => {
-        axios(FOLLOW_API(username, authToken))
+        axios(apiConfig('put', FOLLOW_API(username), {
+            Authorization: `token ${authToken}`,
+        }))
             .then(() => {
                 // Delete that suggestion
                 setTimeout(() => handleDeleteUser(username), 1500);

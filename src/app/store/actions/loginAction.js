@@ -2,7 +2,10 @@ import axios from 'axios';
 
 import cleanData from '../../utils/cleanData';
 import { LOGIN_API } from '../../../constants';
-import { LOGIN } from '../actionTypes';
+import actionTypes from '../actionTypes';
+import apiConfig from '../../../service';
+
+const { LOGIN } = actionTypes;
 
 export const loginAction = (payload) => (
     {
@@ -13,7 +16,9 @@ export const loginAction = (payload) => (
 
 export const fetchLoginAction = (username, authToken) => (
     (dispatch) => {
-        axios(LOGIN_API(authToken))
+        axios(apiConfig('get', LOGIN_API, {
+            Authorization: `token ${authToken}`,
+        }))
             .then(({ data }) => {
                 if (data.login === username) {
                     // Login Successful

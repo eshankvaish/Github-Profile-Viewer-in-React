@@ -17,7 +17,6 @@ const LoginContainer = ({ history, loginState }) => {
     // Input Field State
     const [inputFieldState, setInputFieldState] = useState({
         username: {
-            containerClassName: 'login-form__field',
             id: 'username',
             name: 'Username',
             label: 'Username',
@@ -27,7 +26,6 @@ const LoginContainer = ({ history, loginState }) => {
             fieldError: '',
         },
         authToken: {
-            containerClassName: 'login-form__field',
             id: 'authToken',
             name: 'authToken',
             label: 'Personal Access Token',
@@ -45,7 +43,6 @@ const LoginContainer = ({ history, loginState }) => {
                 [e.target.id]: {
                     ...inputFieldState[e.target.id],
                     value: e.target.value,
-                    className: 'login-form__input',
                     fieldError: '',
                 },
             });
@@ -66,7 +63,6 @@ const LoginContainer = ({ history, loginState }) => {
                 ...inputFieldState,
                 [e.target.id]: {
                     ...inputFieldState[e.target.id],
-                    className: 'login-form__input border-red',
                     fieldError: 'This field is required!',
                 },
             });
@@ -77,8 +73,7 @@ const LoginContainer = ({ history, loginState }) => {
     const [buttonState] = useState({
         type: 'submit',
         label: 'Login',
-        className: 'login-form__submit',
-        containerClassName: 'login-form__field login-form__field--submit',
+        containerClassName: 'text-right',
         id: 'login-button',
     });
 

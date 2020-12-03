@@ -16,7 +16,7 @@ const Search = ({
 
     return (
         <section className="search center-container" data-test="search">
-            <div className="search-container">
+            <div className="search__container">
                 <Heading heading={t('Search')} data-test="heading" />
                 {loading && <Loading data-test="loading" />}
                 {error && <FormErrors error={error} data-test="form-errors" />}

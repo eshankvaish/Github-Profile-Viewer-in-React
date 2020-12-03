@@ -39,12 +39,10 @@ describe('Search Component', () => {
                     name: 'username',
                     id: 'username',
                     placeholder: 'Enter Username',
-                    className: '',
                 },
                 buttonState: {
                     type: 'submit',
                     label: 'Search',
-                    containerClassName: 'search-form__submit-button',
                 },
                 loading: true,
                 suggestions: [],

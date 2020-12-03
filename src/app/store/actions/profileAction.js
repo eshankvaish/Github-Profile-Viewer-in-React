@@ -1,8 +1,11 @@
 import axios from 'axios';
 
-import { SEARCH_PROFILE } from '../actionTypes';
+import actionTypes from '../actionTypes';
 import cleanData from '../../utils/cleanData';
 import { SEARCH_PROFILE_API } from '../../../constants';
+import apiConfig from '../../../service';
+
+const { SEARCH_PROFILE } = actionTypes;
 
 export const profileAction = (payload) => (
     {
@@ -13,7 +16,7 @@ export const profileAction = (payload) => (
 
 export const profileApiAction = (username) => (
     (dispatch) => {
-        axios(SEARCH_PROFILE_API(username))
+        axios(apiConfig('get', SEARCH_PROFILE_API(username)))
             .then(({ data }) => {
                 dispatch(profileAction({
                     username: cleanData(data.login),

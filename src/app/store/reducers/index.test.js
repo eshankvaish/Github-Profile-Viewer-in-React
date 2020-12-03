@@ -3,9 +3,11 @@ import profileReducer from './profileReducer';
 import searchReducer from './searchReducer';
 import followersReducer from './followersReducer';
 import exploreReducer from './exploreReducer';
-import {
+import actionTypes from '../actionTypes';
+
+const {
     FETCH_FOLLOWERS, LOGIN, LOGOUT, SEARCH, SEARCH_PROFILE, UPDATE_STATE,
-} from '../actionTypes';
+} = actionTypes;
 
 // Login Reducer
 describe('Login Reducer', () => {

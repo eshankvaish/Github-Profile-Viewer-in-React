@@ -31,12 +31,10 @@ describe('Login Component', () => {
             const props = {
                 inputFieldState: {
                     username: {
-                        containerClassName: 'login__form--field',
                         id: 'username',
                         name: 'Username',
                         label: 'Username',
                         type: 'text',
-                        className: 'login__form--input',
                         placeholder: 'Enter Username',
                         value: '',
                         fieldError: '',
@@ -45,8 +43,6 @@ describe('Login Component', () => {
                 buttonState: {
                     type: 'submit',
                     label: 'Login',
-                    className: 'login__form--submit',
-                    containerClassName: 'login__form--field login__form--submit-field',
                     id: 'login-button',
                 },
                 error: 'Something went wrong',

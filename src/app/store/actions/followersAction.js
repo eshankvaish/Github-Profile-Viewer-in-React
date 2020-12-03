@@ -1,7 +1,10 @@
 import axios from 'axios';
 
-import { FETCH_FOLLOWERS, FOLLOWERS_ERROR } from '../actionTypes';
+import actionTypes from '../actionTypes';
 import { FOLLOWERS_API } from '../../../constants';
+import apiConfig from '../../../service';
+
+const { FETCH_FOLLOWERS, FOLLOWERS_ERROR } = actionTypes;
 
 export const followersAction = (payload) => (
     {
@@ -21,7 +24,7 @@ export const followersErrorAction = () => (
 
 export const followersApiAction = (username) => (
     (dispatch) => {
-        axios(FOLLOWERS_API(username))
+        axios(apiConfig('get', FOLLOWERS_API(username)))
             .then(({ data }) => {
                 dispatch(followersAction({
                     followersData: data,

@@ -1,5 +1,6 @@
-import { SEARCH_PROFILE } from '../actionTypes';
+import actionTypes from '../actionTypes';
 
+const { SEARCH_PROFILE } = actionTypes;
 const initialState = {
     username: '',
     avatar: '',
