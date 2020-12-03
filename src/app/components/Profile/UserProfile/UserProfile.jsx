@@ -14,7 +14,7 @@ const UserProfile = ({ loginState }) => {
     return (
         <div className="profile">
             <ProfileAvatar
-                className="circle"
+                design="circle"
                 src={avatar}
                 alt={t('User Profile Pic')}
             />

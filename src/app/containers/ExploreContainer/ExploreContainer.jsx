@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import { exploreApiAction } from '../../store/actions/exploreAction';
 import Explore from '../../components/Explore/Explore';
 import followAction from '../../store/actions/followAction';
-import { EXPLORE_USER_DATA_COUNT } from '../../../conf';
+import { EXPLORE_USER_DATA_COUNT } from '../../../constants';
 
 const ExploreContainer = ({ authToken }) => {
+    const { t } = useTranslation();
     const exploreState = useSelector((state) => state.exploreState);
     const dispatch = useDispatch();
 
@@ -28,7 +30,7 @@ const ExploreContainer = ({ authToken }) => {
     const handleRefresh = () => fetchData();
 
     const handleFollow = (username) => {
-        dispatch(followAction(username, authToken, handleDeleteUser));
+        dispatch(followAction(username, authToken, handleDeleteUser, t));
     };
 
     return (

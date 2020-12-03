@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { followersAction, followersErrorAction } from './followersAction';
-import { FOLLOWING_API } from '../../../conf';
+import { FOLLOWING_API } from '../../../constants';
 
 const followingAction = (username) => (
     (dispatch) => {

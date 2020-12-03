@@ -18,6 +18,7 @@ describe('Search Component', () => {
                 buttonState: {},
                 loading: false,
                 suggestions: [],
+                username: '',
             };
             const propsErr = checkProps(Search, expectedProps);
             expect(propsErr).toBeUndefined();
@@ -47,6 +48,7 @@ describe('Search Component', () => {
                 },
                 loading: true,
                 suggestions: [],
+                username: '',
             };
             component = setUp(props);
         });

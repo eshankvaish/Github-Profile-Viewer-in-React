@@ -16,16 +16,16 @@
         &:hover {
             color: unset; // reset the inherited hover color
         }
-        &--avatar {
-            height: 40px;
-            width: 50px;
-            padding-right: 10px;
-        }
-        &--username {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            max-width: 110px;
-        }
+    }
+    &__avatar {
+        height: 40px;
+        width: 50px;
+        padding-right: 10px;
+    }
+    &__username {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 110px;
     }
 }

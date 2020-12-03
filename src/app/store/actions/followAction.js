@@ -1,16 +1,16 @@
 import axios from 'axios';
 
 import { exploreAction } from './exploreAction';
-import { FOLLOW_API } from '../../../conf';
+import { FOLLOW_API } from '../../../constants';
 
-const followAction = (username, authToken, handleDeleteUser) => (
+const followAction = (username, authToken, handleDeleteUser, t) => (
     (dispatch) => {
         axios(FOLLOW_API(username, authToken))
             .then(() => {
                 // Delete that suggestion
                 setTimeout(() => handleDeleteUser(username), 1500);
                 dispatch(exploreAction({
-                    success: `You are now following ${username}`,
+                    success: `${t('You are now following')} ${username}`,
                 }));
                 setTimeout(() => {
                     dispatch(exploreAction({
@@ -20,7 +20,7 @@ const followAction = (username, authToken, handleDeleteUser) => (
             })
             .catch(() => {
                 dispatch(exploreAction({
-                    error: 'Error Following the user',
+                    error: t('Error Following the user'),
                 }));
                 setTimeout(() => {
                     dispatch(exploreAction({

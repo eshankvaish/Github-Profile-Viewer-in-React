@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +12,7 @@ const UserCard = ({
     user, handleDeleteUser, handleFollow, followButton,
 }) => {
     const { t } = useTranslation();
+    const { avatar_url, login } = user;
 
     return (
         <li className="user-card" data-test="user-card">
@@ -19,27 +21,27 @@ const UserCard = ({
                     containerClassName="user-card__remove"
                     type="submit"
                     aria-label={t('Remove Suggestion')}
-                    handleClick={() => handleDeleteUser(user.login)}
-                    className="icon icon-close user-card__remove--icon"
+                    handleClick={() => handleDeleteUser(login)}
+                    className="icon icon-close user-card__remove-icon"
                     data-test="remove-button"
                 />
             ) : '' }
             <div className="user-card__avatar" data-test="avatar">
-                <Image className="user-data__avatar--img circle" src={user.avatar_url} alt={t('User Avatar')} />
+                <Image design="circle" src={avatar_url} alt={t('User Avatar')} />
             </div>
             <div className="user-card__username" data-test="username">
-                <Link to={`/${user.login}`} aria-label={t('User Profile Link')}>
+                <Link to={`/${login}`} aria-label={t('User Profile Link')}>
                     @
-                    {user.login}
+                    {login}
                 </Link>
             </div>
             {followButton ? (
                 <div className="user-card__follow">
                     <button
                         type="submit"
-                        className="user-card__follow--button"
+                        className="user-card__follow-button"
                         aria-label={t('Follow')}
-                        onClick={() => handleFollow(user.login)}
+                        onClick={() => handleFollow(login)}
                         data-test="follow-button"
                     >
                         {t('Follow')}

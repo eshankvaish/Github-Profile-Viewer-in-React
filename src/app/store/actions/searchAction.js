@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { SEARCH } from '../actionTypes';
-import { SEARCH_PROFILE_API, SEARCH_SUGGESTION_API } from '../../../conf';
+import { SEARCH_PROFILE_API, SEARCH_SUGGESTION_API } from '../../../constants';
 
 export const searchAction = (payload) => (
     {

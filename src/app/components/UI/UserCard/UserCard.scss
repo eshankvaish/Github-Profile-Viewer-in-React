@@ -6,7 +6,6 @@
     padding: 10px;
     border: 1px solid $dark-primary-color;
     border-radius: 15px;
-    background-color: $divider-color;
     background-color: $background-color;
     margin: 10px 5px;
     max-width: 300px;
@@ -24,12 +23,11 @@
         right: 20px;
         top: 20px;
         cursor: pointer;
-
-        &--icon {
-            padding: 5px;
-            margin: auto;
-            border-radius: 50%;
-        }
+    }
+    &__remove-icon {
+        padding: 5px;
+        margin: auto;
+        border-radius: 50%;
     }
     &__avatar {
         height: 200px;
@@ -42,9 +40,8 @@
     }
     &__follow {
         text-align: center;
-
-        &--button {
-            margin: auto;
-        }
+    }
+    &__follow-button {
+        margin: auto;
     }
 }

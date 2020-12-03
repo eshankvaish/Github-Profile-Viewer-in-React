@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { SEARCH_PROFILE } from '../actionTypes';
 import cleanData from '../../utils/cleanData';
-import { SEARCH_PROFILE_API } from '../../../conf';
+import { SEARCH_PROFILE_API } from '../../../constants';
 
 export const profileAction = (payload) => (
     {

@@ -17,6 +17,8 @@ describe('Login Component', () => {
                 handleBlur: () => {},
                 handleChange: () => {},
                 handleSubmit: () => {},
+                username: '',
+                authToken: '',
             };
             const propsErr = checkProps(Login, expectedProps);
             expect(propsErr).toBeUndefined();
@@ -47,11 +49,13 @@ describe('Login Component', () => {
                     containerClassName: 'login__form--field login__form--submit-field',
                     id: 'login-button',
                 },
-                error: '',
+                error: 'Something went wrong',
                 loading: true,
                 handleBlur: () => {},
                 handleChange: () => {},
                 handleSubmit: () => {},
+                username: '',
+                authToken: '',
             };
             component = setUp(props);
         });

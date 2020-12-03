@@ -100,6 +100,8 @@ const LoginContainer = ({ history, loginState }) => {
             handleBlur={handleBlur}
             error={loginState.error}
             loading={loginState.loading}
+            username={inputFieldState.username.value}
+            authToken={inputFieldState.authToken.value}
         />
     );
 };

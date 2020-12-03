@@ -10,6 +10,7 @@ import Button from '../UI/Button/Button';
 
 const Login = ({
     inputFieldState, buttonState, handleSubmit, error, loading, handleChange, handleBlur,
+    username, authToken,
 }) => {
     const { t } = useTranslation();
 
@@ -19,14 +20,14 @@ const Login = ({
                 <Heading heading={t('Login')} data-test="heading" />
                 {loading && <Loading data-test="loading" />}
                 {error && <FormErrors error={error} data-test="form-errors" />}
-                <form onSubmit={handleSubmit} data-test="login-form">
+                <form onSubmit={handleSubmit} data-test="login-form" noValidate>
                     <LoginInputField
                         inputFieldState={inputFieldState}
                         handleChange={handleChange}
                         handleBlur={handleBlur}
                         data-test="login-input-field"
                     />
-                    <Button {...buttonState} data-test="login-submit-button" />
+                    <Button {...buttonState} data-test="login-submit-button" disabled={!username || !authToken} />
                 </form>
             </div>
         </section>
@@ -41,6 +42,8 @@ Login.propTypes = {
     error: PropTypes.string,
     loading: PropTypes.bool,
     handleBlur: PropTypes.func.isRequired,
+    username: PropTypes.string.isRequired,
+    authToken: PropTypes.string.isRequired,
 };
 
 Login.defaultProps = {

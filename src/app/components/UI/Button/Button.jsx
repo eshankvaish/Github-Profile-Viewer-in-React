@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import './Button.scss';
 
 const Button = ({
-    type, label, className, containerClassName, ariaLabel, handleClick,
+    type, label, className, containerClassName, ariaLabel, handleClick, disabled,
 }) => {
     const { t } = useTranslation();
     return (
@@ -17,6 +17,7 @@ const Button = ({
                 className={className}
                 onClick={handleClick}
                 data-test="button"
+                disabled={disabled}
             >
                 {t(label)}
             </button>
@@ -30,6 +31,7 @@ Button.propTypes = {
     containerClassName: PropTypes.string,
     ariaLabel: PropTypes.string,
     handleClick: PropTypes.func,
+    disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -39,6 +41,7 @@ Button.defaultProps = {
     containerClassName: '',
     ariaLabel: '',
     handleClick: () => {},
+    disabled: false,
 };
 
 export default Button;

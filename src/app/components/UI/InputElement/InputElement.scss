@@ -13,11 +13,8 @@ input {
         border-color: $dark-primary-color;
     }
 }
-.input-field__error {
+.error-field {
     color: $error-color;
     font-size: 1rem;
     text-align: right;
-}
-.border-red {
-    border-color: red;
 }

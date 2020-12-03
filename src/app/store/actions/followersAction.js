@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { FETCH_FOLLOWERS, FOLLOWERS_ERROR } from '../actionTypes';
-import { FOLLOWERS_API } from '../../../conf';
+import { FOLLOWERS_API } from '../../../constants';
 
 export const followersAction = (payload) => (
     {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import cleanData from '../../utils/cleanData';
-import { LOGIN_API } from '../../../conf';
+import { LOGIN_API } from '../../../constants';
 import { LOGIN } from '../actionTypes';
 
 export const loginAction = (payload) => (

@@ -4,11 +4,11 @@ import InputElement from '../../UI/InputElement/InputElement';
 import Button from '../../UI/Button/Button';
 
 const SearchForm = ({
-    handleSubmit, inputState, buttonState, handleChange, handleBlur,
+    handleSubmit, inputState, buttonState, handleChange, handleBlur, username,
 }) => (
-    <form className="search-form" autoComplete="off" onSubmit={handleSubmit}>
+    <form className="search-form" autoComplete="off" onSubmit={handleSubmit} noValidate>
         <InputElement {...inputState} handleChange={handleChange} handleBlur={handleBlur} />
-        <Button {...buttonState} />
+        <Button {...buttonState} disabled={!username} />
     </form>
 );
 
@@ -18,6 +18,7 @@ SearchForm.propTypes = {
     handleBlur: PropTypes.func.isRequired,
     inputState: PropTypes.instanceOf(Object).isRequired,
     buttonState: PropTypes.instanceOf(Object).isRequired,
+    username: PropTypes.string.isRequired,
 };
 
 export default SearchForm;

@@ -12,4 +12,4 @@ const img = {
 };
 
 export const NormalImage = () => <Image {...img} />;
-export const CicularImage = () => <Image {...img} className="circle" />;
+export const CicularImage = () => <Image {...img} design="circle" />;

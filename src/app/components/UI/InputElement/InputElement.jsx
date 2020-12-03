@@ -25,7 +25,7 @@ const InputElement = ({
                 data-test="input-field"
             />
             {fieldError
-                ? <div className="input-field__error" data-test="field-error">{fieldError}</div>
+                ? <div className="error-field" data-test="field-error">{fieldError}</div>
                 : '' }
         </div>
     );
@@ -33,12 +33,12 @@ const InputElement = ({
 
 InputElement.propTypes = {
     type: PropTypes.string,
-    id: PropTypes.string,
-    name: PropTypes.string,
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     className: PropTypes.string,
     handleChange: PropTypes.func,
     containerClassName: PropTypes.string,
-    label: PropTypes.string,
+    label: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     handleBlur: PropTypes.func,
     fieldError: PropTypes.string,
@@ -46,12 +46,9 @@ InputElement.propTypes = {
 
 InputElement.defaultProps = {
     type: 'text',
-    id: '',
-    name: '',
     className: '',
     handleChange: () => {},
     containerClassName: '',
-    label: '',
     placeholder: '',
     handleBlur: () => {},
     fieldError: '',

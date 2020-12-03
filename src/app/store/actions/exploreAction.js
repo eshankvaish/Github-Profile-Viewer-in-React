@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { UPDATE_STATE } from '../actionTypes';
-import { EXPLORE_API } from '../../../conf';
+import { EXPLORE_API } from '../../../constants';
 
 export const exploreAction = (payload) => (
     {

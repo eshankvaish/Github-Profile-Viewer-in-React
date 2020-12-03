@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 const HomeContainer = ({ history, isLoggedIn }) => {
     useEffect(() => {
         if (isLoggedIn) {
-            history.push('/profile');
+            history.push('/search');
         } else {
             history.push('/login');
         }

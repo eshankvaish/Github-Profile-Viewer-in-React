@@ -1,20 +1,26 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { searchAction, searchApiAction, searchSuggestionAction } from '../../store/actions/searchAction';
 import Search from '../../components/Search/Search';
 import debounceFunction from '../../utils/debounceFunction';
-import { DEBOUNCE_TIME_LIMIT } from '../../../conf';
+import { DEBOUNCE_TIME_LIMIT } from '../../../constants';
 
 const SearchContainer = ({ history }) => {
     const dispatch = useDispatch();
     const searchState = useSelector((state) => state.searchState);
 
+    useEffect(() => {
+        dispatch(searchAction({
+            username: '',
+        }));
+    }, []);
+
     const [buttonState] = useState({
         type: 'submit',
         label: 'Search',
-        containerClassName: 'search-form__submit-button',
+        containerClassName: 'text-right',
     });
     const searchSuggestion = (value) => dispatch(searchSuggestionAction(value));
     // Debounce Function to prevent excessive API calls
@@ -90,6 +96,7 @@ const SearchContainer = ({ history }) => {
             buttonState={buttonState}
             loading={searchState.loading}
             suggestions={searchState.suggestions}
+            username={searchState.username}
         />
     );
 };

@@ -10,7 +10,6 @@ describe('Heading Component', () => {
     describe('Checking PropTypes', () => {
         it('Should not throw a warning', () => {
             const expectedProps = {
-                className: '',
                 src: '',
                 alt: '',
             };
@@ -24,7 +23,6 @@ describe('Heading Component', () => {
 
         beforeEach(() => {
             const props = {
-                className: 'test-class',
                 src: 'img-src',
                 alt: 'img-alt',
             };

@@ -10,7 +10,7 @@ import Heading from '../UI/Heading/Heading';
 
 const Search = ({
     handleSubmit, error, inputState, buttonState, loading, suggestions, handleChange,
-    handleBlur,
+    handleBlur, username,
 }) => {
     const { t } = useTranslation();
 
@@ -20,7 +20,7 @@ const Search = ({
                 <Heading heading={t('Search')} data-test="heading" />
                 {loading && <Loading data-test="loading" />}
                 {error && <FormErrors error={error} data-test="form-errors" />}
-                <div className="search-form__container">
+                <div className="p-relative">
                     <SearchForm
                         handleSubmit={handleSubmit}
                         inputState={inputState}
@@ -28,6 +28,7 @@ const Search = ({
                         handleBlur={handleBlur}
                         buttonState={buttonState}
                         data-test="search-form"
+                        username={username}
                     />
                     <SearchSuggestionList
                         suggestions={suggestions}
@@ -48,6 +49,7 @@ Search.propTypes = {
     buttonState: PropTypes.instanceOf(Object).isRequired,
     loading: PropTypes.bool,
     suggestions: PropTypes.instanceOf(Array).isRequired,
+    username: PropTypes.string.isRequired,
 };
 
 Search.defaultProps = {

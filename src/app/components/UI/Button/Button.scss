@@ -13,4 +13,8 @@ button {
     &:hover {
         background-color: $dark-primary-color;
     }
+    &:disabled {
+        background-color: $disabled-color;
+        cursor: not-allowed;
+    }
 }
