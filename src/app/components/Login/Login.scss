@@ -1,0 +1,15 @@
+@import '../../../styles/abstracts/index';
+
+.login {
+    @include flexbox(column, space-around, center);
+
+    &__container {
+        padding: 20px;
+        border-radius: 15px;
+        background-color: $background-color;
+
+        @include breakpoint-tablet {
+            padding: 40px;
+        }
+    }
+}

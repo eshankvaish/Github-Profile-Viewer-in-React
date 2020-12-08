@@ -1,0 +1,15 @@
+@import '../../../styles/abstracts/index';
+
+.search {
+    @include flexbox(column, space-around, center);
+
+    &__container {
+        background-color: $background-color;
+        padding: 20px;
+        border-radius: 15px;
+
+        @include breakpoint-tablet {
+            padding: 40px;
+        }
+    }
+}

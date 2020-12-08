@@ -1,0 +1,11 @@
+@import '../../../../styles/abstracts/index';
+
+.profile-avatar {
+    max-height: 250px;
+    max-width: 250px;
+    margin: 20px 0;
+
+    @include breakpoint-tablet {
+        margin: 20px 40px;
+    }
+}

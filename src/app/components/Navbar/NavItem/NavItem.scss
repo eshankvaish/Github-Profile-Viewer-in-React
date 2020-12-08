@@ -1,0 +1,26 @@
+@import '../../../../styles/abstracts/index';
+
+.nav-list {
+    width: 100%;
+        border-bottom: 1px solid;
+        padding: 15px 10px;
+
+        @include breakpoint-desktop {
+            width: auto;
+            border: 0;
+            padding: 0 20px;
+        }
+        //For last element
+        &:last-child {
+            border: 0;
+        }
+
+    &__link {
+        display: inline-block;
+        font-weight: bold;
+
+        &:hover {
+            color: $seconday-text-color;
+        }
+    }
+}

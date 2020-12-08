@@ -1,0 +1,20 @@
+@import '../../../../styles/abstracts/index';
+
+.nav__list {
+    width: 100%;
+    display: none;
+    overflow: auto;
+
+    @include breakpoint-desktop {
+        @include flexbox;
+        width: auto;
+    }
+    &--active {
+        //Menu Active
+        display: block;
+
+        @include breakpoint-desktop {
+            display: flex;
+        }
+    }
+}

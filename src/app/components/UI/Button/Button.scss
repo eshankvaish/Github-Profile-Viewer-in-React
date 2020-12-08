@@ -1,0 +1,20 @@
+@import '../../../../styles/abstracts/index';
+
+button {
+    background-color: $light-primary-color;
+    color: $icon-color;
+    font-weight: bold;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $dark-primary-color;
+    }
+    &:disabled {
+        background-color: $disabled-color;
+        cursor: not-allowed;
+    }
+}

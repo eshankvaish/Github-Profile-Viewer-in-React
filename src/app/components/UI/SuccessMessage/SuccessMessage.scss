@@ -1,0 +1,15 @@
+@import '../../../../styles/abstracts/index';
+
+.success {
+    @include flexbox(row, center);
+    background-color: $success-color;
+    color: $icon-color;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 12px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    text-align: center;
+    z-index: 99;
+}

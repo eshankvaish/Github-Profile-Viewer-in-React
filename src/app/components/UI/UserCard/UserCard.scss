@@ -1,0 +1,47 @@
+@import '../../../../styles/abstracts/index';
+@import '../../../../styles/modules/index';
+
+.user-card {
+    position: relative;
+    padding: 10px;
+    border: 1px solid $dark-primary-color;
+    border-radius: 15px;
+    background-color: $background-color;
+    margin: 10px 5px;
+    max-width: 300px;
+
+    @include breakpoint-tablet {
+        padding: 20px;
+        flex: 50% 0;
+    }
+    @include breakpoint-desktop {
+        flex: 30% 0;
+    }
+
+    &__remove {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        cursor: pointer;
+    }
+    &__remove-icon {
+        padding: 5px;
+        margin: auto;
+        border-radius: 50%;
+    }
+    &__avatar {
+        height: 200px;
+        width: 200px;
+        margin: auto;
+    }
+    &__username {
+        padding: 10px 0;
+        text-align: center;
+    }
+    &__follow {
+        text-align: center;
+    }
+    &__follow-button {
+        margin: auto;
+    }
+}

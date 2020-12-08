@@ -1,0 +1,29 @@
+@import '../../../styles/abstracts/index';
+
+header {
+    background-color: $light-primary-color;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    top: 0;
+}
+.nav {
+    @include flexbox(row, space-between, center);
+    @include set-line-height(0.4rem);
+    color: $icon-color;
+    font-size: 1.6rem;
+    min-height: 70px;
+
+    &__logo {
+        @include flexbox(row, space-between, center);
+        flex: 100%;
+        min-height: 70px;
+    
+        @include breakpoint-tablet {
+            padding: 0;
+        }
+        @include breakpoint-desktop {
+            flex: auto;
+        }
+    }
+}
